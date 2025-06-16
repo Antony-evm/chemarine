@@ -1,26 +1,15 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarComponent from '@/components/NavbarComponent.vue';
 </script>
 
 <template>
-  <nav style="margin-bottom: 1rem;">
-    <router-link to="/certificates" class="active">Certificates</router-link>
-  </nav>
 
-  <!-- Route content will show up here -->
-  <router-view />
-
-  <!-- Optional home content (shown if no route is matched, or set as a home route) -->
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <NavbarComponent />
+    <router-view />
   </div>
 
-  <HelloWorld msg="Vite + Vue" />
+
 </template>
 
 <style scoped>

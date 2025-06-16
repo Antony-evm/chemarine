@@ -1,17 +1,5 @@
 <template>
     <div>
-        <header class="header-bg">
-            <nav class="navbar">
-                <div class="logo">Chemical Marine Inspections</div>
-                <ul class="nav-links">
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#" class="active">Certificates</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </nav>
-        </header>
-
         <section class="content">
             <h2>Certified Excellence</h2>
             <p>
@@ -42,39 +30,6 @@
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1rem 2rem;
-    position: relative;
-    z-index: 1;
-    color: white;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.25rem;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-    color: #00d1d1;
 }
 
 .content {

@@ -1,6 +1,6 @@
 // src/router/index.ts
 import { createRouter, createWebHistory } from "vue-router";
-import Certificates from "@/views/Certificates.vue";
+import Certificates from "@/pages/CertificatesPage.vue";
 
 const routes = [
   {
