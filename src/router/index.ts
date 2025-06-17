@@ -2,8 +2,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 import CertificatesPage from "@/pages/CertificatesPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
+import HomePage from "@/pages/HomePage.vue";
+import ContactUsPage from "@/pages/ContactUsPage.vue";
 
 const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: HomePage,
+  },
   {
     path: "/certificates",
     name: "Certificates",
@@ -13,6 +20,11 @@ const routes = [
     path: "/services",
     name: "Services",
     component: ServicesPage,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: ContactUsPage,
   },
 ];
 

@@ -1,7 +1,9 @@
 <template>
 
     <nav class="navbar w-full">
-        <div class="logo">Chemical Marine Inspections</div>
+        <div class="logo">
+            <router-link to='/'>Chemical Marine Inspections</router-link>
+        </div>
         <ul class="nav-links">
             <router-link to="/products">Products</router-link>
             <router-link to="/services">Services</router-link>
