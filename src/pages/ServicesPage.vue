@@ -21,8 +21,16 @@
                 The test gases used for the calibration of the gas detectors are in line with the specifications of the
                 gas detection instruments manufacturers and traceable to international standards.</p>
 
+            <p>We are always using genuine spare parts for any repair maybe needed.
+                The test gases used for the calibration of the gas detectors are in line with the specifications of the
+                gas detection instruments manufacturers and traceable to international standards.</p>
+
+            <p>We are always using genuine spare parts for any repair maybe needed.
+                The test gases used for the calibration of the gas detectors are in line with the specifications of the
+                gas detection instruments manufacturers and traceable to international standards.</p>
+
             <hr class="my-6 border-t border-white/30 w-1/2 mx-auto" />
-            <div class="mt-10">
+            <div class="mt-10 text-center">
                 <a href="/contact"
                     class="inline-block bg-white text-teal-700 px-6 py-3 rounded-full shadow hover:bg-teal-100 transition">
                     Contact Our Service Team

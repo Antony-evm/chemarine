@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
+onMounted(() => {
+    document.body.style.overflow = "hidden";
+});
+onUnmounted(() => {
+    document.body.style.overflow = "";
+});
+</script>
+
 <template>
     <div class="h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden scroll-smooth">
 
