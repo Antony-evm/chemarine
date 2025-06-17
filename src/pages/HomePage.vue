@@ -13,7 +13,7 @@
 
         <section class="snap-start min-h-screen flex items-center justify-center px-4 py-16">
             <div class=" max-w-3xl w-full text-justify space-y-6">
-                <h1 class="text-3xl font-bold text-center">About Chemical Marine Inspections</h1>
+                <h1 class="font-bold text-center">About Chemical Marine Inspections</h1>
 
                 <p>
                     <strong>Chemical Marine Inspections</strong> was established in 2004 in Piraeus, Greece, a major
