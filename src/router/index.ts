@@ -1,12 +1,18 @@
 // src/router/index.ts
 import { createRouter, createWebHistory } from "vue-router";
-import Certificates from "@/pages/CertificatesPage.vue";
+import CertificatesPage from "@/pages/CertificatesPage.vue";
+import ServicesPage from "@/pages/ServicesPage.vue";
 
 const routes = [
   {
     path: "/certificates",
     name: "Certificates",
-    component: Certificates,
+    component: CertificatesPage,
+  },
+  {
+    path: "/services",
+    name: "Services",
+    component: ServicesPage,
   },
 ];
 
