@@ -16,7 +16,7 @@
 body {
   font-family: "DM Sans";
   margin: 0;
-  padding: 0;
+  padding: 2rem;
 }
 
 h1 {
@@ -35,9 +35,6 @@ button:focus-visible {
 
 #app {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
