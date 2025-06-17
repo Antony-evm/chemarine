@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "DM Sans";
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,27 +14,20 @@
 }
 
 body {
-  font-family: "DM Sans";
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  overflow: hidden;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 4rem;
+  line-height: 4.4rem;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
+p,
+li {
+  font-size: 2rem;
+  line-height: 2.4rem;
 }
 
 @media (prefers-color-scheme: light) {

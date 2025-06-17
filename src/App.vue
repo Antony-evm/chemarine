@@ -4,7 +4,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 
 <template>
 
-  <div id="app">
+  <div id="app" class="min-h-screen bg-gradient-to-b from-[#1e3a8a] via-[#22577a] to-[#38b2ac]">
     <NavbarComponent />
     <router-view />
   </div>
