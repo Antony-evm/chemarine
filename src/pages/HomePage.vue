@@ -1,8 +1,7 @@
 <template>
     <div class="h-screen w-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden scroll-smooth">
 
-        <section
-            class="snap-start h-screen w-screen relative overflow-hidden flex items-center justify-center bg-cover bg-center"
+        <section class="snap-start h-screen w-screen relative flex items-center justify-center bg-cover bg-center"
             :style="{ backgroundImage: `url('/src/assets/frontpage/frontpage_3.jpg')` }">
             <div class="absolute inset-0"></div>
             <div class="z-10 text-center px-4">
