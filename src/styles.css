@@ -17,15 +17,20 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
-  line-height: 4.4rem;
+  font-size: 3rem;
+  line-height: 3.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2.4rem;
 }
 
 p,
 li,
 a {
-  font-size: 2rem;
-  line-height: 2.4rem;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
 }
 
 @media (prefers-color-scheme: light) {
