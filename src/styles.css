@@ -17,11 +17,11 @@ body {
 }
 
 h1 {
-  @apply text-5xl font-bold mb-2;
+  @apply text-5xl font-bold text-center;
 }
 
 h2 {
-  @apply text-3xl font-bold mb-2;
+  @apply text-3xl font-bold text-center;
 }
 
 p,

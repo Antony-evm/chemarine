@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import CenteredContent from '@/components/utils/CenteredContent.vue';
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import SectionDivider from '@/components/utils/SectionDivider.vue';
 
 const images = [
     '/src/assets/frontpage/frontpage_1.jpg',
@@ -52,8 +54,10 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
         </section>
 
         <section class="content-section">
+            <SpaceComponent size="page" />
             <CenteredContent>
                 <h1>About Chemical Marine Inspections</h1>
+                <SectionDivider />
                 <p><strong>Chemical Marine Inspections</strong> was established in 2004 in Piraeus, Greece...</p>
                 <p>Our company looks forward to becoming:</p>
                 <ul class="list-disc pl-6">
@@ -70,8 +74,10 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
         </section>
 
         <section class="content-section">
+            <SpaceComponent size="page" />
             <CenteredContent>
                 <h2>Best Quality Products</h2>
+                <SectionDivider />
                 <p>
                     We offer advanced technology gas detection equipment from <strong>RKI Instruments
                         Inc</strong> and <strong>GMI Ltd</strong>, both leading manufacturers for gas
@@ -89,6 +95,7 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
             </CenteredContent>
             <CenteredContent>
                 <h2>Years of Experience in Gas Detection</h2>
+                <SectionDivider />
                 <p>
                     Our staff are Chemical and Electrical Engineers having a combined experience of more
                     than 40
@@ -100,6 +107,7 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
             </CenteredContent>
             <CenteredContent>
                 <h2>Fast, Friendly and Reliable Support</h2>
+                <SectionDivider />
                 <p>
                     Our customer service team is available to answer your question in a friendly and
                     reliable
