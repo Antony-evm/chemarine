@@ -17,17 +17,17 @@ body {
 }
 
 h1 {
-  @apply text-h1;
+  @apply text-5xl font-bold mb-2;
 }
 
 h2 {
-  @apply text-h2 font-bold mb-2;
+  @apply text-3xl font-bold mb-2;
 }
 
 p,
 li,
 a {
-  @apply text-body;
+  @apply text-xl;
 }
 
 @media (prefers-color-scheme: light) {

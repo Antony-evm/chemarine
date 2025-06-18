@@ -3,7 +3,7 @@
              bg-white/10 backdrop-blur-sm
              border-b border-white/20
              shadow-lg flex items-center justify-between px-8 py-4">
-        <div class="text-2xl font-bold text-white drop-shadow logo">
+        <div class="text-2xl font-bold drop-shadow logo">
             <router-link to='/'>Chemical Marine Inspections</router-link>
         </div>
         <ul class="flex gap-8 nav-links">

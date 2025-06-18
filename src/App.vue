@@ -2,7 +2,7 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 </script>
 <template>
-  <div class="relative min-h-screen overflow-hidden text-white">
+  <div class="relative min-h-screen overflow-hidden">
     <!-- Ocean Gradient -->
     <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#165482] via-[#189ab4] to-[#83c5be]" />
 
