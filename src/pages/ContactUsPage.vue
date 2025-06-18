@@ -2,6 +2,7 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import MailIcon from '@/assets/svgs/mailIcon.svg';
 </script>
 
 <template>
@@ -12,13 +13,8 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
         <h2 class="uppercase">Chemical Marine Inspections</h2>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
-            <div class="bg-white/20 text-white p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" href="mailto:chemarin@otenet.gr" class="h-10 w-10 text-white"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <rect x="3" y="7" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"
-                        fill="none" />
-                    <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="2" fill="none" />
-                </svg>
+            <div class="bg-white/20 p-4 rounded-full text-white">
+                <MailIcon class="h-10 w-10 text-white" />
             </div>
         </div>
         <SpaceComponent size="paragraph" />
