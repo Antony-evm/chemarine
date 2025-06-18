@@ -50,7 +50,7 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
             </div>
         </section>
 
-        <section class="snap-start min-h-screen flex items-center justify-center px-4 py-16">
+        <section class="content-section">
             <div class="max-w-3xl w-full text-justify space-y-6">
                 <h1 class="font-bold text-center">About Chemical Marine Inspections</h1>
                 <p><strong>Chemical Marine Inspections</strong> was established in 2004 in Piraeus, Greece...</p>
@@ -68,7 +68,7 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
             </div>
         </section>
 
-        <section class="snap-start min-h-screen flex items-center justify-center px-4 py-16">
+        <section class="content-section">
             <div class="max-w-5xl w-full flex flex-col space-y-12">
                 <div class="flex items-start space-x-6">
                     <div class="flex-shrink-0 mt-1 rounded-full border border-gray-300 p-3 bg-gray-50">
@@ -79,7 +79,7 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
                         </svg>
                     </div>
                     <div>
-                        <h2 class="font-bold mb-2">Best Quality Products</h2>
+                        <h2>Best Quality Products</h2>
                         <p>
                             We offer advanced technology gas detection equipment from <strong>RKI Instruments
                                 Inc</strong> and <strong>GMI Ltd</strong>, both leading manufacturers for gas detectors
@@ -143,6 +143,10 @@ const nextIndex = computed(() => (currentIndex.value + 1) % images.length);
 </template>
 
 <style scoped>
+.content-section {
+    @apply snap-start min-h-screen flex items-center justify-center py-16
+}
+
 .transition-fade-scale {
     transition: opacity 1.4s ease-in-out, transform 5s ease-in-out;
 }
