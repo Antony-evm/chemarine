@@ -1,0 +1,19 @@
+<template>
+    <footer class="bg-[#0a1f3d] px-8 py-4 fixed bottom-0 left-0 w-full">
+        <div class="flex flex-row items-center justify-between">
+            <div class="text-center">
+                <p class="text-lg font-bold">Chemical Marine Inspections</p>
+                <p class="text-sm">Gas Detectors — Span Gases — Spare Parts</p>
+                <div class="text-center text-xs text-white/50">
+                    © {{ new Date().getFullYear() }} Chemical Marine Inspections. All rights reserved.
+                </div>
+            </div>
+            <div class="text-center text-lg">
+                <p>Email: <a href="mailto:chemarin@otenet.gr" class="text-white hover:underline">chemarin@otenet.gr</a>
+                </p>
+                <p>Phone: <a href="tel:+302104688245" class="hover:underline">+30 210 468 8245</a></p>
+            </div>
+
+        </div>
+    </footer>
+</template>
