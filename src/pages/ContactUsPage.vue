@@ -21,14 +21,15 @@ import MailIcon from '@/assets/svgs/mailIcon.svg';
         <div class="centered-element">
             <p>44, Akti Moutsopoulou str.<br />
                 Piraeus, Greece<br />
-                +30 2104611799</p>
+                <a href="tel:+302104688245" class="contact">+30 210 468 8245</a>
+            </p>
         </div>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
-            <a href="mailto:chemarin@otenet.gr" class="mailto">chemarin@otenet.gr</a>
+            <a href="mailto:chemarin@otenet.gr" class="contact">chemarin@otenet.gr</a>
         </div>
         <div class="centered-element">
-            <a href="mailto:info@chemarine.com" class="mailto">info@chemarine.com</a>
+            <a href="mailto:info@chemarine.com" class="contact">info@chemarine.com</a>
         </div>
     </CenteredContent>
 
@@ -39,7 +40,7 @@ import MailIcon from '@/assets/svgs/mailIcon.svg';
     @apply flex justify-center text-center
 }
 
-.mailto {
-    @apply underline block
+.contact {
+    @apply hover:underline block
 }
 </style>
