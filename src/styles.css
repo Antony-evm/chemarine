@@ -30,6 +30,22 @@ a {
   @apply text-xl;
 }
 
+.table-element {
+  @apply px-4 py-3 text-lg;
+}
+
+.table-borders {
+  @apply divide-y divide-white/30;
+}
+
+.table-header {
+  @apply bg-[#0a1f3d];
+}
+
+.table-styling {
+  @apply overflow-x-auto border-x border-b border-white/30 rounded-lg;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

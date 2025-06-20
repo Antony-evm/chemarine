@@ -105,9 +105,9 @@ const gasCylinders = [
                 class="max-w-full h-auto" />
         </div>
         <SpaceComponent size="paragraph" />
-        <div class="overflow-x-auto border-x border-b border-white/30 rounded-lg">
+        <div class="table-styling">
             <table class="min-w-full">
-                <thead class="bg-[#0a1f3d]">
+                <thead class="table-header">
                     <tr>
                         <th class="table-element">Model<br /></th>
                         <th class="table-element">Material</th>
@@ -118,7 +118,7 @@ const gasCylinders = [
                         <th class="table-element">Regulator Compatibility<br /></th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-white/30">
+                <tbody class="table-borders">
                     <tr v-for="(item, index) in gasCylinders" :key="index">
                         <td class="table-element text-[#0a1f3d] underline"><a :href="item.pdfModelUrl"
                                 class="table-element" target="_blank" rel="noopener noreferrer">
@@ -136,7 +136,14 @@ const gasCylinders = [
                         </td>
                         <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
                             <template v-for="(comp, i) in item.compatibility" :key="i">
-                                {{ comp }}<span v-if="i < item.compatibility.length - 1">, </span>
+                                <template v-if="comp === '715' || comp === '713'">
+                                    <a :href="'/calibration-gases/regulators/700'" class="underline text-[#0a1f3d]">{{
+                                        comp }}</a>
+                                </template>
+                                <template v-else>
+                                    {{ comp }}
+                                </template>
+                                <span v-if="i < item.compatibility.length - 1">, </span>
                             </template>
                         </td>
                     </tr>
@@ -146,9 +153,3 @@ const gasCylinders = [
 
     </CenteredContent>
 </template>
-
-<style scoped>
-.table-element {
-    @apply px-4 py-3 text-lg
-}
-</style>

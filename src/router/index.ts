@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage.vue";
 import ContactUsPage from "@/pages/ContactUsPage.vue";
 import SparePartsPage from "@/pages/SparePartsPage.vue";
 import CalibrationGasesPage from "@/pages/CalibrationGasesPage.vue";
+import SevenHundredSeriesRegulatorsPage from "@/pages/SevenHundredSeriesRegulatorsPage.vue";
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: "/calibration-gases",
     name: "Calibration Gases",
     component: CalibrationGasesPage,
+  },
+  {
+    path: "/calibration-gases/regulators/700",
+    name: "Regulators - 700 Series",
+    component: SevenHundredSeriesRegulatorsPage,
   },
 ];
 
