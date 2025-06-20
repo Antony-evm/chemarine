@@ -4,6 +4,7 @@ import CertificatesPage from "@/pages/CertificatesPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import ContactUsPage from "@/pages/ContactUsPage.vue";
+import SparePartsPage from "@/pages/SparePartsPage.vue";
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: ContactUsPage,
+  },
+  {
+    path: "/spare-parts",
+    name: "Spare Parts",
+    component: SparePartsPage,
   },
 ];
 

@@ -8,8 +8,6 @@
             </p>
 
             <div class="certificate-card">
-                <!-- <img src="/certificate.png" alt="ABS Quality Certificate" /> -->
-                <!-- <a href="/certificate.pdf" class="download-btn" download>Download PDF</a> -->
             </div>
         </section>
     </div>
