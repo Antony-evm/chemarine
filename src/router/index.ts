@@ -1,4 +1,3 @@
-// src/router/index.ts
 import { createRouter, createWebHistory } from "vue-router";
 import CertificatesPage from "@/pages/CertificatesPage.vue";
 import ServicesPage from "@/pages/ServicesPage.vue";
@@ -7,6 +6,7 @@ import ContactUsPage from "@/pages/ContactUsPage.vue";
 import SparePartsPage from "@/pages/SparePartsPage.vue";
 import CalibrationGasesPage from "@/pages/CalibrationGasesPage.vue";
 import SevenHundredSeriesRegulatorsPage from "@/pages/SevenHundredSeriesRegulatorsPage.vue";
+import TwoThousandSeriesRegulatorsPage from "@/pages/TwoThousandSeriesRegulatorsPage.vue";
 
 const routes = [
   {
@@ -43,6 +43,11 @@ const routes = [
     path: "/calibration-gases/regulators/700",
     name: "Regulators - 700 Series",
     component: SevenHundredSeriesRegulatorsPage,
+  },
+  {
+    path: "/calibration-gases/regulators/2000",
+    name: "Regulators - 2000 Series",
+    component: TwoThousandSeriesRegulatorsPage,
   },
 ];
 
