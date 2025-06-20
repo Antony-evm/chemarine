@@ -5,6 +5,7 @@ import ServicesPage from "@/pages/ServicesPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import ContactUsPage from "@/pages/ContactUsPage.vue";
 import SparePartsPage from "@/pages/SparePartsPage.vue";
+import CalibrationGasesPage from "@/pages/CalibrationGasesPage.vue";
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/spare-parts",
     name: "Spare Parts",
     component: SparePartsPage,
+  },
+  {
+    path: "/calibration-gases",
+    name: "Calibration Gases",
+    component: CalibrationGasesPage,
   },
 ];
 
