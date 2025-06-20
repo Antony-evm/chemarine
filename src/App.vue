@@ -16,8 +16,10 @@ import FooterComponent from './components/FooterComponent.vue';
     </div>
 
     <div class="relative z-30">
-      <NavbarComponent />
-      <router-view />
+      <div class="min-h-screen">
+        <NavbarComponent />
+        <router-view />
+      </div>
       <FooterComponent />
     </div>
   </div>

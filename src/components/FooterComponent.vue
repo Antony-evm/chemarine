@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-[#0a1f3d] px-8 py-4 fixed bottom-0 left-0 w-full">
+    <footer class="bg-[#0a1f3d] px-8 py-4 w-full">
         <div class="flex flex-row items-center justify-between">
             <div class="text-center">
                 <p class="text-lg font-bold">Chemical Marine Inspections</p>
