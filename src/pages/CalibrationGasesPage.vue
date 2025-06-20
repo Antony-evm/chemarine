@@ -11,7 +11,7 @@ const gasCylinders = [
         content: "11",
         dimensions: `9.8" x 3" / 250 mm x 78 mm`,
         mixtures: ["Limited"],
-        compatibility: null,
+        compatibility: [],
         pdfModelUrl: 'src/assets/pdfs/models/12da.pdf'
     },
     {
@@ -21,7 +21,7 @@ const gasCylinders = [
         content: "34",
         dimensions: `11.375" x 3" / 289 mm x 76mm`,
         mixtures: ["Reactive", "Non-Reactive"],
-        compatibility: "715, DFR 2001, DFR 2004",
+        compatibility: ["715", "DFR 2001", "DFR 2004"],
         pdfModelUrl: 'src/assets/pdfs/models/2al.pdf'
     },
     {
@@ -31,7 +31,7 @@ const gasCylinders = [
         content: "34",
         dimensions: `11" x 3" / 279 mm x 76 mm`,
         mixtures: ["Non-Reactive"],
-        compatibility: "713, DFR 2007",
+        compatibility: ["713", "DFR 2007"],
         pdfModelUrl: 'src/assets/pdfs/models/7hp.pdf'
     },
     {
@@ -41,7 +41,7 @@ const gasCylinders = [
         content: "58",
         dimensions: `3.26" x 8.09" / 83 mm x 204 mm`,
         mixtures: ["Non-Reactive"],
-        compatibility: "715, DFR 2001",
+        compatibility: ["715", "DFR 2001"],
         pdfModelUrl: 'src/assets/pdfs/models/6dm.pdf'
     },
     {
@@ -51,7 +51,7 @@ const gasCylinders = [
         content: "58",
         dimensions: `14.25" x 3.5" / 362 mm x 89 mm`,
         mixtures: ["Reactive", "Non-Reactive"],
-        compatibility: "715, DFR 2001, DFR 2004",
+        compatibility: ["715", "DFR 2001", "DFR 2004"],
         pdfModelUrl: 'src/assets/pdfs/models/8al.pdf'
     },
     {
@@ -61,7 +61,7 @@ const gasCylinders = [
         content: "103",
         dimensions: `13.875" x 3.25" / 352 mm x 83 mm`,
         mixtures: ["Non-Reactive"],
-        compatibility: "715, DFR 2001, DFR 2004",
+        compatibility: ["715", "DFR 2001", "DFR 2004"],
         pdfModelUrl: 'src/assets/pdfs/models/6d.pdf'
     },
     {
@@ -71,7 +71,7 @@ const gasCylinders = [
         content: "116",
         dimensions: `15" x 3.5" / 381 mm x 89 mm`,
         mixtures: ["Reactive", "Non-Reactive"],
-        compatibility: "715, DFR 2001, DFR 2004",
+        compatibility: ["715", "DFR 2001", "DFR 2004"],
         pdfModelUrl: 'src/assets/pdfs/models/10al.pdf'
     },
 ];
@@ -134,7 +134,11 @@ const gasCylinders = [
                                 {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                             </template>
                         </td>
-                        <td class="table-element text-[#0a1f3d] underline">{{ item.compatibility }}</td>
+                        <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
+                            <template v-for="(comp, i) in item.compatibility" :key="i">
+                                {{ comp }}<span v-if="i < item.compatibility.length - 1">, </span>
+                            </template>
+                        </td>
                     </tr>
                 </tbody>
             </table>
