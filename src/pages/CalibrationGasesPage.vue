@@ -3,6 +3,16 @@ import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 
+
+const regulatorRouteMap = {
+    "713": "/calibration-gases/regulators/700",
+    "715": "/calibration-gases/regulators/700",
+    "DFR 2001": "/calibration-gases/regulators/2000",
+    "DFR 2004": "/calibration-gases/regulators/2000",
+    "DFR 2007": "/calibration-gases/regulators/2000",
+};
+
+
 const gasCylinders = [
     {
         model: "12DA",
@@ -136,13 +146,11 @@ const gasCylinders = [
                         </td>
                         <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
                             <template v-for="(comp, i) in item.compatibility" :key="i">
-                                <template v-if="comp === '715' || comp === '713'">
-                                    <a :href="'/calibration-gases/regulators/700'" class="underline text-[#0a1f3d]">{{
-                                        comp }}</a>
-                                </template>
-                                <template v-else>
+                                <router-link v-if="regulatorRouteMap[comp]" :to="regulatorRouteMap[comp]"
+                                    class="underline text-[#0a1f3d]">
                                     {{ comp }}
-                                </template>
+                                </router-link>
+                                <span v-else>{{ comp }}</span>
                                 <span v-if="i < item.compatibility.length - 1">, </span>
                             </template>
                         </td>

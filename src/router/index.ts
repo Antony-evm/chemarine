@@ -1,53 +1,45 @@
 import { createRouter, createWebHistory } from "vue-router";
-import CertificatesPage from "@/pages/CertificatesPage.vue";
-import ServicesPage from "@/pages/ServicesPage.vue";
-import HomePage from "@/pages/HomePage.vue";
-import ContactUsPage from "@/pages/ContactUsPage.vue";
-import SparePartsPage from "@/pages/SparePartsPage.vue";
-import CalibrationGasesPage from "@/pages/CalibrationGasesPage.vue";
-import SevenHundredSeriesRegulatorsPage from "@/pages/SevenHundredSeriesRegulatorsPage.vue";
-import TwoThousandSeriesRegulatorsPage from "@/pages/TwoThousandSeriesRegulatorsPage.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: HomePage,
+    component: () => import("@/pages/HomePage.vue"),
   },
   {
     path: "/certificates",
     name: "Certificates",
-    component: CertificatesPage,
+    component: () => import("@/pages/CertificatesPage.vue"),
   },
   {
     path: "/services",
     name: "Services",
-    component: ServicesPage,
+    component: () => import("@/pages/ServicesPage.vue"),
   },
   {
     path: "/contact",
     name: "Contact",
-    component: ContactUsPage,
+    component: () => import("@/pages/ContactUsPage.vue"),
   },
   {
     path: "/spare-parts",
     name: "Spare Parts",
-    component: SparePartsPage,
+    component: () => import("@/pages/SparePartsPage.vue"),
   },
   {
     path: "/calibration-gases",
     name: "Calibration Gases",
-    component: CalibrationGasesPage,
+    component: () => import("@/pages/CalibrationGasesPage.vue"),
   },
   {
     path: "/calibration-gases/regulators/700",
     name: "Regulators - 700 Series",
-    component: SevenHundredSeriesRegulatorsPage,
+    component: () => import("@/pages/SevenHundredSeriesRegulatorsPage.vue"),
   },
   {
     path: "/calibration-gases/regulators/2000",
     name: "Regulators - 2000 Series",
-    component: TwoThousandSeriesRegulatorsPage,
+    component: () => import("@/pages/TwoThousandSeriesRegulatorsPage.vue"),
   },
 ];
 
