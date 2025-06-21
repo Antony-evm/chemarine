@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps<{
+defineProps<{
     columns: Array<{ label: string; key: string }>;
     rows: Array<Record<string, any>>;
     tableLabel?: string;
