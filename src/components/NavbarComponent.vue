@@ -7,6 +7,7 @@
         </div>
 
         <ul class="flex gap-8 relative">
+            <li><router-link to="/" class="navbar-element">About</router-link></li>
             <li class="relative group">
                 <span class="navbar-element">Products</span>
                 <ul

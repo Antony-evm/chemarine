@@ -1,3 +1,6 @@
+<script setup lang="ts">
+import { PRIMARY_EMAIL, PHONE_NO } from '@/data/contactInformation.ts';
+</script>
 <template>
     <footer class="bg-[#0a1f3d] px-8 py-4 w-full">
         <div class="flex flex-row items-center justify-between">
@@ -9,9 +12,9 @@
                 </div>
             </div>
             <div class="text-center text-lg">
-                <p>Email: <a href="mailto:chemarin@otenet.gr" class="text-white hover:underline">chemarin@otenet.gr</a>
+                <p>Email: <a href="mailto:chemarin@otenet.gr" class="text-white hover:underline">{{ PRIMARY_EMAIL }}</a>
                 </p>
-                <p>Phone: <a href="tel:+302104688245" class="hover:underline">+30 210 468 8245</a></p>
+                <p>Phone: <a href="tel:+302104688245" class="hover:underline">{{ PHONE_NO }}</a></p>
             </div>
 
         </div>

@@ -3,6 +3,7 @@ import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import MailIcon from '@/assets/svgs/mailIcon.svg';
+import { ADDRESS, CITY_COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL } from '@/data/contactInformation.ts';
 </script>
 
 <template>
@@ -19,17 +20,17 @@ import MailIcon from '@/assets/svgs/mailIcon.svg';
         </div>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
-            <p>44, Akti Moutsopoulou str.<br />
-                Piraeus, Greece<br />
-                <a href="tel:+302104688245" class="contact">+30 210 468 8245</a>
+            <p>{{ ADDRESS }}<br />
+                {{ CITY_COUNTRY }}<br />
+                <a href="tel:+302104688245" class="contact">{{ PHONE_NO }}</a>
             </p>
         </div>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
-            <a href="mailto:chemarin@otenet.gr" class="contact">chemarin@otenet.gr</a>
+            <a href="mailto:chemarin@otenet.gr" class="contact">{{ PRIMARY_EMAIL }}</a>
         </div>
         <div class="centered-element">
-            <a href="mailto:info@chemarine.com" class="contact">info@chemarine.com</a>
+            <a href="mailto:info@chemarine.com" class="contact">{{ SECONDARY_EMAIL }} </a>
         </div>
     </CenteredContent>
 
