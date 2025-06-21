@@ -3,7 +3,7 @@ import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import MailIcon from '@/assets/svgs/mailIcon.svg';
-import { ADDRESS, CITY_COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL } from '@/data/contactInformation.ts';
+import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPANY_NAME } from '@/data/contactInformation';
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import { ADDRESS, CITY_COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL } from 
         <SpaceComponent size="page" />
         <h1>Contact Us</h1>
         <SectionDivider />
-        <h2 class="uppercase">Chemical Marine Inspections</h2>
+        <h2 class="uppercase">{{ COMPANY_NAME }}</h2>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
             <div class="bg-white/20 p-4 rounded-full text-white">
@@ -21,7 +21,7 @@ import { ADDRESS, CITY_COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL } from 
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
             <p>{{ ADDRESS }}<br />
-                {{ CITY_COUNTRY }}<br />
+                {{ CITY + ', ' + COUNTRY }}<br />
                 <a href="tel:+302104688245" class="contact">{{ PHONE_NO }}</a>
             </p>
         </div>
