@@ -2,6 +2,7 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
+import SpecificationTable from '@/components/utils/SpecificationTable.vue';
 
 const regulatorTableColumns = [
     { label: "Model #", key: "model" },
@@ -120,25 +121,7 @@ const regulatorModels = [
                 height="70" class="max-w-full h-auto" />
         </div>
         <SpaceComponent size="paragraph" />
-        <div class="table-styling">
-            <table class="min-w-full" aria-label="700 Series Regulator Specifications">
-                <thead class="table-header">
-                    <tr>
-                        <th class="table-element">Model #</th>
-                        <th v-for="item in regulatorModels" :key="item.model" class="table-element">
-                            {{ item.model }}
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="table-borders">
-                    <tr v-for="col in regulatorTableColumns.filter(c => c.key !== 'model')" :key="col.key">
-                        <td class="table-element">{{ col.label }}</td>
-                        <td v-for="item in regulatorModels" :key="item.model + '-' + col.key" class="table-element">
-                            {{ item[col.key] ?? '—' }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <SpecificationTable :columns="regulatorTableColumns" :rows="regulatorModels"
+            table-label="2000 Series Regulator Specifications" />
     </CenteredContent>
 </template>
