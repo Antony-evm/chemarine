@@ -5,11 +5,11 @@ import SectionDivider from '@/components/utils/SectionDivider.vue';
 
 
 const regulatorRouteMap = {
-    "713": "/calibration-gases/regulators/700",
-    "715": "/calibration-gases/regulators/700",
-    "DFR 2001": "/calibration-gases/regulators/2000",
-    "DFR 2004": "/calibration-gases/regulators/2000",
-    "DFR 2007": "/calibration-gases/regulators/2000",
+    "713": "700",
+    "715": "700",
+    "DFR 2001": "2000",
+    "DFR 2004": "2000",
+    "DFR 2007": "2000",
 };
 
 
@@ -146,7 +146,8 @@ const gasCylinders = [
                         </td>
                         <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
                             <template v-for="(comp, i) in item.compatibility" :key="i">
-                                <router-link v-if="regulatorRouteMap[comp]" :to="regulatorRouteMap[comp]"
+                                <router-link v-if="regulatorRouteMap[comp]"
+                                    :to="{ name: 'RegulatorDetail', params: { regulator_id: regulatorRouteMap[comp] } }"
                                     class="underline text-[#0a1f3d]">
                                     {{ comp }}
                                 </router-link>

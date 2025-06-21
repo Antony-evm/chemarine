@@ -26,5 +26,4 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
             marine industry.
         </p>
     </CenteredContent>
-    <SpaceComponent size="section" />
 </template>
