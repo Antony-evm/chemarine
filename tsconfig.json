@@ -9,6 +9,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
