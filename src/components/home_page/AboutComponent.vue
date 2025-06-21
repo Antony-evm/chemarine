@@ -6,6 +6,7 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
 
 
 <template>
+    <SpaceComponent size="section" />
     <CenteredContent>
         <h1>About Chemical Marine Inspections</h1>
         <SectionDivider />
@@ -25,4 +26,5 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
             marine industry.
         </p>
     </CenteredContent>
+    <SpaceComponent size="section" />
 </template>
