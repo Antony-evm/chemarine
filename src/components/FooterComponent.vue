@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { PRIMARY_EMAIL, PHONE_NO } from '@/data/contactInformation';
+import { PRIMARY_EMAIL, PHONE_NO, COMPANY_NAME } from '@/data/contactInformation';
 </script>
 <template>
     <footer class="bg-[#0a1f3d] px-8 py-4 w-full">
         <div class="flex flex-row items-center justify-between">
             <div class="text-center">
-                <p class="text-lg font-bold">Chemical Marine Inspections</p>
+                <p class="text-lg font-bold">{{ COMPANY_NAME }}</p>
                 <p class="text-sm">Gas Detectors — Span Gases — Spare Parts</p>
                 <div class="text-center text-xs text-white/50">
-                    © {{ new Date().getFullYear() }} Chemical Marine Inspections. All rights reserved.
+                    © {{ new Date().getFullYear() }} {{ COMPANY_NAME }}. All rights reserved.
                 </div>
             </div>
             <div class="text-center text-lg">
