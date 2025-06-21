@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PRIMARY_EMAIL, PHONE_NO } from '@/data/contactInformation.ts';
+import { PRIMARY_EMAIL, PHONE_NO } from '@/data/contactInformation';
 </script>
 <template>
     <footer class="bg-[#0a1f3d] px-8 py-4 w-full">
