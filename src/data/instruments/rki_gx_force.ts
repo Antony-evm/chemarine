@@ -1,4 +1,4 @@
-import path from "@/assets/gas_detection_instruments/rki_gx_3r.png";
+import path from "@/assets/gas_detection_instruments/rki_gx_force.png";
 
 const title = "RKI GX-Force";
 export const rki_gx_force = {
