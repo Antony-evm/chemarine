@@ -36,6 +36,11 @@ const routes = [
     name: "Regulator Series",
     component: () => import("@/pages/RegulatorPage.vue"),
   },
+  {
+    path: "/gas-detection-instruments",
+    name: "Gas Detection Instruments",
+    component: () => import("@/pages/GasDetectionInstrumentsPage.vue"),
+  },
 ];
 
 const router = createRouter({

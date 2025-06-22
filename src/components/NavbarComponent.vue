@@ -13,7 +13,7 @@
                 <ul
                     class="liquid-glass w-56 absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform -translate-y-2 transition duration-200 z-50">
                     <li>
-                        <router-link to="/gas-detectors" class="navbar-element">
+                        <router-link to="/gas-detection-instruments" class="navbar-element">
                             Gas Detection Instruments
                         </router-link>
                     </li>
