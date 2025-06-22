@@ -147,7 +147,7 @@ const gasCylinders = [
                         <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
                             <template v-for="(comp, i) in item.compatibility" :key="i">
                                 <router-link v-if="regulatorRouteMap[comp]"
-                                    :to="{ name: 'RegulatorDetail', params: { regulator_id: regulatorRouteMap[comp] } }"
+                                    :to="{ name: 'Regulator Series', params: { regulator_id: regulatorRouteMap[comp] } }"
                                     class="underline text-[#0a1f3d]">
                                     {{ comp }}
                                 </router-link>
