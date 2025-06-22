@@ -1,5 +1,5 @@
-import regulator713 from "@/assets/713-regulator.png";
-import regulator2000 from "@/assets/2000-series-regulator.png";
+import regulator713 from "@/assets/calibration_gases/713-regulator.png";
+import regulator2000 from "@/assets/calibration_gases/2000-series-regulator.png";
 
 export const REGULATORS = {
   "700": {

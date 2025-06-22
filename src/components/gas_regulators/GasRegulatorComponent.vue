@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import SpaceComponent from '../utils/SpaceComponent.vue';
-import CenteredContent from '../utils/CenteredContent.vue';
-import SectionDivider from '../utils/SectionDivider.vue';
-import SpecificationTable from '../utils/SpecificationTable.vue';
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import CenteredContent from '@/components/utils/CenteredContent.vue';
+import SectionDivider from '@/components/utils/SectionDivider.vue';
+import SpecificationTable from '@/components/utils/SpecificationTable.vue';
 
 const props = defineProps<{
     title: string;

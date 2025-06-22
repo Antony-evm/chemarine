@@ -111,7 +111,7 @@ const gasCylinders = [
         </p>
         <SpaceComponent size="paragraph" />
         <div class="flex justify-center">
-            <img src="@/assets/calgaz_cylinders_and_accessories.png" alt="Calibration Gas Cylinders"
+            <img src="@/assets/calgaz_cylinders_and_accessories.png" alt="Calibration Gas Cylinders" load="lazy"
                 class="max-w-full h-auto" />
         </div>
         <SpaceComponent size="paragraph" />
