@@ -30,7 +30,7 @@ onMounted(() => {
             <div class="flex justify-between">
                 <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="w-70 h-50 object-contain" />
                 <ul class="mt-4 md:ml-8 list-disc list-inside">
-                    <li v-for="f in instrument.features" :key="f">{{ f }}</li>
+                    <li v-for="f in instrument.features" :key="f" v-html="f" class="mb-1" />
                 </ul>
             </div>
             <SpaceComponent size="paragraph" />
