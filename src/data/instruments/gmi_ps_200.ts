@@ -1,10 +1,10 @@
-import gmi_ps_200_path from "@/assets/gas_detection_instruments/gmi_ps_200.png";
+import path from "@/assets/gas_detection_instruments/gmi_ps_200.png";
 
-const gmi_ps_200_title = "GMI PS 200";
+const title = "GMI PS 200";
 export const gmi_ps_200 = {
-  title: gmi_ps_200_title,
-  alt: gmi_ps_200_title,
-  imgPath: gmi_ps_200_path,
+  title: title,
+  alt: title,
+  imgPath: path,
   features: [
     "Simple 2-button operation",
     "Any combination of LEL/O2/CO/H2S",

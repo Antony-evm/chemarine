@@ -1,10 +1,10 @@
-import rki_gx_3r_pro_path from "@/assets/gas_detection_instruments/rki_gx_3r_pro.png";
+import path from "@/assets/gas_detection_instruments/rki_gx_3r_pro.png";
 
-const rki_gx_3r_pro_title = "RKI GX-3R PRO";
+const title = "RKI GX-3R PRO";
 export const rki_gx_3r_pro = {
-  title: rki_gx_3r_pro_title,
-  alt: rki_gx_3r_pro_title,
-  imgPath: rki_gx_3r_pro_path,
+  title: title,
+  alt: title,
+  imgPath: path,
   features: [
     "Smallest & lightest detector",
     "Detect up to 5 gases simultaneously <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash; Confined Space: LEL, O2, H2S, CO <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash; Toxics/IR Sensors: HCN, NH3, NO2, PH3, SO2, and CO2 <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash; H2 Compensated CO sensor available",

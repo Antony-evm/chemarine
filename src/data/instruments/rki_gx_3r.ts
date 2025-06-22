@@ -1,10 +1,10 @@
-import rki_gx_3r_path from "@/assets/gas_detection_instruments/rki_gx_3r.png";
+import path from "@/assets/gas_detection_instruments/rki_gx_3r.png";
 
-const rki_gx_3r_title = "RKI GX-3R";
+const title = "RKI GX-3R";
 export const rki_gx_3r = {
-  title: rki_gx_3r_title,
-  alt: rki_gx_3r_title,
-  imgPath: rki_gx_3r_path,
+  title: title,
+  alt: title,
+  imgPath: path,
   features: [
     "Smallest & lightest 4 gas monitor",
     "Simultaneous detection of 4 gases; LEL, O2, H2S & CO",
