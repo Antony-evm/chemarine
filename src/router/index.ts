@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { GAS_DETECTION_INSTRUMENTS } from "@/data/gasDetectionInstruments";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Home",
@@ -42,15 +43,59 @@ const routes = [
     component: () => import("@/pages/GasDetectionInstrumentsPage.vue"),
   },
   {
-    path: "/gas-detection-instrument/:title",
+    path: "/gas-detection-instrument/:category/:instrumentKey",
     name: "Gas Detection Instrument Detail",
     component: () => import("@/pages/GasDetectionInstrumentDetailPage.vue"),
+    props: (route) => {
+      const { category, instrumentKey } = route.params as {
+        category: string;
+        instrumentKey: string;
+      };
+
+      // Find the matching instrument object
+      let instrumentData: {
+        title: string;
+        alt: string;
+        imgPath: string;
+        features: string[];
+        overview: string[];
+      } | null = null;
+
+      for (const section of GAS_DETECTION_INSTRUMENTS) {
+        const group = section.instruments[category];
+        if (group && group[instrumentKey]) {
+          instrumentData = group[instrumentKey];
+          break;
+        }
+      }
+
+      if (!instrumentData) {
+        // No match—could also redirect or throw a 404 here
+        return {};
+      }
+
+      // Inject each field as its own prop
+      return {
+        title: instrumentData.title,
+        alt: instrumentData.alt,
+        imgPath: instrumentData.imgPath,
+        features: instrumentData.features,
+        overview: instrumentData.overview,
+      };
+    },
   },
+
+  // —————————————
+  // Catch-all 404
+  // —————————————
+  // {
+  //   path: "/:pathMatch(.*)*",
+  //   name: "NotFound",
+  //   component: () => import("@/pages/NotFoundPage.vue"),
+  // },
 ];
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes,
 });
-
-export default router;

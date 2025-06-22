@@ -10,6 +10,8 @@ const props = defineProps<{
         alt: string;
         imgPath: string;
         link: string;
+        overview: string[];
+        features: string[];
     }>>;
 }>();
 </script>
@@ -23,8 +25,16 @@ const props = defineProps<{
             <div v-for="(instrument, instKey) in group" :key="instKey" class="m-2 max-w-xs">
                 <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="w-48 h-32 object-contain" />
                 <p class="text-center mt-2">{{ instrument.title }}</p>
-                <router-link :to="instrument.link"
-                    class="block rounded overflow-hidden shadow hover:shadow-lg transition">Read More</router-link>
+                <router-link :to="{
+                    name: 'Gas Detection Instrument Detail',
+                    params: {
+                        category: groupKey,
+                        instrumentKey: instKey,
+                    },
+                }"
+                    class="block bg-white text-teal-700 px-4 py-3 rounded-full shadow hover:bg-teal-100 transition text-center">
+                    Read More
+                </router-link>
             </div>
             <SpaceComponent size="paragraph" />
         </div>
