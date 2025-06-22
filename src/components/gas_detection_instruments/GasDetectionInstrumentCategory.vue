@@ -9,7 +9,6 @@ const props = defineProps<{
         title: string;
         alt: string;
         imgPath: string;
-        link: string;
         overview: string[];
         features: string[];
     }>>;
