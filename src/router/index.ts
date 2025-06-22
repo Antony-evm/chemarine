@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: "/calibration-gases/regulator/:regulator_id",
-    name: "RegulatorDetail",
+    name: "Regulator Series",
     component: () => import("@/pages/RegulatorPage.vue"),
   },
 ];

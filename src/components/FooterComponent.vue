@@ -12,7 +12,7 @@ import { PRIMARY_EMAIL, PHONE_NO, COMPANY_NAME } from '@/data/contactInformation
                 </div>
             </div>
             <div class="text-center text-lg">
-                <p>Email: <a href="mailto:chemarin@otenet.gr" class="text-white hover:underline">{{ PRIMARY_EMAIL }}</a>
+                <p>Email: <a href="mailto:chemarin@otenet.gr" class="hover:underline">{{ PRIMARY_EMAIL }}</a>
                 </p>
                 <p>Phone: <a href="tel:+302104688245" class="hover:underline">{{ PHONE_NO }}</a></p>
             </div>
