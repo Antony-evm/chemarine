@@ -3,7 +3,7 @@ import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { COMPANY_NAME } from '@/data/contactInformation';
-import { PERSONAL } from '@/data/gasDetectionInstruments';
+import { GAS_DETECTION_INSTRUMENTS } from '@/data/gasDetectionInstruments';
 import GasDetectionInstrumentCategory from '@/components/gas_detection_instruments/GasDetectionInstrumentCategory.vue';
 </script>
 
@@ -19,12 +19,8 @@ import GasDetectionInstrumentCategory from '@/components/gas_detection_instrumen
             environment of a vessel without compromising their functionality and the safety of the user.
         </p>
         <SpaceComponent size="paragraph" />
-        <GasDetectionInstrumentCategory :title="'Personal Gas Detection Instruments'" :instruments="PERSONAL" />
-
-        <h2>Cargo Operation Gas Detection Instruments</h2>
-
-        <h2>Fixed Instruments</h2>
-        <h2>Calibration Stations</h2>
+        <GasDetectionInstrumentCategory v-for="category in GAS_DETECTION_INSTRUMENTS" :key="category.title"
+            :title="category.title" :instruments="category.instruments" />
 
     </CenteredContent>
 </template>

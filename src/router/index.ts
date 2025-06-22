@@ -41,6 +41,11 @@ const routes = [
     name: "Gas Detection Instruments",
     component: () => import("@/pages/GasDetectionInstrumentsPage.vue"),
   },
+  {
+    path: "/gas-detection-instrument/:title",
+    name: "Gas Detection Instrument Detail",
+    component: () => import("@/pages/GasDetectionInstrumentDetailPage.vue"),
+  },
 ];
 
 const router = createRouter({
