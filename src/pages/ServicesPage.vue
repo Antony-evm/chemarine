@@ -2,6 +2,7 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import ActionButton from '@/components/utils/ActionButton.vue';
 </script>
 
 <template>
@@ -38,11 +39,7 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
             gas detection instruments manufacturers and traceable to international standards.</p>
 
         <SectionDivider />
-        <div class="mt-10 text-center">
-            <a href="/contact"
-                class="inline-block bg-white text-teal-700 px-6 py-3 rounded-full shadow hover:bg-teal-100 transition">
-                Contact Our Service Team
-            </a>
-        </div>
+        <ActionButton :to="{ name: 'Contact' }" label="Contact Our Service Team" />
+
     </CenteredContent>
 </template>

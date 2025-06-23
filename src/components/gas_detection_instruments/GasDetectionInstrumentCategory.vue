@@ -2,6 +2,7 @@
 import SpaceComponent from '../utils/SpaceComponent.vue';
 import SectionDivider from '../utils/SectionDivider.vue';
 import { defineProps } from 'vue';
+import ActionButton from '../utils/ActionButton.vue';
 
 const props = defineProps<{
     title: string;
@@ -24,16 +25,9 @@ const props = defineProps<{
             <div v-for="(instrument, instKey) in group" :key="instKey" class="m-2 max-w-xs">
                 <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="w-48 h-32 object-contain" />
                 <p class="text-center mt-2">{{ instrument.title }}</p>
-                <router-link :to="{
-                    name: 'Gas Detection Instrument Detail',
-                    params: {
-                        category: groupKey,
-                        instrumentKey: instKey,
-                    },
-                }"
-                    class="block bg-white text-teal-700 px-4 py-3 rounded-full shadow hover:bg-teal-100 transition text-center">
-                    Read More
-                </router-link>
+                <ActionButton
+                    :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
+                    label="Read More" />
             </div>
             <SpaceComponent size="paragraph" />
         </div>
