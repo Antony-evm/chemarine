@@ -1,7 +1,14 @@
 import regulator713 from "@/assets/calibration_gases/713-regulator.png";
 import regulator2000 from "@/assets/calibration_gases/2000-series-regulator.png";
 
-export const REGULATORS = {
+interface Regulator {
+  title: string;
+  imgPath: string;
+  rows: Array<{ label: string; key: string }>;
+  models: Array<Record<string, any>>;
+}
+
+export const REGULATORS: Record<string, Regulator> = {
   "700": {
     title: "700 Series Regulators",
     imgPath: regulator713,

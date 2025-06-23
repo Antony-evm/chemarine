@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { GAS_DETECTION_INSTRUMENTS } from "@/data/gasDetectionInstruments";
 
 const routes: RouteRecordRaw[] = [
   {

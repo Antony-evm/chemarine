@@ -1,4 +1,4 @@
-export const REGULATORROUTEMAP = {
+export const REGULATOR_ROUTE_MAP: Record<string, string> = {
   "713": "700",
   "715": "700",
   "DFR 2001": "2000",

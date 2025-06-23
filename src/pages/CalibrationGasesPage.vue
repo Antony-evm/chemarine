@@ -2,7 +2,7 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
-import { GASCYLINDERS, REGULATORROUTEMAP } from '@/data/calibrationGases';
+import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
 </script>
 
 <template>
@@ -64,8 +64,8 @@ import { GASCYLINDERS, REGULATORROUTEMAP } from '@/data/calibrationGases';
                         </td>
                         <td class="table-element text-[#0a1f3d] underline whitespace-nowrap">
                             <template v-for="(comp, i) in item.compatibility" :key="i">
-                                <router-link v-if="REGULATORROUTEMAP[comp]"
-                                    :to="{ name: 'Regulator Series', params: { regulator_id: REGULATORROUTEMAP[comp] } }"
+                                <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
+                                    :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
                                     class="underline text-[#0a1f3d]">
                                     {{ comp }}
                                 </router-link>

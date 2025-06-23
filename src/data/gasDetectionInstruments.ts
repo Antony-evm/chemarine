@@ -17,7 +17,20 @@ import { rki_sdm_3r_calibration_station } from "./instruments/rki_sdm_3r_calibra
 import { rki_sdm_6000_calibration_station } from "./instruments/rki_sdm_6000_calibration_station";
 import { rki_sdm_force_calibration_station } from "./instruments/rki_sdm_force_calibration_station";
 
-export const GAS_DETECTION_INSTRUMENTS = [
+export interface InstrumentData {
+  title: string;
+  alt: string;
+  imgPath: string;
+  features: string[];
+  overview: string[];
+}
+
+export interface Section {
+  title: string;
+  instruments: Record<string, Record<string, InstrumentData>>;
+}
+
+export const GAS_DETECTION_INSTRUMENTS: Section[] = [
   {
     title: "Personal",
     instruments: {

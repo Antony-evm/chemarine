@@ -20,8 +20,7 @@ import GasDetectionInstrumentCategory from '@/components/gas_detection_instrumen
         </p>
         <SpaceComponent size="paragraph" />
         <GasDetectionInstrumentCategory v-for="category in GAS_DETECTION_INSTRUMENTS" :key="category.title"
-            :title="category.title" :instruments="category.instruments" :imgPath="category.imgPath"
-            :overview="category.overview" :features="category.features" />
+            :title="category.title" :instruments="category.instruments" />
 
     </CenteredContent>
 </template>

@@ -5,11 +5,23 @@ import { useRoute } from "vue-router";
 import { GAS_DETECTION_INSTRUMENTS } from "@/data/gasDetectionInstruments";
 import { ref, onMounted } from "vue";
 import CenteredContent from "@/components/utils/CenteredContent.vue";
+import type { InstrumentData } from "@/data/gasDetectionInstruments";
+
+
+onMounted(() => {
+    for (const section of GAS_DETECTION_INSTRUMENTS) {
+        const group = section.instruments[category as string];
+        if (group && group[instrumentKey as string]) {
+            instrument.value = group[instrumentKey as string];
+            break;
+        }
+    }
+});
 
 const route = useRoute();
 const { category, instrumentKey } = route.params;
 
-const instrument = ref(null);
+const instrument = ref<InstrumentData | null>(null);
 
 onMounted(() => {
     for (const section of GAS_DETECTION_INSTRUMENTS) {

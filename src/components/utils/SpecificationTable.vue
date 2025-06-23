@@ -11,17 +11,24 @@ defineProps<{
 <template>
     <div class="table-styling">
         <table class="min-w-full" :aria-label="tableLabel || 'Specification Table'">
+            <caption class="sr-only">{{ tableLabel || 'Specification Table' }}</caption>
             <thead class="table-header">
                 <tr>
-                    <th class="table-element">{{ rows[0].label }}</th>
-                    <th v-for="item in models" :key="item[rows[0].key]" class="table-element">
+                    <th scope="col" class="table-element">
+                        {{ rows[0].label }}
+                    </th>
+                    <th v-for="item in models" :key="item[rows[0].key]" scope="col" class="table-element">
                         {{ item[rows[0].key] }}
                     </th>
                 </tr>
             </thead>
+
             <tbody class="table-borders">
                 <tr v-for="col in rows.filter(c => c.key !== rows[0].key)" :key="col.key">
-                    <td class="table-element">{{ col.label }}</td>
+                    <th scope="row" class="table-element">
+                        {{ col.label }}
+                    </th>
+
                     <td v-for="item in models" :key="item[rows[0].key] + '-' + col.key" class="table-element">
                         {{ item[col.key] ?? '—' }}
                     </td>
