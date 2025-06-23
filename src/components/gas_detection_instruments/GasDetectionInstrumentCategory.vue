@@ -23,7 +23,10 @@ const props = defineProps<{
     <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="mb-8 w-full">
         <div class="flex flex-row flex-wrap justify-left">
             <div v-for="(instrument, instKey) in group" :key="instKey" class="m-2 max-w-xs">
-                <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="w-48 h-32 object-contain" />
+                <div class="flex justify-center">
+                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy"
+                        class="w-48 h-32 object-contain" />
+                </div>
                 <p class="text-center mt-2">{{ instrument.title }}</p>
                 <ActionButton
                     :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
