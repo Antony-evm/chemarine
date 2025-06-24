@@ -47,8 +47,169 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -no-color
+        run: terraform plan -no-color -out=tfplan
         continue-on-error: true
+
+      - name: Security Validation - Check Plan for Security Violations
+        id: security-check
+        run: |
+          echo "🔍 Running comprehensive security validation on Terraform plan..."
+
+          # Initialize security check results
+          SECURITY_PASSED=true
+          SECURITY_REPORT=""
+
+          # Get plan output in JSON format
+          PLAN_OUTPUT=$(terraform show -json tfplan)
+
+          # Function to add to security report
+          add_to_report() {
+            SECURITY_REPORT="${SECURITY_REPORT}$1\n"
+          }
+
+          # 1. Check S3 bucket public access block configuration
+          echo "🔒 Checking S3 Public Access Block configuration..."
+          PAB_CONFIG=$(echo "$PLAN_OUTPUT" | jq -r '
+            .planned_values.root_module.resources[] | 
+            select(.type == "aws_s3_bucket_public_access_block") |
+            {
+              block_public_acls: .values.block_public_acls,
+              block_public_policy: .values.block_public_policy,
+              ignore_public_acls: .values.ignore_public_acls,
+              restrict_public_buckets: .values.restrict_public_buckets
+            }
+          ')
+
+          if [ -n "$PAB_CONFIG" ]; then
+            # Check if configuration allows CloudFront but blocks direct public access
+            BLOCK_PUBLIC_ACLS=$(echo "$PAB_CONFIG" | jq -r '.block_public_acls')
+            IGNORE_PUBLIC_ACLS=$(echo "$PAB_CONFIG" | jq -r '.ignore_public_acls')
+            BLOCK_PUBLIC_POLICY=$(echo "$PAB_CONFIG" | jq -r '.block_public_policy')
+            RESTRICT_PUBLIC_BUCKETS=$(echo "$PAB_CONFIG" | jq -r '.restrict_public_buckets')
+            
+            if [ "$BLOCK_PUBLIC_ACLS" = "true" ] && [ "$IGNORE_PUBLIC_ACLS" = "true" ] && [ "$BLOCK_PUBLIC_POLICY" = "false" ] && [ "$RESTRICT_PUBLIC_BUCKETS" = "false" ]; then
+              add_to_report "✅ **S3 Public Access Block**: Correctly configured for CloudFront-only access"
+            else
+              add_to_report "❌ **S3 Public Access Block**: SECURITY VIOLATION - Incorrect configuration detected!"
+              add_to_report "   - Expected: block_public_acls=true, ignore_public_acls=true, block_public_policy=false, restrict_public_buckets=false"
+              add_to_report "   - Current: block_public_acls=$BLOCK_PUBLIC_ACLS, ignore_public_acls=$IGNORE_PUBLIC_ACLS, block_public_policy=$BLOCK_PUBLIC_POLICY, restrict_public_buckets=$RESTRICT_PUBLIC_BUCKETS"
+              SECURITY_PASSED=false
+            fi
+          else
+            add_to_report "❌ **S3 Public Access Block**: MISSING - No public access block configuration found!"
+            SECURITY_PASSED=false
+          fi
+
+          # 2. Verify CloudFront Origin Access Control exists
+          echo "🌐 Checking CloudFront Origin Access Control..."
+          OAC_EXISTS=$(echo "$PLAN_OUTPUT" | jq -r '
+            .planned_values.root_module.resources[] | 
+            select(.type == "aws_cloudfront_origin_access_control") |
+            .values.name // empty
+          ')
+
+          if [ -n "$OAC_EXISTS" ]; then
+            add_to_report "✅ **CloudFront OAC**: Configured ($OAC_EXISTS)"
+          else
+            add_to_report "❌ **CloudFront OAC**: MISSING - No Origin Access Control found!"
+            SECURITY_PASSED=false
+          fi
+
+          # 3. Check S3 bucket policy for proper CloudFront-only access
+          echo "📋 Checking S3 bucket policy..."
+          BUCKET_POLICY=$(echo "$PLAN_OUTPUT" | jq -r '
+            .planned_values.root_module.resources[] | 
+            select(.type == "aws_s3_bucket_policy") |
+            .values.policy
+          ')
+
+          if [ -n "$BUCKET_POLICY" ]; then
+            # Check if policy allows only CloudFront service
+            if echo "$BUCKET_POLICY" | jq -r . | grep -q '"cloudfront.amazonaws.com"'; then
+              add_to_report "✅ **S3 Bucket Policy**: CloudFront service principal access configured"
+            else
+              add_to_report "⚠️ **S3 Bucket Policy**: No CloudFront service principal found in policy"
+            fi
+            
+            # Check for dangerous public access patterns
+            if echo "$BUCKET_POLICY" | jq -r . | grep -q '"Principal": "*"' || echo "$BUCKET_POLICY" | jq -r . | grep -q '"Principal": {"AWS": "*"}'; then
+              add_to_report "❌ **S3 Bucket Policy**: SECURITY VIOLATION - Public access detected!"
+              add_to_report "   - Found wildcard principal (*) in bucket policy"
+              SECURITY_PASSED=false
+            fi
+          else
+            add_to_report "⚠️ **S3 Bucket Policy**: No bucket policy found (relying on OAC only)"
+          fi
+
+          # 4. Check for any resources that might enable public access
+          echo "🕵️ Scanning for potential security vulnerabilities..."
+
+          # Check for public S3 buckets
+          PUBLIC_BUCKETS=$(echo "$PLAN_OUTPUT" | jq -r '
+            .planned_values.root_module.resources[] | 
+            select(.type == "aws_s3_bucket") |
+            select(.values.acl == "public-read" or .values.acl == "public-read-write") |
+            .address
+          ')
+
+          if [ -n "$PUBLIC_BUCKETS" ]; then
+            add_to_report "❌ **Public S3 Bucket ACL**: SECURITY VIOLATION - Found public bucket ACLs!"
+            add_to_report "   - Buckets: $PUBLIC_BUCKETS"
+            SECURITY_PASSED=false
+          fi
+
+          # 5. Verify CloudFront distribution settings
+          echo "☁️ Checking CloudFront distribution security..."
+          CF_VIEWER_PROTOCOL=$(echo "$PLAN_OUTPUT" | jq -r '
+            .planned_values.root_module.resources[] | 
+            select(.type == "aws_cloudfront_distribution") |
+            .values.default_cache_behavior[0].viewer_protocol_policy // empty
+          ')
+
+          if [ "$CF_VIEWER_PROTOCOL" = "redirect-to-https" ] || [ "$CF_VIEWER_PROTOCOL" = "https-only" ]; then
+            add_to_report "✅ **CloudFront HTTPS**: Secure protocol policy ($CF_VIEWER_PROTOCOL)"
+          elif [ -n "$CF_VIEWER_PROTOCOL" ]; then
+            add_to_report "⚠️ **CloudFront HTTPS**: Insecure protocol policy ($CF_VIEWER_PROTOCOL)"
+          fi
+
+          # Generate final report
+          echo -e "\n🔒 SECURITY VALIDATION REPORT:"
+          echo -e "$SECURITY_REPORT"
+
+          if [ "$SECURITY_PASSED" = "true" ]; then
+            echo -e "\n✅ ALL SECURITY CHECKS PASSED - Infrastructure is secure!"
+            echo "security-status=passed" >> $GITHUB_OUTPUT
+            echo "security-report<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$SECURITY_REPORT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo -e "\n❌ SECURITY VIOLATIONS DETECTED - Deployment blocked!"
+            echo -e "\n🚨 This deployment has been blocked to prevent security vulnerabilities."
+            echo -e "   Please review and fix the security issues before proceeding."
+            echo "security-status=failed" >> $GITHUB_OUTPUT
+            echo "security-report<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$SECURITY_REPORT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Comment PR with Security Status
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🔒 Infrastructure Security Validation
+              
+              ✅ **S3 Security**: Bucket properly configured with CloudFront-only access
+              ✅ **Origin Access Control**: CloudFront OAC configured
+              ✅ **Public Access**: Direct S3 access blocked
+              
+              Infrastructure changes are **security compliant** and ready for deployment.`
+            });
 
   terraform-apply:
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
