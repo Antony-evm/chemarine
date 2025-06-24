@@ -11,13 +11,15 @@ This repository uses GitHub Actions for automated deployment with the following 
 ## Workflows
 
 ### 1. Website Deployment (`.github/workflows/deploy.yml`)
+
 - **Triggers**: Push to `main`, Pull Requests
-- **Actions**: 
+- **Actions**:
   - Build Vue.js application
   - Deploy to S3 + CloudFront (main branch only)
   - Invalidate CloudFront cache
 
 ### 2. Infrastructure (`.github/workflows/terraform.yml`)
+
 - **Triggers**: Changes to `terraform/` folder
 - **Actions**:
   - Terraform plan (PRs)
@@ -30,12 +32,14 @@ This repository uses GitHub Actions for automated deployment with the following 
 Go to your repository → Settings → Secrets and variables → Actions
 
 Add these secrets:
+
 - `AWS_ACCESS_KEY_ID`: Your AWS access key
 - `AWS_SECRET_ACCESS_KEY`: Your AWS secret key
 
 ### 2. Environment Variables
 
 The following are configured in the workflow files:
+
 - `AWS_REGION`: eu-west-2
 - `S3_BUCKET`: chemarine-website-bucket
 - `CLOUDFRONT_DISTRIBUTION_ID`: E1B0I3T295MLIP
