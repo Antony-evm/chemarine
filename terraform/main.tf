@@ -6,6 +6,13 @@ terraform {
       version = "~> 5.0"
     }
   }
+  
+  # Remote state configuration
+  backend "s3" {
+    bucket = "chemarine-terraform-state"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
 }
 
 provider "aws" {
