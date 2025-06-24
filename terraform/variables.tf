@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region for resources"
   type        = string
-  default     = "eu-west-2"  # London - best for UK users
+  default     = "eu-west-2" # London - best for UK users
 }
 
 variable "project_name" {
@@ -29,7 +29,7 @@ variable "cloudfront_price_class" {
   validation {
     condition = contains([
       "PriceClass_All",
-      "PriceClass_200", 
+      "PriceClass_200",
       "PriceClass_100"
     ], var.cloudfront_price_class)
     error_message = "Price class must be PriceClass_All, PriceClass_200, or PriceClass_100."
