@@ -6,6 +6,13 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  # Remote state configuration
+  backend "s3" {
+    bucket = "chemarine-terraform-state"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
 }
 
 provider "aws" {
@@ -86,7 +93,7 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-  
+
   # Custom domain configuration (uncomment when ready)
   # aliases = var.domain_name != "" ? [var.domain_name, "www.${var.domain_name}"] : []
 
