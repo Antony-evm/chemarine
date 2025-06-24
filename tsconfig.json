@@ -3,6 +3,7 @@
     "composite": true,
     "target": "ESNext",
     "module": "ESNext",
+    "noEmit": true,
     "moduleResolution": "bundler",
     "declaration": true,
     "declarationDir": "dist/types",
