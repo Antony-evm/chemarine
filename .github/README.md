@@ -69,10 +69,8 @@ git push origin feature/your-feature-name
 If needed, you can still deploy manually:
 
 ```powershell
-# Build the application
 npm run build
 
-# Deploy using PowerShell script
 .\deploy.ps1
 ```
 
