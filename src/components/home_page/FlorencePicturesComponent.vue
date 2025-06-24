@@ -3,11 +3,11 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const images = [
     {
-        src: '/src/assets/frontpage/frontpage_1.jpg',
+        src: '@/assets/frontpage/frontpage_1.jpg',
         alt: 'Crew member calibrating gas detector on deck at sunset',
     },
     {
-        src: '/src/assets/frontpage/frontpage_2.jpg',
+        src: '@/assets/frontpage/frontpage_2.jpg',
         alt: 'Marine safety equipment ready for inspection',
     }
 ];
@@ -27,15 +27,6 @@ function clearTimers() {
         carouselTimeout = undefined;
     }
 }
-
-function preloadImages() {
-    images.forEach((img, i) => {
-        const loader = new Image();
-        loader.onload = () => (loaded.value[i] = true);
-        loader.src = img.src;
-    });
-}
-preloadImages();
 
 function scheduleNext() {
     clearTimers();

@@ -7,24 +7,24 @@ import { COMPANY_NAME } from '@/data/contactInformation';
 
 const certificates = {
     iso_certificate: {
-        src: '/src/assets/certificates/iso_certificate.png',
+        src: '@/assets/certificates/iso_certificate.png',
         alt: 'ISO 9001:2015 Certificate',
-        pdf: '/src/assets/pdfs/certificates/iso_certificate.pdf',
+        pdf: '@/assets/pdfs/certificates/iso_certificate.pdf',
     },
     training_certificate: {
-        src: '/src/assets/certificates/training_certificate.png',
+        src: '@/assets/certificates/training_certificate.png',
         alt: 'Training Certificate',
-        pdf: '/src/assets/pdfs/certificates/training_certificate.pdf',
+        pdf: '@/assets/pdfs/certificates/training_certificate.pdf',
     },
     panos: {
-        src: '/src/assets/certificates/panos_evmorfopoulos_certificate.png',
+        src: '@/assets/certificates/panos_evmorfopoulos_certificate.png',
         alt: 'Panos Evmorfopoulos Certificate',
-        pdf: '/src/assets/pdfs/certificates/panos_evmorfopoulos_certificate.pdf',
+        pdf: '@/assets/pdfs/certificates/panos_evmorfopoulos_certificate.pdf',
     },
     eva: {
-        src: '/src/assets/certificates/eva_papoula_certificate.png',
+        src: '@/assets/certificates/eva_papoula_certificate.png',
         alt: 'Eva Papoula Certificate',
-        pdf: '/src/assets/pdfs/certificates/eva_papoula_certificate.pdf',
+        pdf: '@/assets/pdfs/certificates/eva_papoula_certificate.pdf',
     }
 };
 </script>
