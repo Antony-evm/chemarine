@@ -25,3 +25,13 @@ dist-ssr
 *.d.ts
 *.vue.js
 *.js
+
+# Terraform files
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+terraform/terraform.tfvars
+
+# Deployment logs
+deploy.log

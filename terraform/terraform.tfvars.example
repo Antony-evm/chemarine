@@ -1,0 +1,33 @@
+# Copy this file to terraform/terraform.tfvars and customize the values
+
+# AWS Region - recommended for UK users:
+# eu-west-2 (London) - best for UK, lowest latency
+# eu-west-1 (Ireland) - alternative, more services sometimes
+# eu-central-1 (Frankfurt) - good for Central/Eastern Europe  
+aws_region = "eu-west-2"
+
+# Project settings
+project_name = "chemarine"
+environment  = "production"
+
+# S3 bucket name (must be globally unique)
+# Change this to something unique for your deployment
+bucket_name = "chemarine-website-bucket-unique-12345"
+
+# CloudFront price class
+# PriceClass_100: North America and Europe only (cheapest)
+# PriceClass_200: North America, Europe, Asia, Middle East, and Africa
+# PriceClass_All: All edge locations (most expensive)
+cloudfront_price_class = "PriceClass_100"
+
+# Custom domain (leave empty for initial deployment)
+# domain_name = "yourdomain.com"
+domain_name = ""
+
+# IAM Configuration
+# Set to true to create an IAM user and policy for managing this infrastructure
+create_iam_resources = false
+
+# Set to true to create access keys for the IAM user (only if create_iam_resources = true)
+# WARNING: Access keys will be stored in Terraform state - use with caution
+create_access_key = false
