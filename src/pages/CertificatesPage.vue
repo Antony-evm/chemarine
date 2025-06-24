@@ -5,26 +5,38 @@ import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import { COMPANY_NAME } from '@/data/contactInformation';
 
+// Import images
+import isoCertificateImg from '@/assets/certificates/iso_certificate.png';
+import trainingCertificateImg from '@/assets/certificates/training_certificate.png';
+import panosCertificateImg from '@/assets/certificates/panos_evmorfopoulos_certificate.png';
+import evaCertificateImg from '@/assets/certificates/eva_papoula_certificate.png';
+
+// Import PDFs
+import isoCertificatePdf from '@/assets/pdfs/certificates/iso_certificate.pdf';
+import trainingCertificatePdf from '@/assets/pdfs/certificates/training_certificate.pdf';
+import panosCertificatePdf from '@/assets/pdfs/certificates/panos_evmorfopoulos_certificate.pdf';
+import evaCertificatePdf from '@/assets/pdfs/certificates/eva_papoula_certificate.pdf';
+
 const certificates = {
     iso_certificate: {
-        src: '@/assets/certificates/iso_certificate.png',
+        src: isoCertificateImg,
         alt: 'ISO 9001:2015 Certificate',
-        pdf: '@/assets/pdfs/certificates/iso_certificate.pdf',
+        pdf: isoCertificatePdf,
     },
     training_certificate: {
-        src: '@/assets/certificates/training_certificate.png',
+        src: trainingCertificateImg,
         alt: 'Training Certificate',
-        pdf: '@/assets/pdfs/certificates/training_certificate.pdf',
+        pdf: trainingCertificatePdf,
     },
     panos: {
-        src: '@/assets/certificates/panos_evmorfopoulos_certificate.png',
+        src: panosCertificateImg,
         alt: 'Panos Evmorfopoulos Certificate',
-        pdf: '@/assets/pdfs/certificates/panos_evmorfopoulos_certificate.pdf',
+        pdf: panosCertificatePdf,
     },
     eva: {
-        src: '@/assets/certificates/eva_papoula_certificate.png',
+        src: evaCertificateImg,
         alt: 'Eva Papoula Certificate',
-        pdf: '@/assets/pdfs/certificates/eva_papoula_certificate.pdf',
+        pdf: evaCertificatePdf,
     }
 };
 </script>

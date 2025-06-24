@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 
+// Import image assets
+import frontpage1 from '@/assets/frontpage/frontpage_1.jpg';
+import frontpage2 from '@/assets/frontpage/frontpage_2.jpg';
+
 const images = [
     {
-        src: '@/assets/frontpage/frontpage_1.jpg',
+        src: frontpage1,
         alt: 'Crew member calibrating gas detector on deck at sunset',
     },
     {
-        src: '@/assets/frontpage/frontpage_2.jpg',
+        src: frontpage2,
         alt: 'Marine safety equipment ready for inspection',
     }
 ];
@@ -15,7 +19,6 @@ const images = [
 const currentIndex = ref(0);
 const nextIndex = ref<number | null>(null);
 const fading = ref(false);
-const loaded = ref(images.map(() => false));
 
 let carouselTimeout: number | undefined;
 const showTime = 5000;
@@ -55,11 +58,11 @@ onUnmounted(() => clearTimers());
 <template>
     <section class="relative h-screen w-screen flex items-center justify-center overflow-hidden bg-black" role="region"
         aria-label="Slideshow of chemical marine inspections">
-        <img v-show="loaded[currentIndex]" :src="images[currentIndex].src" :alt="images[currentIndex].alt"
+        <img :src="images[currentIndex].src" :alt="images[currentIndex].alt"
             class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
 
-        <img v-if="fading && nextIndex !== null && loaded[nextIndex]" :src="images[nextIndex].src"
-            :alt="images[nextIndex].alt" class="absolute inset-0 w-full h-full object-cover transition-fade"
+        <img v-if="fading && nextIndex !== null" :src="images[nextIndex].src" :alt="images[nextIndex].alt"
+            class="absolute inset-0 w-full h-full object-cover transition-fade"
             :class="fading ? 'opacity-0 z-20 animate-fade-in' : ''" aria-hidden="true" />
 
         <img v-if="fading" :src="images[currentIndex].src" :alt="images[currentIndex].alt"
