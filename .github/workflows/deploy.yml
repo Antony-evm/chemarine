@@ -1,4 +1,4 @@
-name: Deploy Chemarine Website
+name: CI/CD Pipeline
 
 on:
   push:
@@ -10,62 +10,77 @@ env:
   AWS_REGION: eu-west-2
 
 jobs:
-  # Job for PR builds (build only, no deploy)
-  build-and-test:
-    if: github.event_name == 'pull_request'
+  # CI Job: Build, test, and audit (runs on PRs and main)
+  ci:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
-
+          
       - name: Install dependencies
         run: npm ci
-
+        
       - name: Build application
         run: npm run build
-
+        
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist/
-          retention-days: 1
+          retention-days: 7
+          
+      - name: Start local server for Lighthouse
+        run: |
+          npx serve -s dist -l 3000 &
+          sleep 5
+          curl http://localhost:3000 || exit 1
+        
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: http://localhost:3000
+          configPath: .github/lighthouse/lighthouserc.js
+          runs: 1
+          
+      - name: Upload Lighthouse reports (CI)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-ci-reports
+          path: .lighthouseci/
+          retention-days: 7
 
-  # Job for main branch (build and deploy)
+  # Deploy Job: Only runs on main branch after CI passes
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: ci
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+        
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build application
-        run: npm run build
-
+          name: dist-files
+          path: dist/
+          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-
+          
       - name: Get Terraform Outputs
         id: terraform
         working-directory: terraform
@@ -73,7 +88,7 @@ jobs:
           echo "s3-bucket=$(terraform output -raw s3_bucket_name)" >> $GITHUB_OUTPUT
           echo "cloudfront-id=$(terraform output -raw cloudfront_distribution_id)" >> $GITHUB_OUTPUT
           echo "website-url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
-
+          
       - name: Deploy to S3
         run: |
           # Sync all files except index.html with long cache headers
@@ -87,14 +102,57 @@ jobs:
           aws s3 cp dist/index.html s3://${{ steps.terraform.outputs.s3-bucket }}/index.html \
             --cache-control "public, max-age=0, must-revalidate" \
             --content-type "text/html"
-
+            
       - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ steps.terraform.outputs.cloudfront-id }} \
             --paths "/*"
-
+            
       - name: Deployment complete
         run: |
           echo "🚀 Deployment successful!"
           echo "Website URL: ${{ steps.terraform.outputs.website-url }}"
+
+  # Production Audit: Full Lighthouse audit on live site after deployment
+  production-audit:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+          
+      - name: Get website URL
+        id: terraform
+        working-directory: terraform
+        run: |
+          echo "website-url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
+          
+      - name: Wait for CloudFront deployment
+        run: |
+          echo "⏳ Waiting 90 seconds for CloudFront cache invalidation..."
+          sleep 90
+          
+      - name: Run Production Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: ${{ steps.terraform.outputs.website-url }}
+          configPath: .github/lighthouse/lighthouserc.js
+          runs: 3
+          
+      - name: Upload Production Lighthouse Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-production-reports
+          path: .lighthouseci/
+          retention-days: 30
