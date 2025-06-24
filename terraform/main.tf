@@ -30,14 +30,33 @@ resource "aws_s3_bucket" "website_bucket" {
   bucket = var.bucket_name
 }
 
-# S3 bucket public access block
+# S3 bucket encryption
+resource "aws_s3_bucket_server_side_encryption_configuration" "website_bucket_encryption" {
+  bucket = aws_s3_bucket.website_bucket.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
+# S3 bucket versioning (helps with security and rollbacks)
+resource "aws_s3_bucket_versioning" "website_bucket_versioning" {
+  bucket = aws_s3_bucket.website_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+# S3 bucket public access block (SECURE - block public ACLs but allow bucket policies)
 resource "aws_s3_bucket_public_access_block" "website_bucket_pab" {
   bucket = aws_s3_bucket.website_bucket.id
 
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
+  block_public_acls       = true
+  block_public_policy     = false  # Allow CloudFront access via bucket policy
+  ignore_public_acls      = true
+  restrict_public_buckets = false  # Allow CloudFront access via bucket policy
 }
 
 # S3 bucket website configuration
@@ -51,26 +70,6 @@ resource "aws_s3_bucket_website_configuration" "website_bucket_config" {
   error_document {
     key = "index.html" # SPA routing
   }
-}
-
-# S3 bucket policy for public read access
-resource "aws_s3_bucket_policy" "website_bucket_policy" {
-  bucket = aws_s3_bucket.website_bucket.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid       = "PublicReadGetObject"
-        Effect    = "Allow"
-        Principal = "*"
-        Action    = "s3:GetObject"
-        Resource  = "${aws_s3_bucket.website_bucket.arn}/*"
-      }
-    ]
-  })
-
-  depends_on = [aws_s3_bucket_public_access_block.website_bucket_pab]
 }
 
 # CloudFront Origin Access Control
