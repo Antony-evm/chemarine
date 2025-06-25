@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import SpaceComponent from '../utils/SpaceComponent.vue';
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 
 const props = defineProps<{
     src: string;
