@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SpaceComponent from '../utils/SpaceComponent.vue';
-import SectionDivider from '../utils/SectionDivider.vue';
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { defineProps } from 'vue';
-import ActionButton from '../utils/ActionButton.vue';
+import ActionButton from '@/components/utils/ActionButton.vue';
 
 const props = defineProps<{
     title: string;
