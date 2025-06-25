@@ -50,16 +50,16 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
                 </thead>
                 <tbody class="table-borders">
                     <tr v-for="(item, index) in GASCYLINDERS" :key="index">
-                        <td class="table-element text-[#0a1f3d] underline"><a :href="item.pdfModelUrl"
-                                class="table-element" target="_blank" rel="noopener noreferrer">
+                        <th scope="row" class="table-element text-[#0a1f3d] underline">
+                            <a :href="item.pdfModelUrl" class="table-element" target="_blank" rel="noopener noreferrer">
                                 {{ item.model }}
                             </a>
-                        </td>
-                        <td scope="row" class="table-element">{{ item.material }}</td>
-                        <td scope="row" class="table-element">{{ item.pressure }}</td>
-                        <td scope="row" class="table-element">{{ item.content }}</td>
-                        <td scope="row" class="table-element">{{ item.dimensions }}</td>
-                        <td scope="row" class="table-element whitespace-nowrap">
+                        </th>
+                        <td class="table-element">{{ item.material }}</td>
+                        <td class="table-element">{{ item.pressure }}</td>
+                        <td class="table-element">{{ item.content }}</td>
+                        <td class="table-element">{{ item.dimensions }}</td>
+                        <td class="table-element whitespace-nowrap">
                             <template v-for="(mixture, i) in item.mixtures" :key="i">
                                 {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                             </template>
