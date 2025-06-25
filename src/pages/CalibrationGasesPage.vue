@@ -34,25 +34,27 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
         </div>
         <SpaceComponent size="paragraph" />
         <div class="table-styling">
-            <table class="min-w-full">
+            <table class="min-w-full" aria-label="Calibration Gas Cylinders Specifications">
+                <caption class="sr-only">Technical specifications of available calibration gas cylinders including
+                    model, material, pressure, content, dimensions, mixtures, and regulator compatibility</caption>
                 <thead class="table-header">
                     <tr>
-                        <th class="table-element">Model<br /></th>
-                        <th class="table-element">Material</th>
-                        <th class="table-element">Pressure</th>
-                        <th class="table-element">Gas Content<br />(Liters)</th>
-                        <th class="table-element">Dimensions</th>
-                        <th class="table-element">Mixtures</th>
-                        <th class="table-element">Regulator Compatibility<br /></th>
+                        <th scope="col" class="table-element">Model<br /></th>
+                        <th scope="col" class="table-element">Material</th>
+                        <th scope="col" class="table-element">Pressure</th>
+                        <th scope="col" class="table-element">Gas Content<br />(Liters)</th>
+                        <th scope="col" class="table-element">Dimensions</th>
+                        <th scope="col" class="table-element">Mixtures</th>
+                        <th scope="col" class="table-element">Regulator Compatibility<br /></th>
                     </tr>
                 </thead>
                 <tbody class="table-borders">
                     <tr v-for="(item, index) in GASCYLINDERS" :key="index">
-                        <td class="table-element text-[#0a1f3d] underline"><a :href="item.pdfModelUrl"
-                                class="table-element" target="_blank" rel="noopener noreferrer">
+                        <th scope="row" class="table-element text-[#0a1f3d] underline">
+                            <a :href="item.pdfModelUrl" class="table-element" target="_blank" rel="noopener noreferrer">
                                 {{ item.model }}
                             </a>
-                        </td>
+                        </th>
                         <td class="table-element">{{ item.material }}</td>
                         <td class="table-element">{{ item.pressure }}</td>
                         <td class="table-element">{{ item.content }}</td>

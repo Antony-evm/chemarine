@@ -1,3 +1,11 @@
+import pdf12da from "@/assets/pdfs/models/12da.pdf";
+import pdf2al from "@/assets/pdfs/models/2al.pdf";
+import pdf7hp from "@/assets/pdfs/models/7hp.pdf";
+import pdf6dm from "@/assets/pdfs/models/6dm.pdf";
+import pdf8al from "@/assets/pdfs/models/8al.pdf";
+import pdf6d from "@/assets/pdfs/models/6d.pdf";
+import pdf10al from "@/assets/pdfs/models/10al.pdf";
+
 export const REGULATOR_ROUTE_MAP: Record<string, string> = {
   "713": "700",
   "715": "700",
@@ -15,7 +23,7 @@ export const GASCYLINDERS = [
     dimensions: `9.8" x 3" / 250 mm x 78 mm`,
     mixtures: ["Limited"],
     compatibility: [],
-    pdfModelUrl: "src/assets/pdfs/models/12da.pdf",
+    pdfModelUrl: pdf12da,
   },
   {
     model: "2AL",
@@ -25,7 +33,7 @@ export const GASCYLINDERS = [
     dimensions: `11.375" x 3" / 289 mm x 76mm`,
     mixtures: ["Reactive", "Non-Reactive"],
     compatibility: ["715", "DFR 2001", "DFR 2004"],
-    pdfModelUrl: "src/assets/pdfs/models/2al.pdf",
+    pdfModelUrl: pdf2al,
   },
   {
     model: "7HP",
@@ -35,7 +43,7 @@ export const GASCYLINDERS = [
     dimensions: `11" x 3" / 279 mm x 76 mm`,
     mixtures: ["Non-Reactive"],
     compatibility: ["713", "DFR 2007"],
-    pdfModelUrl: "src/assets/pdfs/models/7hp.pdf",
+    pdfModelUrl: pdf7hp,
   },
   {
     model: "6DM",
@@ -45,7 +53,7 @@ export const GASCYLINDERS = [
     dimensions: `3.26" x 8.09" / 83 mm x 204 mm`,
     mixtures: ["Non-Reactive"],
     compatibility: ["715", "DFR 2001"],
-    pdfModelUrl: "src/assets/pdfs/models/6dm.pdf",
+    pdfModelUrl: pdf6dm,
   },
   {
     model: "8AL",
@@ -55,7 +63,7 @@ export const GASCYLINDERS = [
     dimensions: `14.25" x 3.5" / 362 mm x 89 mm`,
     mixtures: ["Reactive", "Non-Reactive"],
     compatibility: ["715", "DFR 2001", "DFR 2004"],
-    pdfModelUrl: "src/assets/pdfs/models/8al.pdf",
+    pdfModelUrl: pdf8al,
   },
   {
     model: "6D",
@@ -65,7 +73,7 @@ export const GASCYLINDERS = [
     dimensions: `13.875" x 3.25" / 352 mm x 83 mm`,
     mixtures: ["Non-Reactive"],
     compatibility: ["715", "DFR 2001", "DFR 2004"],
-    pdfModelUrl: "src/assets/pdfs/models/6d.pdf",
+    pdfModelUrl: pdf6d,
   },
   {
     model: "10AL",
@@ -75,6 +83,6 @@ export const GASCYLINDERS = [
     dimensions: `15" x 3.5" / 381 mm x 89 mm`,
     mixtures: ["Reactive", "Non-Reactive"],
     compatibility: ["715", "DFR 2001", "DFR 2004"],
-    pdfModelUrl: "src/assets/pdfs/models/10al.pdf",
+    pdfModelUrl: pdf10al,
   },
 ];
