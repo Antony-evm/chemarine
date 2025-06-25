@@ -14,11 +14,12 @@ import FooterComponent from './components/FooterComponent.vue';
     <div
       class="pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-[#15516b]/80">
     </div>
-
     <div class="relative z-30">
       <div class="min-h-screen">
         <NavbarComponent />
-        <router-view />
+        <main id="main-content" role="main">
+          <router-view />
+        </main>
       </div>
       <FooterComponent />
     </div>

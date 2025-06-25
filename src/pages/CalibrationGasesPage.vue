@@ -34,16 +34,18 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
         </div>
         <SpaceComponent size="paragraph" />
         <div class="table-styling">
-            <table class="min-w-full">
+            <table class="min-w-full" aria-label="Calibration Gas Cylinders Specifications">
+                <caption class="sr-only">Technical specifications of available calibration gas cylinders including
+                    model, material, pressure, content, dimensions, mixtures, and regulator compatibility</caption>
                 <thead class="table-header">
                     <tr>
-                        <th class="table-element">Model<br /></th>
-                        <th class="table-element">Material</th>
-                        <th class="table-element">Pressure</th>
-                        <th class="table-element">Gas Content<br />(Liters)</th>
-                        <th class="table-element">Dimensions</th>
-                        <th class="table-element">Mixtures</th>
-                        <th class="table-element">Regulator Compatibility<br /></th>
+                        <th scope="col" class="table-element">Model<br /></th>
+                        <th scope="col" class="table-element">Material</th>
+                        <th scope="col" class="table-element">Pressure</th>
+                        <th scope="col" class="table-element">Gas Content<br />(Liters)</th>
+                        <th scope="col" class="table-element">Dimensions</th>
+                        <th scope="col" class="table-element">Mixtures</th>
+                        <th scope="col" class="table-element">Regulator Compatibility<br /></th>
                     </tr>
                 </thead>
                 <tbody class="table-borders">

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-
-// Import image assets
 import frontpage1 from '@/assets/frontpage/frontpage_1.jpg';
 import frontpage2 from '@/assets/frontpage/frontpage_2.jpg';
 
@@ -19,6 +17,7 @@ const images = [
 const currentIndex = ref(0);
 const nextIndex = ref<number | null>(null);
 const fading = ref(false);
+const isCarouselPaused = ref(false);
 
 let carouselTimeout: number | undefined;
 const showTime = 5000;
@@ -33,7 +32,32 @@ function clearTimers() {
 
 function scheduleNext() {
     clearTimers();
-    carouselTimeout = window.setTimeout(transitionToNextImage, showTime);
+    if (!isCarouselPaused.value) {
+        carouselTimeout = window.setTimeout(transitionToNextImage, showTime);
+    }
+}
+
+function toggleCarousel() {
+    isCarouselPaused.value = !isCarouselPaused.value;
+    if (isCarouselPaused.value) {
+        clearTimers();
+    } else {
+        scheduleNext();
+    }
+}
+
+function goToSlide(index: number) {
+    if (index !== currentIndex.value && !fading.value) {
+        nextIndex.value = index;
+        fading.value = true;
+        clearTimers();
+        carouselTimeout = window.setTimeout(() => {
+            currentIndex.value = index;
+            nextIndex.value = null;
+            fading.value = false;
+            scheduleNext();
+        }, fadeTime);
+    }
 }
 
 function transitionToNextImage() {
@@ -57,7 +81,13 @@ onUnmounted(() => clearTimers());
 
 <template>
     <section class="relative h-screen w-screen flex items-center justify-center overflow-hidden bg-black" role="region"
-        aria-label="Slideshow of chemical marine inspections">
+        aria-label="Slideshow of chemical marine inspections"> <!-- Pause/Play button for accessibility -->
+        <button type="button" @click="toggleCarousel"
+            class="absolute bottom-4 left-4 z-50 bg-black/50 text-white px-3 py-2 rounded hover:bg-black/70 transition-colors"
+            :aria-label="isCarouselPaused ? 'Resume slideshow' : 'Pause slideshow'">
+            {{ isCarouselPaused ? '▶' : '⏸' }}
+        </button>
+
         <img :src="images[currentIndex].src" :alt="images[currentIndex].alt"
             class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
 
@@ -74,6 +104,13 @@ onUnmounted(() => clearTimers());
                 Chemical Marine Inspections
             </h1>
             <p class="mt-2">Gas Detectors — Span Gases — Spare Parts</p>
+        </div> <!-- Slide indicators for accessibility -->
+        <div class="absolute bottom-4 left-1/2 z-50 flex space-x-2" style="transform: translateX(calc(-50% + 2rem));">
+            <button v-for="(image, index) in images" :key="index" type="button" @click="goToSlide(index)"
+                class="w-3 h-3 rounded-full border-2 border-white hover:border-white/80"
+                :class="{ 'bg-white': index === currentIndex, 'bg-transparent': index !== currentIndex }"
+                :aria-label="`Go to slide ${index + 1}: ${image.alt}`">
+            </button>
         </div>
     </section>
 </template>

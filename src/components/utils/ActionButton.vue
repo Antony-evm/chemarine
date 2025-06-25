@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
     <div class="flex justify-center">
-        <router-link :to="to" class="button">
+        <router-link :to="to" class="button" role="button" tabindex="0">
             {{ label }}
         </router-link>
     </div>

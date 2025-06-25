@@ -15,9 +15,11 @@ function openPdf() {
 
 <template>
     <div class="certificate-loader w-full">
-        <img :src="src" :alt="alt" loading="lazy" width="200" height="100"
-            class="certificate-image cursor-pointer transition-transform hover:scale-105" @click="openPdf"
-            draggable="false" />
+        <button type="button" @click="openPdf"
+            class="certificate-image cursor-pointer transition-transform hover:scale-105 border-none bg-transparent p-0"
+            :aria-label="`Open ${alt} PDF document in new window`">
+            <img :src="src" :alt="alt" loading="lazy" width="200" height="100" draggable="false" />
+        </button>
     </div>
     <SpaceComponent size="paragraph" />
 </template>
