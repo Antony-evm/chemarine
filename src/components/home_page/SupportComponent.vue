@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
-import SpaceComponent from '../utils/SpaceComponent.vue';
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 </script>
 
 

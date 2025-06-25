@@ -1,25 +1,10 @@
 <script setup lang="ts">
-import SpaceComponent from "@/components/utils/SpaceComponent.vue";
-import SectionDivider from "@/components/utils/SectionDivider.vue";
-import { useRoute } from "vue-router";
-import { GAS_DETECTION_INSTRUMENTS } from "@/data/gasDetectionInstruments";
-import { ref, onMounted } from "vue";
-import CenteredContent from "@/components/utils/CenteredContent.vue";
-import type { InstrumentData } from "@/data/gasDetectionInstruments";
+import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import SectionDivider from '@/components/utils/SectionDivider.vue';
+import CenteredContent from '@/components/utils/CenteredContent.vue';
+import { useInstrument } from '@/composables/gas_detection_instruments/useInstrumentDetail';
 
-const route = useRoute();
-const { category, instrumentKey } = route.params;
-
-const instrument = ref<InstrumentData | null>(null);
-
-onMounted(() => {
-    for (const section of GAS_DETECTION_INSTRUMENTS) {
-        if (section.instruments[category as string] && section.instruments[category as string][instrumentKey as string]) {
-            instrument.value = section.instruments[category as string][instrumentKey as string];
-            break;
-        }
-    }
-});
+const { instrument } = useInstrument();
 </script>
 
 <template>
