@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import MailIcon from '@/assets/svgs/mailIcon.svg';
 import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPANY_NAME } from '@/data/contactInformation';
 </script>
 
 <template>
-    <CenteredContent>
-        <SpaceComponent size="page" />
-        <h1>Contact Us</h1>
-        <SectionDivider />
+    <ContentSection title="Contact Us" title-tag="h1" with-page-spacing>
         <h2 class="uppercase">{{ COMPANY_NAME }}</h2>
         <SpaceComponent size="paragraph" />
         <div class="centered-element">
@@ -32,8 +28,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
         <div class="centered-element">
             <a href="mailto:info@chemarine.com" class="contact">{{ SECONDARY_EMAIL }} </a>
         </div>
-    </CenteredContent>
-
+    </ContentSection>
 </template>
 
 <style scoped>

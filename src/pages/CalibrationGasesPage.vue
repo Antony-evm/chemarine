@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import CenteredContent from '@/components/utils/CenteredContent.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
 </script>
 
 <template>
-    <SpaceComponent size="page" />
-    <CenteredContent>
-        <h1>Calibration Gases</h1>
-        <SectionDivider />
+    <ContentSection title="Calibration Gases" title-tag="h1" with-page-spacing>
         <p><strong>Chemical Marine Inspections</strong>, in cooperation with <strong>CalGaz International LLC</strong>,
             offers a wide
             range of Calibration Gases to customers. All the Calibration Gases are traceable to international standards
@@ -79,6 +75,5 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
                 </tbody>
             </table>
         </div>
-
-    </CenteredContent>
+    </ContentSection>
 </template>

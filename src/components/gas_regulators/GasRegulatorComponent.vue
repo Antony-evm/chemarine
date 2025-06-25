@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpecificationTable from '@/components/utils/SpecificationTable.vue';
 
 const props = defineProps<{
@@ -16,10 +15,7 @@ const tableLabel = props.title + ' Specifications';
 </script>
 
 <template>
-    <SpaceComponent size="page" />
-    <CenteredContent>
-        <h1>{{ props.title }}</h1>
-        <SectionDivider />
+    <ContentSection :title="props.title" title-tag="h1" with-page-spacing>
         <SpaceComponent size="paragraph" />
         <div class="flex justify-center" v-if="props.imgPath">
             <img :src="props.imgPath" :alt="props.title + ' Regulator'" loading="lazy" width="200" height="70"
@@ -27,5 +23,5 @@ const tableLabel = props.title + ' Specifications';
         </div>
         <SpaceComponent size="paragraph" />
         <SpecificationTable :rows="props.rows" :models="props.models" :table-label="tableLabel" />
-    </CenteredContent>
+    </ContentSection>
 </template>

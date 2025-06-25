@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '../utils/SpaceComponent.vue';
 </script>
 
-
 <template>
-    <CenteredContent>
-        <h2>Fast, Friendly and Reliable Support</h2>
-        <SectionDivider />
+    <ContentSection title="Fast, Friendly and Reliable Support">
         <p>
             Our customer service team is available to answer your question in a friendly and
             reliable way. We are available in a 24/7 module while our effort is to resolve your query in less
@@ -23,5 +19,5 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
             We aim to become a reliable source of information regarding safety issues on board
             vessels.
         </p>
-    </CenteredContent>
+    </ContentSection>
 </template>

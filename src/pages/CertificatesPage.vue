@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import CertificateLoader from '@/components/certificates/CertificateLoader.vue';
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import { COMPANY_NAME } from '@/data/contactInformation';
 
@@ -42,27 +41,20 @@ const certificates = {
 </script>
 
 <template>
-    <CenteredContent>
-        <SpaceComponent size="page" />
-        <h1>Certificates</h1>
-        <SectionDivider />
-
+    <ContentSection title="Certificates" title-tag="h1" with-page-spacing>
         <p>
             At {{ COMPANY_NAME }}, we are committed to delivering world-class services. Our ISO 9001:2015 certification
             by ABS Quality Evaluations underscores our dedication to rigorous
             quality management and continual improvement.
             Our engineers undergo comprehensive, manufacturer-endorsed training to ensure precision and reliability when
             servicing gas detectors, and related safety equipment.
-
         </p>
         <SpaceComponent size="paragraph" />
         <div class="flex flex-row justify-center items-center">
             <CertificateLoader v-for="(certificate, key) in certificates" :key="key" :src="certificate.src"
                 :alt="certificate.alt" :pdf="certificate.pdf" />
         </div>
-
-
-    </CenteredContent>
+    </ContentSection>
 </template>
 
 <style scoped></style>

@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '../utils/SpaceComponent.vue';
 </script>
 
-
 <template>
     <SpaceComponent size="section" />
-    <CenteredContent>
-        <h1>About Chemical Marine Inspections</h1>
-        <SectionDivider />
+    <ContentSection title="About Chemical Marine Inspections" title-tag="h1">
         <p><strong>Chemical Marine Inspections</strong> was established in 2004 in Piraeus, Greece...</p>
         <SpaceComponent size="paragraph" />
         <p>Our company looks forward to becoming:</p>
@@ -25,5 +21,5 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
             competition and become the leading Greek company dealing with gas detection safety issues for the
             marine industry.
         </p>
-    </CenteredContent>
+    </ContentSection>
 </template>

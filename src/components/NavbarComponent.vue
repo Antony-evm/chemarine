@@ -25,7 +25,6 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 }
 </script>
 
-
 <template>
     <nav class="fixed-top liquid-glass navbar-layout" role="navigation" aria-label="Main navigation">
         <div>

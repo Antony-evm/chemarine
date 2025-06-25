@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import CenteredContent from '@/components/utils/CenteredContent.vue';
-import SectionDivider from '@/components/utils/SectionDivider.vue';
+import ContentSection from '@/components/utils/ContentSection.vue';
 import SpaceComponent from '../utils/SpaceComponent.vue';
 </script>
 
-
 <template>
-    <CenteredContent>
-        <h2>Best Quality Products</h2>
-        <SectionDivider />
+    <ContentSection title="Best Quality Products">
         <p>
             We offer advanced technology gas detection equipment from <strong>RKI Instruments
                 Inc</strong> and <strong>GMI Ltd</strong>, both leading manufacturers for gas
@@ -25,5 +21,5 @@ import SpaceComponent from '../utils/SpaceComponent.vue';
             The supplied gases are traceable to international standards and accompanied by an
             analysis certificate, while they offer the best quality with the longest possible shelf life.
         </p>
-    </CenteredContent>
+    </ContentSection>
 </template>
