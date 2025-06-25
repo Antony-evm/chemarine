@@ -18,6 +18,8 @@ const currentIndex = ref(0);
 const nextIndex = ref<number | null>(null);
 const fading = ref(false);
 const isCarouselPaused = ref(false);
+const imageLoadErrors = ref<Record<number, boolean>>({});
+const imagesLoaded = ref<Record<number, boolean>>({});
 
 let carouselTimeout: number | undefined;
 const showTime = 5000;
@@ -28,6 +30,21 @@ function clearTimers() {
         clearTimeout(carouselTimeout);
         carouselTimeout = undefined;
     }
+}
+
+function handleImageLoad(index: number) {
+    imagesLoaded.value[index] = true;
+    imageLoadErrors.value[index] = false;
+}
+
+function handleImageError(index: number) {
+    imageLoadErrors.value[index] = true;
+    imagesLoaded.value[index] = false;
+    console.error(`Failed to load image at index ${index}: ${images[index].src}`);
+}
+
+function shouldShowImage(index: number): boolean {
+    return !imageLoadErrors.value[index];
 }
 
 function scheduleNext() {
@@ -81,23 +98,34 @@ onUnmounted(() => clearTimers());
 
 <template>
     <section class="relative h-screen w-screen flex items-center justify-center overflow-hidden bg-black" role="region"
-        aria-label="Slideshow of chemical marine inspections"> <!-- Pause/Play button for accessibility -->
+        aria-label="Hero slideshow featuring Chemical Marine Inspections" aria-live="polite" aria-atomic="true">
+        <!-- Pause/Play button for accessibility -->
         <button type="button" @click="toggleCarousel"
             class="absolute bottom-4 left-4 z-50 bg-black/50 text-white px-3 py-2 rounded hover:bg-black/70 transition-colors"
             :aria-label="isCarouselPaused ? 'Resume slideshow' : 'Pause slideshow'">
             {{ isCarouselPaused ? '▶' : '⏸' }}
-        </button>
+        </button> <img v-if="shouldShowImage(currentIndex)" :src="images[currentIndex].src"
+            :alt="images[currentIndex].alt" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true"
+            @load="handleImageLoad(currentIndex)" @error="handleImageError(currentIndex)" />
 
-        <img :src="images[currentIndex].src" :alt="images[currentIndex].alt"
-            class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
+        <!-- Fallback content if image fails to load -->
+        <div v-if="imageLoadErrors[currentIndex]"
+            class="absolute inset-0 w-full h-full bg-gradient-to-b from-[#165482] via-[#189ab4] to-[#83c5be] flex items-center justify-center">
+            <div class="text-center text-white">
+                <h2 class="text-2xl font-bold mb-2">Image Loading Error</h2>
+                <p>Unable to load slideshow image</p>
+            </div>
+        </div>
 
-        <img v-if="fading && nextIndex !== null" :src="images[nextIndex].src" :alt="images[nextIndex].alt"
-            class="absolute inset-0 w-full h-full object-cover transition-fade"
-            :class="fading ? 'opacity-0 z-20 animate-fade-in' : ''" aria-hidden="true" />
+        <img v-if="fading && nextIndex !== null && shouldShowImage(nextIndex)" :src="images[nextIndex].src"
+            :alt="images[nextIndex].alt" class="absolute inset-0 w-full h-full object-cover transition-fade"
+            :class="fading ? 'opacity-0 z-20 animate-fade-in' : ''" aria-hidden="true"
+            @load="handleImageLoad(nextIndex)" @error="handleImageError(nextIndex)" />
 
-        <img v-if="fading" :src="images[currentIndex].src" :alt="images[currentIndex].alt"
-            class="absolute inset-0 w-full h-full object-cover transition-fade"
-            :class="fading ? 'opacity-100 z-10 animate-fade-out' : ''" aria-hidden="true" />
+        <img v-if="fading && shouldShowImage(currentIndex)" :src="images[currentIndex].src"
+            :alt="images[currentIndex].alt" class="absolute inset-0 w-full h-full object-cover transition-fade"
+            :class="fading ? 'opacity-100 z-10 animate-fade-out' : ''" aria-hidden="true"
+            @load="handleImageLoad(currentIndex)" @error="handleImageError(currentIndex)" />
 
         <div class="z-30 absolute inset-x-0 text-center drop-shadow-lg pointer-events-none">
             <h1 class="uppercase">

@@ -8,13 +8,13 @@
 
         <ul class="flex gap-8 relative" role="menubar">
             <li role="none"><router-link to="/" class="navbar-element" role="menuitem">About</router-link></li>
-            <li class="relative group" role="none">
-                <button class="navbar-element" role="menuitem" aria-haspopup="true" aria-expanded="false"
-                    @click="toggleDropdown" @keydown="handleDropdownKeydown" ref="productsButton">
+            <li class="relative group" role="none"> <button class="navbar-element" role="menuitem" aria-haspopup="true"
+                    aria-expanded="false" id="productsButton" @click="toggleDropdown" @keydown="handleDropdownKeydown"
+                    ref="productsButton">
                     Products
                 </button>
                 <ul class="liquid-glass w-56 absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform -translate-y-2 transition duration-200 z-50"
-                    role="menu" aria-labelledby="products-button"
+                    role="menu" aria-labelledby="productsButton"
                     :class="{ 'opacity-100 translate-y-0': isDropdownOpen }">
                     <li role="none">
                         <router-link to="/gas-detection-instruments" class="navbar-element" role="menuitem">
