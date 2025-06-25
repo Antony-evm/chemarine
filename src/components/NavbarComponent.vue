@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const isDropdownOpen = ref(false);
+const productsButton = ref<HTMLElement | null>(null);
+
+function toggleDropdown() {
+    isDropdownOpen.value = !isDropdownOpen.value;
+    if (productsButton.value) {
+        productsButton.value.setAttribute('aria-expanded', isDropdownOpen.value.toString());
+    }
+}
+
+function handleDropdownKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleDropdown();
+    } else if (event.key === 'Escape') {
+        isDropdownOpen.value = false;
+        if (productsButton.value) {
+            productsButton.value.setAttribute('aria-expanded', 'false');
+            productsButton.value.focus();
+        }
+    }
+}
+</script>
+
+
 <template>
     <nav class="fixed-top liquid-glass navbar-layout" role="navigation" aria-label="Main navigation">
         <div>
@@ -43,33 +71,6 @@
         </ul>
     </nav>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const isDropdownOpen = ref(false);
-const productsButton = ref<HTMLElement | null>(null);
-
-function toggleDropdown() {
-    isDropdownOpen.value = !isDropdownOpen.value;
-    if (productsButton.value) {
-        productsButton.value.setAttribute('aria-expanded', isDropdownOpen.value.toString());
-    }
-}
-
-function handleDropdownKeydown(event: KeyboardEvent) {
-    if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleDropdown();
-    } else if (event.key === 'Escape') {
-        isDropdownOpen.value = false;
-        if (productsButton.value) {
-            productsButton.value.setAttribute('aria-expanded', 'false');
-            productsButton.value.focus();
-        }
-    }
-}
-</script>
 
 <style scoped>
 .navbar-element {
