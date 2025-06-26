@@ -78,7 +78,7 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 }
 
 .fixed-top {
-    @apply fixed top-0 left-0 w-full z-50
+    @apply fixed top-0 left-0 z-50
 }
 
 .liquid-glass {
@@ -86,6 +86,6 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 }
 
 .navbar-layout {
-    @apply flex items-center justify-between px-8 py-4
+    @apply flex items-center justify-between px-8 py-4 w-full
 }
 </style>

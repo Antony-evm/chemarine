@@ -6,7 +6,22 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "fade-in": "fadeIn 2s forwards",
+        "fade-out": "fadeOut 2s forwards",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };
