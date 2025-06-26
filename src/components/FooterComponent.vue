@@ -2,7 +2,7 @@
 import { PRIMARY_EMAIL, PHONE_NO, COMPANY_NAME } from '@/data/contactInformation';
 </script>
 <template>
-    <footer class="bg-[#0a1f3d] px-8 py-4 w-full">
+    <footer class="bg-[#0a1f3d] padding w-full">
         <div class="flex flex-row items-center justify-between">
             <div class="text-center">
                 <p class="text-lg font-bold">{{ COMPANY_NAME }}</p>

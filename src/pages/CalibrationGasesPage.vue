@@ -39,13 +39,13 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
                     model, material, pressure, content, dimensions, mixtures, and regulator compatibility</caption>
                 <thead class="table-header">
                     <tr>
-                        <th scope="col" class="table-element">Model<br /></th>
-                        <th scope="col" class="table-element">Material</th>
-                        <th scope="col" class="table-element">Pressure</th>
-                        <th scope="col" class="table-element">Gas Content<br />(Liters)</th>
-                        <th scope="col" class="table-element">Dimensions</th>
-                        <th scope="col" class="table-element">Mixtures</th>
-                        <th scope="col" class="table-element">Regulator Compatibility<br /></th>
+                        <th scope="col" class="table-element padding">Model<br /></th>
+                        <th scope="col" class="table-element padding">Material</th>
+                        <th scope="col" class="table-element padding">Pressure</th>
+                        <th scope="col" class="table-element padding">Gas Content<br />(Liters)</th>
+                        <th scope="col" class="table-element padding">Dimensions</th>
+                        <th scope="col" class="table-element padding">Mixtures</th>
+                        <th scope="col" class="table-element padding">Regulator Compatibility<br /></th>
                     </tr>
                 </thead>
                 <tbody class="table-borders">

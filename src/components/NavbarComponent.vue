@@ -27,7 +27,7 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 
 
 <template>
-    <nav class="fixed-top liquid-glass navbar-layout" role="navigation" aria-label="Main navigation">
+    <nav class="fixed-top liquid-glass navbar-layout padding" role="navigation" aria-label="Main navigation">
         <div>
             <router-link to="/" aria-label="Chemical Marine Inspections - Home">
                 Chemical Marine Inspections
@@ -86,6 +86,6 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 }
 
 .navbar-layout {
-    @apply flex items-center justify-between px-8 py-4 w-full
+    @apply flex items-center justify-between w-full
 }
 </style>

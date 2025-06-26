@@ -14,7 +14,7 @@ defineProps<{
             <caption class="sr-only">{{ tableLabel || 'Specification Table' }}</caption>
             <thead class="table-header">
                 <tr>
-                    <th scope="col" class="table-element">
+                    <th scope="col" class="table-element padding">
                         {{ rows[0].label }}
                     </th>
                     <th v-for="item in models" :key="item[rows[0].key]" scope="col" class="table-element">
@@ -25,7 +25,7 @@ defineProps<{
 
             <tbody class="table-borders">
                 <tr v-for="col in rows.filter(c => c.key !== rows[0].key)" :key="col.key">
-                    <th scope="row" class="table-element">
+                    <th scope="row" class="table-element padding">
                         {{ col.label }}
                     </th>
 
