@@ -78,44 +78,4 @@ const {
     will-change: opacity;
     backface-visibility: hidden;
 }
-
-.animate-fade-in {
-    animation: fadeIn 2s forwards;
-}
-
-.animate-fade-out {
-    animation: fadeOut 2s forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-.z-10 {
-    z-index: 10;
-}
-
-.z-20 {
-    z-index: 20;
-}
-
-.bg-black {
-    background: #000;
-}
 </style>
