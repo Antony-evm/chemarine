@@ -11,9 +11,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 <template>
     <CenteredContent>
         <SpaceComponent size="page" />
-
-        <!-- Header Section -->
-        <div class="text-center mb-6 sm:mb-8 md:mb-10">
+        <div>
             <h1>Contact Us</h1>
             <SectionDivider />
             <h2 class="uppercase">{{ COMPANY_NAME }}</h2>
@@ -21,8 +19,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 
         <SpaceComponent size="paragraph" />
 
-        <!-- Contact Information Grid -->
-        <div class="contact-grid space-y-6 sm:space-y-8 md:space-y-10"> <!-- Address Section -->
+        <div class="contact-grid space-y-6 sm:space-y-8 md:space-y-10">
             <div class="contact-section">
                 <div class="contact-card">
                     <div class="contact-icon">
