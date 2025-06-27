@@ -19,8 +19,8 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 
         <SpaceComponent size="paragraph" />
 
-        <div class="contact-grid space-y-6 sm:space-y-8 md:space-y-10">
-            <div class="contact-section">
+        <div class="contact-grid gap-y-6 sm:gap-y-8 md:gap-y-10">
+            <div class="w-full">
                 <div class="contact-card">
                     <div class="contact-icon">
                         <LocationIcon />
@@ -38,7 +38,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
             </div>
 
             <!-- Phone Section -->
-            <div class="contact-section">
+            <div class="w-full">
                 <div class="contact-card">
                     <div class="contact-icon">
                         <PhoneIcon />
@@ -55,7 +55,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
             </div>
 
             <!-- Email Section -->
-            <div class="contact-section">
+            <div class="w-full">
                 <div class="contact-card">
                     <div class="contact-icon">
                         <EmailIcon />
@@ -102,9 +102,6 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
     margin-right: auto;
 }
 
-.contact-section {
-    width: 100%;
-}
 
 .contact-card {
     background-color: rgba(255, 255, 255, 0.1);
@@ -172,8 +169,6 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
     outline-offset: 2px;
 }
 
-/* Responsive Breakpoints */
-
 /* Small screens (640px and up) */
 @media (min-width: 640px) {
     .contact-card {
@@ -220,15 +215,15 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 /* Large screens (1024px and up) */
 @media (min-width: 1024px) {
     .contact-grid {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
+
+        align-items: start;
     }
 
     .contact-card {
-        min-height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @apply h-[250px] flex flex-col justify-start;
     }
 }
 
