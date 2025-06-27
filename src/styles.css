@@ -90,6 +90,23 @@ a {
   @apply overflow-x-auto border-x border-b border-white/30 rounded-lg hidden sm:block;
 }
 
+.content-card {
+  @apply bg-white/30 shadow-lg transition-transform hover:-translate-y-1 backdrop-blur-sm rounded-lg;
+}
+
+.contact-icon {
+  @apply flex justify-center text-graphite mb-3 sm:mb-4;
+}
+
+.contact-icon svg {
+  @apply w-5 h-5 sm:w-6 sm:h-6;
+}
+
+.contact-link {
+  transition: color 0.2s ease;
+  @apply hover:text-teal-200 underline items-center justify-center inline-flex cursor-pointer;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
