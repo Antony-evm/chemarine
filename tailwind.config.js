@@ -13,6 +13,14 @@ module.exports = {
         section: "4rem",
         page: "6rem",
       },
+      colors: {
+        off_white: "#F7FAFC",
+        warm_white: "#FEFAF0",
+        eggshell: "#FEFAF0",
+        charcoal: "#121212",
+        soft_black: "#1E1E1E",
+        graphite: "#0F1624",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },

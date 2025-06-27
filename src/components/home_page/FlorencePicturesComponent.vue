@@ -2,6 +2,7 @@
 import { useCarousel } from '@/composables/home_page/useFlorencePictures';
 import frontpage1 from '@/assets/frontpage/frontpage_1.jpg';
 import frontpage2 from '@/assets/frontpage/frontpage_2.jpg';
+import { COMPANY_NAME } from '@/data/contactInformation';
 
 const images = [
     { src: frontpage1, alt: 'Crew member calibrating gas detector on deck at sunset' },
@@ -57,8 +58,8 @@ const {
 
         <!-- Overlay Text -->
         <div class="z-30 absolute inset-x-0 text-center drop-shadow-lg pointer-events-none">
-            <h1 class="uppercase">Chemical Marine Inspections</h1>
-            <p class="mt-2">Gas Detectors — Span Gases — Spare Parts</p>
+            <h1 class="uppercase text-white">{{ COMPANY_NAME }}</h1>
+            <p class="mt-2 text-white">Gas Detectors — Span Gases — Spare Parts</p>
         </div>
 
         <!-- Indicators -->
