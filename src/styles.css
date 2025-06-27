@@ -75,19 +75,15 @@ a {
 }
 
 .table-element {
-  @apply text-lg text-left;
-}
-
-.table-borders {
-  @apply divide-y divide-white/30;
+  @apply text-center;
 }
 
 .table-header {
-  @apply bg-[#0a1f3d] text-left;
+  @apply bg-charcoal text-warm_white;
 }
 
 .table-styling-sm-plus {
-  @apply overflow-x-auto border-x border-b border-white/30 rounded-lg hidden sm:block;
+  @apply overflow-x-auto border border-charcoal/50 rounded-lg hidden sm:block;
 }
 
 .content-card {
