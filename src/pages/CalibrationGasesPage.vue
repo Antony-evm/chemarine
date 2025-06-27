@@ -3,6 +3,7 @@ import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
+import { COMPANY_NAME } from '@/data/contactInformation';
 </script>
 
 <template>
@@ -11,25 +12,23 @@ import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
         <h1>Calibration Gases</h1>
         <SectionDivider />
         <div class="space-y-4 md:space-y-6">
-            <p><strong>Chemical Marine Inspections</strong>, in cooperation with <strong>CalGaz International
-                    LLC</strong>,
-                offers a wide
-                range of Calibration Gases to customers. All the Calibration Gases are traceable to international
-                standards
-                and accompanied by an analysis certificate. They are offering the best quality with the longest possible
-                shelf life.
+            <p><strong>{{ COMPANY_NAME }}</strong>, in partnership with <strong>CalGaz International LLC</strong>,
+                provides a comprehensive range of precision calibration gases to our customers. All calibration
+                gases are fully traceable to international standards and include comprehensive analysis certificates.
+                We guarantee exceptional quality with extended shelf life to maximize your investment and operational
+                efficiency.
             </p>
 
-            <p>We also offer the required equipment for handling the gas (regulator valves) and the equipment for safe
-                disposal of the empty cylinders (recycling tools).
+            <p>We also supply the essential equipment for gas handling, including regulator valves, and provide
+                equipment for the safe disposal and recycling of empty cylinders.
             </p>
 
-            <p>The Calibration Gases and handling equipment can be dispatched to your nominated forwarder in a short
-                notice.
+            <p>Calibration gases and handling equipment can be dispatched to your nominated forwarder with
+                minimal lead time, ensuring your operations continue without interruption.
             </p>
 
-            <p>The table summarizes the technical characteristics of the Calibration Gas Cylinders we are using. Please
-                follow the links for more details…..
+            <p>The following table details the technical specifications of our calibration gas cylinders.
+                Click on the model links for comprehensive technical documentation.
             </p>
         </div>
 
