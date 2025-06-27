@@ -19,7 +19,7 @@ const { instrument } = useInstrument();
                 <!-- Image container with responsive sizing -->
                 <div class="flex justify-center lg:justify-start items-start flex-shrink-0">
                     <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy"
-                        class="w-48 h-[30rem] sm:w-56 sm:h-[35rem] md:w-64 md:h-[40rem] lg:w-80 lg:h-[50rem] object-contain" />
+                        class="lg:mt-8 w-48 sm:w-56 md:w-64 lg:w-80 max-h-[80vh]" />
                 </div>
 
                 <!-- Features list with responsive spacing -->
