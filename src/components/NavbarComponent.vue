@@ -142,8 +142,8 @@ onUnmounted(() => {
                 </button>
 
                 <transition name="fade-scale">
-                    <ul v-show="isOpen" ref="menu" class="liquid-glass absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg shadow-lg
-                   opacity-0 scale-95 origin-top-left
+                    <ul v-show="isOpen" ref="menu" class="bg-warm-white absolute left-0 mt-2 py-3 px-4 space-y-2 rounded-lg shadow-xl
+                   opacity-0 scale-95 origin-top-left min-w-[240px]
                    transition-all duration-200" :class="{ 'opacity-100 scale-100': isOpen }" role="menu"
                         aria-labelledby="productsButton" @keydown="onMenuKeydown">
                         <li role="none">
@@ -276,19 +276,19 @@ onUnmounted(() => {
 
 .liquid-glass {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .liquid-glass-mobile {
-    background-color: #189ab4;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     z-index: 100;
+    @apply bg-warm_white
 }
 
 .navbar-layout {

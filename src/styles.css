@@ -44,13 +44,26 @@ a {
 
 .button {
   @apply inline-block
-  bg-white
-  text-teal-700
+  bg-graphite text-warm_white
   rounded-full
   shadow
   text-center
   transition
-  hover:bg-teal-100;
+  relative
+  overflow-hidden;
+}
+
+.button::before {
+  content: "";
+  @apply absolute top-0 left-0 h-full w-20 bg-white/40
+         transform -translate-x-full skew-x-12;
+  transition: none;
+}
+
+/* trigger the shine on hover/focus */
+.button:hover::before,
+.button:focus-visible::before {
+  @apply animate-shine;
 }
 
 .padding {

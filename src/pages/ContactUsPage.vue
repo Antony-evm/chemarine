@@ -80,7 +80,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 
         <!-- Call to Action -->
         <div class="mt-8 sm:mt-10 md:mt-12 text-center">
-            <div class="bg-graphite backdrop-blur-sm rounded-lg p-4 sm:p-6 md:p-8 border border-white/20">
+            <div class="backdrop-blur-sm rounded-lg p-4 sm:p-6 md:p-8 border border-white/20">
                 <h3>Get in Touch</h3>
                 <p class="text-sm sm:text-base md:text-lg opacity-90 leading-relaxed">
                     We're here to help with all your marine safety equipment needs.
@@ -97,7 +97,6 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 /* Contact Grid Layout */
 .contact-grid {
     max-width: 56rem;
-    /* max-w-4xl */
     margin-left: auto;
     margin-right: auto;
 }
@@ -146,7 +145,6 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 .contact-link {
     text-decoration: none;
     transition: color 0.2s ease;
-    font-weight: 500;
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0.5rem 0.75rem;
@@ -154,7 +152,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    @apply bg-graphite hover:bg-teal-200 hover:underline;
+    @apply hover:text-teal-200 underline;
 }
 
 
