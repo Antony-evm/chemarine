@@ -10,33 +10,30 @@ import ActionButton from '@/components/utils/ActionButton.vue';
     <CenteredContent>
         <h1>Services</h1>
         <SectionDivider />
-        <p>Our service engineers are certified from the gas detection instruments manufactures and offer highest
-            quality of maintenance to your gas detection instruments. They follow strict servicing & calibrating
+        <p>Our service engineers are certified by gas detection instrument manufacturers and deliver the highest
+            quality maintenance for your gas detection instruments. They follow strict servicing and calibrating
             procedures controlled by our certified ISO 9001:2015 Quality Management System.</p>
         <SectionDivider />
 
-
-        <p>We can offer the calibration of your gas detectors either to our workshop or on board your vessel.
-            Our effort is to offer fastest response time and minimum turnaround without compromising the quality
-            of
-            the services we provide.</p>
+        <h2>Flexible Service Options</h2>
+        <SpaceComponent size="paragraph" />
+        <p>We offer calibration services for your gas detectors either at our workshop or on board your vessel.
+            Our commitment is to provide the fastest response time and minimum turnaround while maintaining
+            the highest quality standards in all services we provide.</p>
 
         <SectionDivider />
 
-        <p>We are always using genuine spare parts for any repair maybe needed.
-            The test gases used for the calibration of the gas detectors are in line with the specifications of
-            the
-            gas detection instruments manufacturers and traceable to international standards.</p>
+        <h2>Quality Assurance</h2>
+        <SpaceComponent size="paragraph" />
+        <p>We use only manufacturer-approved spare parts for any repairs that may be required.
+            The test gases used for calibration are fully compliant with gas detection instrument manufacturers'
+            specifications and are traceable to international standards, ensuring accuracy and reliability.</p>
 
-        <p>We are always using genuine spare parts for any repair maybe needed.
-            The test gases used for the calibration of the gas detectors are in line with the specifications of
-            the
-            gas detection instruments manufacturers and traceable to international standards.</p>
+        <SpaceComponent size="paragraph" />
 
-        <p>We are always using genuine spare parts for any repair maybe needed.
-            The test gases used for the calibration of the gas detectors are in line with the specifications of
-            the
-            gas detection instruments manufacturers and traceable to international standards.</p>
+        <p>Our comprehensive approach includes thorough documentation, quality control procedures, and
+            post-service verification to guarantee that your equipment meets all safety requirements and
+            operational standards.</p>
 
         <SectionDivider />
         <ActionButton :to="{ name: 'Contact' }" label="Contact Our Service Team" />

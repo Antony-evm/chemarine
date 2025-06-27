@@ -6,13 +6,14 @@ import SectionDivider from '@/components/utils/SectionDivider.vue';
 
 <template>
     <CenteredContent>
-        <h2>Years of Experience in Gas Detection</h2>
+        <h2>Decades of Expertise in Marine Gas Detection</h2>
         <SectionDivider />
         <p>
-            Our staff are Chemical and Electrical Engineers having a combined experience of more
-            than 40 years in safety issues in the marine industry. Our certificates for servicing gas
-            detectors are regularly updated through the attendance of training courses provided by the
-            manufacturers.
+            Our team consists of qualified Chemical and Electrical Engineers with over 40 years
+            of combined experience in marine safety systems. We maintain the highest standards
+            of technical competency through continuous professional development, regularly attending
+            manufacturer-certified training programs to ensure our service certifications remain
+            current and comprehensive.
         </p>
     </CenteredContent>
 </template>

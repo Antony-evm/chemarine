@@ -2,28 +2,51 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
+import { COMPANY_NAME } from '@/data/contactInformation';
 </script>
 
 
 <template>
     <CenteredContent>
-        <h2>Best Quality Products</h2>
+        <h2>Premium Quality Products</h2>
         <SectionDivider />
-        <p>
-            We offer advanced technology gas detection equipment from <strong>RKI Instruments
-                Inc</strong> and <strong>GMI Ltd</strong>, both leading manufacturers for gas
-            detectors in marine industry. These instruments are certified to the highest standards. They are
-            designed to withstand the harsh environment of a vessel without compromising their
-            functionality and the safety of the user.<br />
-
+        <div class="space-y-4">
+            <p>
+                We supply cutting-edge gas detection equipment from industry-leading manufacturers
+                <strong>RKI Instruments Inc</strong> and <strong>GMI Ltd</strong>, both renowned
+                for their excellence in marine gas detection technology. Our instruments are certified
+                to the highest international standards and engineered to perform reliably in the
+                demanding marine environment while ensuring maximum user safety.
+            </p>
             <SpaceComponent size="paragraph" />
-            We also offer the required span gases for testing & calibrating the gas detectors.
-            <strong>CalGaz International LLC</strong> is a leading manufacturer for calibration
-            gases.
-
+            <p>
+                In addition to detection equipment, we provide essential calibration gases through our
+                partnership with <strong>CalGaz International LLC</strong>, a premier manufacturer
+                of precision calibration gases for testing and maintaining gas detection systems.
+            </p>
             <SpaceComponent size="paragraph" />
-            The supplied gases are traceable to international standards and accompanied by an
-            analysis certificate, while they offer the best quality with the longest possible shelf life.
-        </p>
+
+            <p>
+                All calibration gases are fully traceable to international standards and include
+                comprehensive analysis certificates. We guarantee exceptional quality with extended
+                shelf life to maximize your investment and operational efficiency.
+            </p>
+            <SpaceComponent size="paragraph" />
+
+            <h3>Our Quality Policy</h3>
+            <p>
+                At <strong> {{ COMPANY_NAME }}</strong>, quality is not just a commitment, it's our foundation.
+                We are dedicated to providing products and services that exceed international maritime
+                safety standards while continuously improving our processes through our ISO 9001:2015
+                certified Quality Management System.
+            </p>
+            <SpaceComponent size="paragraph" />
+            <p>
+                Our quality policy encompasses rigorous testing procedures, comprehensive documentation,
+                and ongoing training to ensure every product we deliver meets the highest standards of
+                reliability and performance. We believe that uncompromising quality is essential for
+                protecting lives at sea and maintaining operational excellence in the maritime industry.
+            </p>
+        </div>
     </CenteredContent>
 </template>
