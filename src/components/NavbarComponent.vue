@@ -1,30 +1,98 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
-const isDropdownOpen = ref(false);
-const productsButton = ref<HTMLElement | null>(null);
+const isOpen = ref(false)
+const openedByKeyboard = ref(false)
+const trigger = ref<HTMLElement | null>(null)
+const menu = ref<HTMLElement | null>(null)
 
+// keep aria-expanded in sync
+function updateAria() {
+    if (trigger.value) {
+        trigger.value.setAttribute('aria-expanded', String(isOpen.value))
+    }
+}
+
+// open (mouse or keyboard)
+function openDropdown(byKeyboard = false) {
+    openedByKeyboard.value = byKeyboard
+    isOpen.value = true
+    updateAria()
+    if (byKeyboard) {
+        // move focus into the menu
+        nextTick(() => {
+            menu.value
+                ?.querySelector<HTMLElement>('[role="menuitem"]')
+                ?.focus()
+        })
+    }
+}
+
+// close and reset keyboard flag
+function closeDropdown() {
+    isOpen.value = false
+    openedByKeyboard.value = false
+    updateAria()
+    trigger.value?.focus()
+}
+
+// toggle on click
 function toggleDropdown() {
-    isDropdownOpen.value = !isDropdownOpen.value;
-    if (productsButton.value) {
-        productsButton.value.setAttribute('aria-expanded', isDropdownOpen.value.toString());
+    if (isOpen.value) {
+        closeDropdown()
+    } else {
+        openDropdown(false)
     }
 }
 
-function handleDropdownKeydown(event: KeyboardEvent) {
-    if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleDropdown();
-    } else if (event.key === 'Escape') {
-        isDropdownOpen.value = false;
-        if (productsButton.value) {
-            productsButton.value.setAttribute('aria-expanded', 'false');
-            productsButton.value.focus();
-        }
+// keyboard on the trigger
+function onTriggerKeydown(e: KeyboardEvent) {
+    switch (e.key) {
+        case 'Enter':
+        case ' ':
+            e.preventDefault()
+            openDropdown(true)
+            break
+        case 'Escape':
+            e.preventDefault()
+            closeDropdown()
+            break
     }
 }
+
+// arrow‐key navigation inside the menu
+function onMenuKeydown(e: KeyboardEvent) {
+    const items = Array.from(
+        menu.value?.querySelectorAll<HTMLElement>('[role="menuitem"]') || []
+    )
+    const idx = items.findIndex(i => i === document.activeElement)
+    if (!items.length) return
+
+    if (e.key === 'ArrowDown') {
+        e.preventDefault()
+        items[(idx + 1) % items.length].focus()
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        items[(idx - 1 + items.length) % items.length].focus()
+    } else if (e.key === 'Escape') {
+        e.preventDefault()
+        closeDropdown()
+    }
+}
+
+// click‐away to close
+function onClickOutside(e: MouseEvent) {
+    if (
+        !trigger.value?.contains(e.target as Node) &&
+        !menu.value?.contains(e.target as Node)
+    ) {
+        closeDropdown()
+    }
+}
+
+onMounted(() => document.addEventListener('click', onClickOutside))
+onUnmounted(() => document.removeEventListener('click', onClickOutside))
 </script>
-
 
 <template>
     <nav class="fixed-top liquid-glass navbar-layout padding" role="navigation" aria-label="Main navigation">
@@ -36,30 +104,37 @@ function handleDropdownKeydown(event: KeyboardEvent) {
 
         <ul class="flex gap-8 relative" role="menubar">
             <li role="none"><router-link to="/" class="navbar-element" role="menuitem">About</router-link></li>
-            <li class="relative group" role="none"> <button class="navbar-element" role="menuitem" aria-haspopup="true"
-                    aria-expanded="false" id="productsButton" @click="toggleDropdown" @keydown="handleDropdownKeydown"
-                    ref="productsButton">
+            <li class="relative" role="none" @mouseenter="() => { if (!openedByKeyboard.valueOf()) openDropdown() }"
+                @mouseleave="() => { if (!openedByKeyboard.valueOf()) closeDropdown() }">
+                <button ref="trigger" @click="toggleDropdown" @keydown="onTriggerKeydown" class="navbar-element"
+                    role="menuitem" aria-haspopup="true" aria-expanded="false" id="productsButton">
                     Products
                 </button>
-                <ul class="liquid-glass w-56 absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform -translate-y-2 transition duration-200 z-50"
-                    role="menu" aria-labelledby="productsButton"
-                    :class="{ 'opacity-100 translate-y-0': isDropdownOpen }">
-                    <li role="none">
-                        <router-link to="/gas-detection-instruments" class="navbar-element" role="menuitem">
-                            Gas Detection Instruments
-                        </router-link>
-                    </li>
-                    <li role="none">
-                        <router-link to="/calibration-gases" class="navbar-element" role="menuitem">
-                            Calibration Gases
-                        </router-link>
-                    </li>
-                    <li role="none">
-                        <router-link to="/spare-parts" class="navbar-element" role="menuitem">
-                            Spare Parts
-                        </router-link>
-                    </li>
-                </ul>
+
+                <transition name="fade-scale">
+                    <ul v-show="isOpen" ref="menu" class="liquid-glass absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg shadow-lg
+                   opacity-0 scale-95 origin-top-left
+                   transition-all duration-200" :class="{ 'opacity-100 scale-100': isOpen }" role="menu"
+                        aria-labelledby="productsButton" @keydown="onMenuKeydown">
+                        <li role="none">
+                            <router-link to="/gas-detection-instruments" class="navbar-element block" role="menuitem"
+                                tabindex="-1">
+                                Gas Detection Instruments
+                            </router-link>
+                        </li>
+                        <li role="none">
+                            <router-link to="/calibration-gases" class="navbar-element block" role="menuitem"
+                                tabindex="-1">
+                                Calibration Gases
+                            </router-link>
+                        </li>
+                        <li role="none">
+                            <router-link to="/spare-parts" class="navbar-element block" role="menuitem" tabindex="-1">
+                                Spare Parts
+                            </router-link>
+                        </li>
+                    </ul>
+                </transition>
             </li>
 
             <li role="none"><router-link to="/services" class="navbar-element" role="menuitem">Services</router-link>

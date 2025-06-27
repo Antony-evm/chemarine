@@ -20,14 +20,14 @@ const props = defineProps<{
     <SpaceComponent size="paragraph" />
     <h2>{{ props.title }}</h2>
     <SectionDivider />
-    <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="mb-8 w-full">
+    <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="my-4 sm:my-6 md:my-8 w-full">
         <div class="flex flex-row flex-wrap justify-left">
-            <div v-for="(instrument, instKey) in group" :key="instKey" class="m-2 max-w-xs">
+            <div v-for="(instrument, instKey) in group" :key="instKey" class="mx-4 sm:mx-6 md:mx-8">
                 <div class="flex justify-center">
-                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy"
-                        class="w-48 h-32 object-contain" />
+                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="
+            w-32 h-22 sm:w-40 sm:h-26 md:w-48 md:h-32 lg:w-56 lg:h-38 object-contain" />
                 </div>
-                <p class="text-center mt-2">{{ instrument.title }}</p>
+                <p class="text-center mt-3 sm:mt-6">{{ instrument.title }}</p>
                 <ActionButton
                     :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
                     label="Read More" />
