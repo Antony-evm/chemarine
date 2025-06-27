@@ -21,19 +21,23 @@ const props = defineProps<{
     <h2>{{ props.title }}</h2>
     <SectionDivider />
     <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="my-4 sm:my-6 md:my-8 w-full">
-        <div class="flex flex-row flex-wrap justify-left">
-            <div v-for="(instrument, instKey) in group" :key="instKey" class="mx-4 sm:mx-6 md:mx-8">
-                <div class="flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+            <div v-for="(instrument, instKey) in group" :key="instKey"
+                class="flex flex-col items-center w-full max-w-xs">
+                <div class="flex justify-center items-center h-32 sm:h-36 md:h-40 lg:h-44 w-full">
                     <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="
-            w-32 h-22 sm:w-40 sm:h-26 md:w-48 md:h-32 lg:w-56 lg:h-38 object-contain" />
+                        max-w-full max-h-full object-contain" />
                 </div>
-                <p class="text-center mt-3 sm:mt-6">{{ instrument.title }}</p>
-                <ActionButton
-                    :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
-                    label="Read More" />
+                <p class="text-center mt-3 sm:mt-4 h-12 sm:h-14 flex items-center justify-center px-2">{{
+                    instrument.title }}</p>
+                <div class="mt-2 w-full flex justify-center">
+                    <ActionButton
+                        :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
+                        label="Read More" />
+                </div>
             </div>
-            <SpaceComponent size="paragraph" />
         </div>
+        <SpaceComponent size="paragraph" />
     </div>
     <SpaceComponent size="paragraph" />
 </template>
