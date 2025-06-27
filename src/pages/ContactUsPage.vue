@@ -173,6 +173,7 @@ import { ADDRESS, CITY, COUNTRY, PHONE_NO, PRIMARY_EMAIL, SECONDARY_EMAIL, COMPA
 @media (min-width: 640px) {
     .contact-card {
         padding: 1.5rem;
+        margin: 1rem;
     }
 
     .contact-label {
