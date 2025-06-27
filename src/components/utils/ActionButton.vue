@@ -6,8 +6,8 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex justify-center">
-        <router-link :to="to" class="button" role="button" tabindex="0">
+    <div class="flex justify-center mt-3 sm:mt-6">
+        <router-link :to="to" class="button padding" role="button" tabindex="0">
             {{ label }}
         </router-link>
     </div>

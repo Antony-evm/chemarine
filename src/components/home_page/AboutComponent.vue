@@ -2,28 +2,31 @@
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '../utils/SpaceComponent.vue';
+import { COMPANY_NAME } from '@/data/contactInformation';
 </script>
 
 
 <template>
     <SpaceComponent size="section" />
     <CenteredContent>
-        <h1>About Chemical Marine Inspections</h1>
+        <h1>{{ COMPANY_NAME }}</h1>
         <SectionDivider />
-        <p><strong>Chemical Marine Inspections</strong> was established in 2004 in Piraeus, Greece...</p>
+        <p><strong>{{ COMPANY_NAME }}</strong> was established in 2004 in Piraeus, Greece, strategically located at the
+            heart of the international marine industry.</p>
         <SpaceComponent size="paragraph" />
-        <p>Our company looks forward to becoming:</p>
+        <p>We are committed to excellence in three key areas:</p>
         <SpaceComponent size="paragraph" />
-        <ul class="list-disc pl-6">
-            <li>a reliable supplier for gas detection instruments, spare parts and their consumables</li>
-            <li>a reliable service station for servicing gas detection instruments.</li>
-            <li>a reliable source of information related to safety issues in the marine industry.</li>
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Providing reliable gas detection instruments, spare parts, and galibration gases to the maritime sector
+            </li>
+            <li>Delivering professional servicing and maintenance for gas detection equipment</li>
+            <li>Serving as a trusted resource for marine safety information and best practices</li>
         </ul>
         <SpaceComponent size="paragraph" />
-        <p>Our extensive knowledge and expertise in gas detection along with the cooperation with
-            internationally recognized manufacturers allows Chemical Marine Inspections to stand out of the
-            competition and become the leading Greek company dealing with gas detection safety issues for the
-            marine industry.
+        <p>Through our extensive expertise in gas detection technology and strategic partnerships with
+            internationally recognized manufacturers, {{ COMPANY_NAME }} has established itself as
+            Greece's leading specialist in marine gas detection safety solutions. Our dedication to
+            quality and safety continues to set us apart in the competitive maritime industry.
         </p>
     </CenteredContent>
 </template>

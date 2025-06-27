@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        component: "1.5rem",
+        paragraph: "2rem",
+        section: "4rem",
+        page: "6rem",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },

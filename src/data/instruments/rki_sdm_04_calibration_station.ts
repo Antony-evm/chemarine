@@ -1,4 +1,4 @@
-import path from "@/assets/gas_detection_instruments/rki_sdm_3r_calibration_station.png";
+import path from "@/assets/gas_detection_instruments/rki_sdm_04_calibration_station.png";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const rki_sdm_04_calibration_station = createInstrumentWithImport(

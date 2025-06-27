@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 
 const props = defineProps<{
     src: string;
@@ -14,27 +13,21 @@ function openPdf() {
 </script>
 
 <template>
-    <div class="certificate-loader w-full">
+    <div class="certificate-loader">
         <button type="button" @click="openPdf"
             class="certificate-image cursor-pointer transition-transform hover:scale-105 border-none bg-transparent p-0"
             :aria-label="`Open ${alt} PDF document in new window`">
-            <img :src="src" :alt="alt" loading="lazy" width="200" height="100" draggable="false" />
+            <img :src="src" :alt="alt" class="w-full h-auto object-contain" loading="lazy" draggable="false" />
         </button>
     </div>
-    <SpaceComponent size="paragraph" />
 </template>
 
 <style scoped>
 .certificate-loader {
-    display: flex;
-    margin: 1rem;
+    @apply flex justify-center px-4
 }
 
 .certificate-image {
-    max-width: 50rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    @apply flex-shrink-0 flex w-[100px] sm:w-[150px] md:w-[200px] border-2 border-gray-300 rounded-lg overflow-hidden shadow-sm transform transition-transform duration-200 hover:scale-105
 }
 </style>

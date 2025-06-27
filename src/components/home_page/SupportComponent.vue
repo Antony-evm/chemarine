@@ -15,13 +15,13 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
             than 24 hours.
             <SpaceComponent size="paragraph" />
             The service of any gas detector is carried out according to the manufacturer's
-            procedures and we are using only genuine spare parts. Our effort is to minimize the turnaround time
+            procedures and we use only manufacturer-approved spare parts. Our effort is to minimize the turnaround time
             without compromising the quality of the offered services. Our service engineers follow
             strict servicing & calibrating procedures controlled by our certified ISO 9001:2015
             Quality Management System.
             <SpaceComponent size="paragraph" />
-            We aim to become a reliable source of information regarding safety issues on board
-            vessels.
+            We serve as a trusted resource for maritime safety information and best practices
+            for vessels worldwide.
         </p>
     </CenteredContent>
 </template>

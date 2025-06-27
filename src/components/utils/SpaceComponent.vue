@@ -5,20 +5,19 @@ const props = defineProps<{
     size?: "page" | "section" | "paragraph";
 }>();
 
-const height = computed(() => {
+const heightClasses = computed(() => {
     switch (props.size) {
-        case "page":
-            return "6rem";
-        case "section":
-            return "4rem";
-        case "paragraph":
-            return "2rem";
+        case 'section':
+            return 'h-paragraph sm:h-section md:h-page'
+        case 'page':
+            return 'h-page'
+        case 'paragraph':
         default:
-            return "6rem"; // fallback
+            return 'h-component sm:h-paragraph'
     }
-});
+})
 </script>
 
 <template>
-    <div class="w-full" :style="{ height }"></div>
+    <div class="w-full" :class="heightClasses" />
 </template>

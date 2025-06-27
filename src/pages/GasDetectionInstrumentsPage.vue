@@ -10,13 +10,13 @@ import GasDetectionInstrumentCategory from '@/components/gas_detection_instrumen
 <template>
     <SpaceComponent size="page" />
     <CenteredContent>
-        <h1>Gas Detection Instruments Gases</h1>
+        <h1>Gas Detection Instruments</h1>
         <SectionDivider />
-        <p><strong>{{ COMPANY_NAME }}</strong> offers advanced technology gas detection
-            equipment from <strong>RKI Instruments Inc</strong> and <strong>GMI Ltd</strong>, both leading manufacturers
-            for gas detectors in marine
-            industry. These instruments are certified to the highest standards. They are designed to withstand the harsh
-            environment of a vessel without compromising their functionality and the safety of the user.
+        <p><strong>{{ COMPANY_NAME }}</strong> supplies cutting-edge gas detection equipment from industry-leading
+            manufacturers <strong>RKI Instruments Inc</strong> and <strong>GMI Ltd</strong>, both renowned for their
+            excellence in marine gas detection technology. Our instruments are certified to the highest international
+            standards and engineered to perform reliably in the demanding marine environment while ensuring maximum
+            user safety.
         </p>
         <SpaceComponent size="paragraph" />
         <GasDetectionInstrumentCategory v-for="category in GAS_DETECTION_INSTRUMENTS" :key="category.title"

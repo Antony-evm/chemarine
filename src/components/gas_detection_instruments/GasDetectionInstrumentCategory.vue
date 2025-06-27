@@ -20,20 +20,24 @@ const props = defineProps<{
     <SpaceComponent size="paragraph" />
     <h2>{{ props.title }}</h2>
     <SectionDivider />
-    <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="mb-8 w-full">
-        <div class="flex flex-row flex-wrap justify-left">
-            <div v-for="(instrument, instKey) in group" :key="instKey" class="m-2 max-w-xs">
-                <div class="flex justify-center">
-                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy"
-                        class="w-48 h-32 object-contain" />
+    <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="my-4 sm:my-6 md:my-8 w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+            <div v-for="(instrument, instKey) in group" :key="instKey"
+                class="flex flex-col items-center w-full max-w-xs">
+                <div class="flex justify-center items-center h-32 sm:h-36 md:h-40 lg:h-44 w-full">
+                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="
+                        max-w-full max-h-full object-contain" />
                 </div>
-                <p class="text-center mt-2">{{ instrument.title }}</p>
-                <ActionButton
-                    :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
-                    label="Read More" />
+                <p class="text-center mt-3 sm:mt-4 h-12 sm:h-14 flex items-center justify-center px-2">{{
+                    instrument.title }}</p>
+                <div class="mt-2 w-full flex justify-center">
+                    <ActionButton
+                        :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
+                        label="Read More" />
+                </div>
             </div>
-            <SpaceComponent size="paragraph" />
         </div>
+        <SpaceComponent size="paragraph" />
     </div>
     <SpaceComponent size="paragraph" />
 </template>
