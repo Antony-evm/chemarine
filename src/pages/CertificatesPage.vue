@@ -50,16 +50,17 @@ const certificates = {
         <p>
             At {{ COMPANY_NAME }}, we are committed to delivering world-class services. Our ISO 9001:2015 certification
             by ABS Quality Evaluations underscores our dedication to rigorous
-            quality management and continual improvement.
-            Our engineers undergo comprehensive, manufacturer-endorsed training to ensure precision and reliability when
+            quality management and continual improvement. Our engineers undergo comprehensive, manufacturer-endorsed
+            training to ensure precision and reliability when
             servicing gas detectors, and related safety equipment.
 
         </p>
         <SpaceComponent size="paragraph" />
-        <div class="flex flex-row justify-center items-center">
+        <div class="flex flex-wrap justify-center gap-4 px-4">
             <CertificateLoader v-for="(certificate, key) in certificates" :key="key" :src="certificate.src"
                 :alt="certificate.alt" :pdf="certificate.pdf" />
         </div>
+        <SpaceComponent size="paragraph" />
 
 
     </CenteredContent>
