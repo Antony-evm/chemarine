@@ -10,7 +10,7 @@ const heightClasses = computed(() => {
         case 'section':
             return 'h-paragraph sm:h-section md:h-page'
         case 'page':
-            return 'h-section  sm:h-page   md:h-page'
+            return 'h-page'
         case 'paragraph':
         default:
             return 'h-component sm:h-paragraph'
