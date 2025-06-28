@@ -38,7 +38,12 @@ h3 {
 
 p,
 li,
-a {
+a,
+span {
+  @apply text-base sm:text-lg md:text-xl;
+}
+
+.my-text-size {
   @apply text-base sm:text-lg md:text-xl;
 }
 

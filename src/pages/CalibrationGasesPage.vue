@@ -34,36 +34,35 @@ import { COMPANY_NAME } from '@/data/contactInformation';
 
         <SpaceComponent size="paragraph" />
 
-        <div class="flex justify-center mb-6">
+        <div class="flex mx-auto justify-center w-[100px] sm:w-[150px] md:w-[200px] mb-6">
             <img src="@/assets/calibration_gases/calgaz_cylinders_and_accessories.png" alt="Calibration Gas Cylinders"
-                loading="lazy"
-                class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain" />
+                loading="lazy" class="w-full h-auto object-contain" />
         </div>
 
         <!-- Mobile: Card Layout -->
         <div class="block md:hidden space-y-4">
             <div v-for="(item, index) in GASCYLINDERS" :key="index"
                 class="border border-gray-300 rounded-lg p-4 shadow-sm">
-                <h3 class="font-semibold text-lg mb-3 text-[#0a1f3d]">
+                <h3 class="table-header">
                     <a :href="item.pdfModelUrl" class="underline" target="_blank" rel="noopener noreferrer">
                         {{ item.model }}
                     </a>
                 </h3>
-                <div class="space-y-2 text-sm">
-                    <div><span class="font-medium">Material:</span> {{ item.material }}</div>
-                    <div><span class="font-medium">Pressure:</span> {{ item.pressure }}</div>
-                    <div><span class="font-medium">Gas Content:</span> {{ item.content }} Liters</div>
-                    <div><span class="font-medium">Dimensions:</span> {{ item.dimensions }}</div>
-                    <div><span class="font-medium">Mixtures:</span>
+                <div class="space-y-2">
+                    <div><span class="table-element padding">Material:</span> {{ item.material }}</div>
+                    <div><span class="table-element padding">Pressure:</span> {{ item.pressure }}</div>
+                    <div><span class="table-element padding">Gas Content:</span> {{ item.content }} Liters</div>
+                    <div><span class="table-element padding">Dimensions:</span> {{ item.dimensions }}</div>
+                    <div><span class="table-element padding">Mixtures:</span>
                         <span v-for="(mixture, i) in item.mixtures" :key="i">
                             {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                         </span>
                     </div>
-                    <div><span class="font-medium">Regulator Compatibility:</span>
+                    <div><span class="table-element padding my-text-size">Regulator Compatibility:</span>
                         <span v-for="(comp, i) in item.compatibility" :key="i">
                             <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                 :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                class="underline text-[#0a1f3d]">
+                                class="underline">
                                 {{ comp }}
                             </router-link>
                             <span v-else>{{ comp }}</span>
@@ -76,43 +75,44 @@ import { COMPANY_NAME } from '@/data/contactInformation';
 
         <!-- Desktop: Table Layout -->
         <div class="hidden md:block overflow-x-auto">
-            <div class="table-styling">
-                <table class="min-w-full text-sm lg:text-base" aria-label="Calibration Gas Cylinders Specifications">
+            <div class="table-styling-sm-plus">
+                <table class="min-w-full table-auto border-collapse"
+                    aria-label="Calibration Gas Cylinders Specifications">
                     <caption class="sr-only">Technical specifications of available calibration gas cylinders including
                         model, material, pressure, content, dimensions, mixtures, and regulator compatibility</caption>
                     <thead class="table-header">
                         <tr>
-                            <th scope="col" class="table-element padding">Model</th>
-                            <th scope="col" class="table-element padding">Material</th>
-                            <th scope="col" class="table-element padding">Pressure</th>
-                            <th scope="col" class="table-element padding">Gas Content<br />(Liters)</th>
-                            <th scope="col" class="table-element padding">Dimensions</th>
-                            <th scope="col" class="table-element padding">Mixtures</th>
-                            <th scope="col" class="table-element padding">Regulator Compatibility</th>
+                            <th scope="col" class="table-element padding font-normal">Model</th>
+                            <th scope="col" class="table-element padding font-normal">Material</th>
+                            <th scope="col" class="table-element padding font-normal">Pressure</th>
+                            <th scope="col" class="table-element padding font-normal">Gas Content<br />(Liters)</th>
+                            <th scope="col" class="table-element padding font-normal">Dimensions</th>
+                            <th scope="col" class="table-element padding font-normal">Mixtures</th>
+                            <th scope="col" class="table-element padding font-normal">Regulator Compatibility</th>
                         </tr>
                     </thead>
                     <tbody class="table-borders">
                         <tr v-for="(item, index) in GASCYLINDERS" :key="index">
-                            <th scope="row" class="table-element text-[#0a1f3d] underline">
-                                <a :href="item.pdfModelUrl" class="table-element" target="_blank"
+                            <td class="table-element padding underline my-text-size font-normal">
+                                <a :href="item.pdfModelUrl" class='table-element my-text-size' target="_blank"
                                     rel="noopener noreferrer">
                                     {{ item.model }}
                                 </a>
-                            </th>
-                            <td class="table-element">{{ item.material }}</td>
-                            <td class="table-element">{{ item.pressure }}</td>
-                            <td class="table-element">{{ item.content }}</td>
-                            <td class="table-element">{{ item.dimensions }}</td>
-                            <td class="table-element">
+                            </td>
+                            <td class="table-element padding">{{ item.material }}</td>
+                            <td class="table-element padding">{{ item.pressure }}</td>
+                            <td class="table-element padding">{{ item.content }}</td>
+                            <td class="table-element padding">{{ item.dimensions }}</td>
+                            <td class="table-element padding">
                                 <template v-for="(mixture, i) in item.mixtures" :key="i">
                                     {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                                 </template>
                             </td>
-                            <td class="table-element text-[#0a1f3d] underline">
+                            <td class="table-element padding underline my-text-size">
                                 <template v-for="(comp, i) in item.compatibility" :key="i">
                                     <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                         :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                        class="underline text-[#0a1f3d]">
+                                        class="table-element underline my-text-size">
                                         {{ comp }}
                                     </router-link>
                                     <span v-else>{{ comp }}</span>
