@@ -15,7 +15,7 @@ const { instrument } = useInstrument();
             <SectionDivider />
 
             <!-- Mobile: Stack vertically, Desktop: Side by side -->
-            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6 lg:gap-8">
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:items-start gap-6 lg:gap-8">
                 <!-- Image container with responsive sizing -->
                 <div class="flex justify-center lg:justify-start items-start flex-shrink-0">
                     <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy"
@@ -23,10 +23,10 @@ const { instrument } = useInstrument();
                 </div>
 
                 <!-- Features list with responsive spacing -->
-                <div class="flex-1 lg:ml-8">
+                <div class="flex-1 lg:ml-8 text-center">
                     <h3>Features</h3>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li v-for="f in instrument.features" :key="f" v-html="f" class="leading-relaxed" />
+                    <ul class="list-disc space-y-2 inline-block text-left pl-6">
+                        <li v-for="f in instrument.features" :key="f" v-html="f" />
                     </ul>
                 </div>
             </div>

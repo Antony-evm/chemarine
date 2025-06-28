@@ -13,6 +13,14 @@ module.exports = {
         section: "4rem",
         page: "6rem",
       },
+      colors: {
+        off_white: "#F7FAFC",
+        warm_white: "#FEFAF0",
+        eggshell: "#FEFAF0",
+        charcoal: "#121212",
+        soft_black: "#1E1E1E",
+        graphite: "#0F1624",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
@@ -22,10 +30,15 @@ module.exports = {
           "0%": { opacity: "1" },
           "100%": { opacity: "0" },
         },
+        shine: {
+          "0%": { transform: "translateX(-100%) skewX(12deg)" },
+          "100%": { transform: "translateX(400%) skewX(12deg)" },
+        },
       },
       animation: {
         "fade-in": "fadeIn 2s forwards",
         "fade-out": "fadeOut 2s forwards",
+        shine: "shine 0.8s forwards",
       },
     },
   },

@@ -23,7 +23,7 @@ const props = defineProps<{
     <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="my-4 sm:my-6 md:my-8 w-full">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
             <div v-for="(instrument, instKey) in group" :key="instKey"
-                class="flex flex-col items-center w-full max-w-xs">
+                class="content-card flex flex-col items-center w-full max-w-xs p-4 lg:p-6">
                 <div class="flex justify-center items-center h-32 sm:h-36 md:h-40 lg:h-44 w-full">
                     <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="
                         max-w-full max-h-full object-contain" />

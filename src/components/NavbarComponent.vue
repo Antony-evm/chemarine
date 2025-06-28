@@ -142,8 +142,8 @@ onUnmounted(() => {
                 </button>
 
                 <transition name="fade-scale">
-                    <ul v-show="isOpen" ref="menu" class="liquid-glass absolute left-0 mt-2 py-2 px-4 space-y-2 rounded-lg shadow-lg
-                   opacity-0 scale-95 origin-top-left
+                    <ul v-show="isOpen" ref="menu" class="bg-warm_white absolute left-0 mt-2 py-3 px-4 space-y-2 rounded-lg shadow-xl
+                   opacity-0 scale-95 origin-top-left min-w-[240px]
                    transition-all duration-200" :class="{ 'opacity-100 scale-100': isOpen }" role="menu"
                         aria-labelledby="productsButton" @keydown="onMenuKeydown">
                         <li role="none">
@@ -174,7 +174,7 @@ onUnmounted(() => {
             <li role="none"><router-link to="/contact" class="navbar-element" role="menuitem">Contact Us</router-link>
             </li>
         </ul> <button ref="mobileMenuButton"
-            class="md:hidden inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 relative z-[110]"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-md relative z-[110]"
             @click.stop="toggleMobileMenu" :aria-expanded="isMobileOpen" aria-label="Toggle navigation menu">
             <!-- Hamburger Icon -->
             <svg v-if="!isMobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,34 +194,29 @@ onUnmounted(() => {
                     <nav class="flex-1 flex flex-col justify-center px-0">
                         <ul class="space-y-8 text-center">
                             <li>
-                                <RouterLink to="/"
-                                    class="block text-2xl font-semibold text-white hover:text-teal-200 transition-colors py-3"
-                                    @click="toggleMobileMenu">
+                                <RouterLink to="/" class="block transition-colors py-3" @click="toggleMobileMenu">
                                     About
                                 </RouterLink>
                             </li>
 
                             <!-- Products submenu -->
                             <li>
-                                <div class="text-2xl font-semibold text-white mb-4">Products</div>
+                                <div class="text-2xl font-semibold mb-4">Products</div>
                                 <ul class="space-y-4 pl-4">
                                     <li>
-                                        <RouterLink to="/gas-detection-instruments"
-                                            class="block text-lg text-white/90 hover:text-teal-200 transition-colors py-2"
+                                        <RouterLink to="/gas-detection-instruments" class="block transition-colors py-2"
                                             @click="toggleMobileMenu">
                                             Gas Detection Instruments
                                         </RouterLink>
                                     </li>
                                     <li>
-                                        <RouterLink to="/calibration-gases"
-                                            class="block text-lg text-white/90 hover:text-teal-200 transition-colors py-2"
+                                        <RouterLink to="/calibration-gases" class="block transition-colors py-2"
                                             @click="toggleMobileMenu">
                                             Calibration Gases
                                         </RouterLink>
                                     </li>
                                     <li>
-                                        <RouterLink to="/spare-parts"
-                                            class="block text-lg text-white/90 hover:text-teal-200 transition-colors py-2"
+                                        <RouterLink to="/spare-parts" class="block transition-colors py-2"
                                             @click="toggleMobileMenu">
                                             Spare Parts
                                         </RouterLink>
@@ -230,24 +225,21 @@ onUnmounted(() => {
                             </li>
 
                             <li>
-                                <RouterLink to="/services"
-                                    class="block text-2xl font-semibold text-white hover:text-teal-200 transition-colors py-3"
+                                <RouterLink to="/services" class="block transition-colors py-3"
                                     @click="toggleMobileMenu">
                                     Services
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink to="/certificates"
-                                    class="block text-2xl font-semibold text-white hover:text-teal-200 transition-colors py-3"
+                                <RouterLink to="/certificates" class="block transition-colors py-3"
                                     @click="toggleMobileMenu">
                                     Certificates
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink to="/contact"
-                                    class="block text-2xl font-semibold text-white hover:text-teal-200 transition-colors py-3"
+                                <RouterLink to="/contact" class="block transition-colors py-3"
                                     @click="toggleMobileMenu">
                                     Contact Us
                                 </RouterLink>
@@ -257,7 +249,7 @@ onUnmounted(() => {
 
                     <!-- Footer -->
                     <div class="text-center pb-8 px-8">
-                        <p class="text-white/60 text-sm">
+                        <p class="text-sm">
                             Tap anywhere outside to close
                         </p>
                     </div>
@@ -270,14 +262,9 @@ onUnmounted(() => {
 
 <style scoped>
 .navbar-element {
-    color: white;
     transition: color 0.2s ease;
     cursor: pointer;
-}
-
-.navbar-element:hover {
-    color: #a7f3d0;
-    /* teal-200 */
+    @apply text-graphite hover:text-teal-500
 }
 
 .fixed-top {
@@ -289,19 +276,19 @@ onUnmounted(() => {
 
 .liquid-glass {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .liquid-glass-mobile {
-    background-color: #189ab4;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     z-index: 100;
+    @apply bg-warm_white
 }
 
 .navbar-layout {

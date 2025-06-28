@@ -10,8 +10,8 @@ defineProps<{
 
 <template>
     <div class="sm:hidden space-y-6">
-        <div v-for="model in models" :key="model[rows[0].key]" class="border border-gray-200 rounded-lg p-4 shadow-sm">
-            <h3>
+        <div v-for="model in models" :key="model[rows[0].key]" class="border border-charcoal rounded-lg p-4 shadow-sm">
+            <h3 class="table-header">
                 {{ model[rows[0].key] }}
             </h3>
             <dl class="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -38,7 +38,7 @@ defineProps<{
                 </tr>
             </thead>
 
-            <tbody class="table-borders">
+            <tbody>
                 <tr v-for="col in rows.filter(c => c.key !== rows[0].key)" :key="col.key">
                     <th scope="row" class="table-element padding">
                         {{ col.label }}
