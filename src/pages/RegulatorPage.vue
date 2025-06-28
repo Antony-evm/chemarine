@@ -17,6 +17,6 @@ if (!regulatorData) {
 <template>
     <div v-if="regulatorData">
         <GasRegulatorComponent :title="regulatorData.title" :rows="regulatorData.rows" :models="regulatorData.models"
-            :imgPath="regulatorData.imgPath" />
+            :imgPath="regulatorData.imgPath" :brochure="regulatorData.brochure" />
     </div>
 </template>

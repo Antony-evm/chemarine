@@ -10,6 +10,7 @@ const props = defineProps<{
     rows: Array<{ label: string; key: string }>;
     models: Array<Record<string, any>>;
     imgPath?: string;
+    brochure?: string;
 }>();
 
 const tableLabel = props.title + ' Specifications';
@@ -24,6 +25,18 @@ const tableLabel = props.title + ' Specifications';
             <img :src="props.imgPath" :alt="props.title + ' Regulator'" loading="lazy"
                 class="w-full h-auto object-contain" />
         </div>
+
+        <!-- Brochure Link -->
+        <div v-if="props.brochure" class="text-center mb-6">
+            <p class="text-base sm:text-lg md:text-xl text-graphite">
+                For more details please find the regulator brochure
+                <a :href="props.brochure" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-teal-600 underline transition-colors">
+                    here
+                </a>.
+            </p>
+        </div>
+
         <SpecificationTable :rows="props.rows" :models="props.models" :table-label="tableLabel" />
     </CenteredContent>
 </template>
