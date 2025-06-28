@@ -126,9 +126,10 @@ onUnmounted(() => {
 
 <template>
     <nav class="fixed-top liquid-glass navbar-layout padding" role="navigation" aria-label="Main navigation">
-        <div>
-            <router-link to="/" aria-label="Chemical Marine Inspections - Home">
-                Chemical Marine Inspections
+        <div class="flex items-center">
+            <router-link to="/" aria-label="Chemical Marine Inspections - Home" class="flex items-center">
+                <img src="@/assets/logo.png" alt="Chemical Marine Inspections" class="h-8 sm:h-10 md:h-12 w-auto"
+                    loading="eager" />
             </router-link>
         </div>
 
