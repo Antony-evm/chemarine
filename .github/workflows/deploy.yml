@@ -45,12 +45,32 @@ jobs:
           sleep 5
           curl http://localhost:3000 || exit 1
 
-      - name: Run Lighthouse CI
+      - name: Run Lighthouse CI on Multiple Pages
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: http://localhost:3000
+          urls: |
+            http://localhost:3000
+            http://localhost:3000/gas-detection-instruments
+            http://localhost:3000/calibration-gases
+            http://localhost:3000/services
+            http://localhost:3000/contact
+            http://localhost:3000/certificates
+            http://localhost:3000/spare-parts
+            http://localhost:3000/404
           configPath: ./.github/lighthouse/lighthouserc.json
           runs: 1
+
+      - name: Check Lighthouse output directory (CI)
+        if: always()
+        run: |
+          echo "Checking for Lighthouse output directory..."
+          ls -la
+          if [ -d ".lighthouseci" ]; then
+            echo "Found .lighthouseci directory:"
+            ls -la .lighthouseci/
+          else
+            echo "No .lighthouseci directory found"
+          fi
 
       - name: Upload Lighthouse reports (CI)
         uses: actions/upload-artifact@v4
@@ -166,12 +186,36 @@ jobs:
           echo "⏳ Waiting 90 seconds for CloudFront cache invalidation..."
           sleep 90
 
-      - name: Run Production Lighthouse Audit
+      - name: Run Production Lighthouse Audit on All Pages
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: ${{ steps.terraform.outputs.website-url }}
-          configPath: ./.github/lighthouse/lighthouserc.json
-          runs: 3
+          urls: |
+            ${{ steps.terraform.outputs.website-url }}
+            ${{ steps.terraform.outputs.website-url }}/gas-detection-instruments
+            ${{ steps.terraform.outputs.website-url }}/calibration-gases
+            ${{ steps.terraform.outputs.website-url }}/services
+            ${{ steps.terraform.outputs.website-url }}/contact
+            ${{ steps.terraform.outputs.website-url }}/certificates
+            ${{ steps.terraform.outputs.website-url }}/spare-parts
+            ${{ steps.terraform.outputs.website-url }}/404
+            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/700
+            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/2000
+            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
+            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
+          configPath: ./.github/lighthouse/lighthouserc-production.json
+          runs: 1
+
+      - name: Check Lighthouse output directory
+        if: always()
+        run: |
+          echo "Checking for Lighthouse output directory..."
+          ls -la
+          if [ -d ".lighthouseci" ]; then
+            echo "Found .lighthouseci directory:"
+            ls -la .lighthouseci/
+          else
+            echo "No .lighthouseci directory found"
+          fi
 
       - name: Upload Production Lighthouse Reports
         uses: actions/upload-artifact@v4

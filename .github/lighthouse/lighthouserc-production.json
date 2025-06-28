@@ -26,15 +26,5 @@
     "upload": {
       "target": "temporary-public-storage"
     }
-  },
-  "urls": [
-    "/",
-    "/gas-detection-instruments",
-    "/calibration-gases",
-    "/services",
-    "/contact",
-    "/certificates",
-    "/spare-parts",
-    "/404"
-  ]
+  }
 }
