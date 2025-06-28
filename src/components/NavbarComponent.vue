@@ -180,12 +180,12 @@ onUnmounted(() => {
             class="md:hidden inline-flex items-center justify-center p-2 rounded-md relative z-[110]"
             @click.stop="toggleMobileMenu" :aria-expanded="isMobileOpen" aria-label="Toggle navigation menu">
             <!-- Hamburger Icon -->
-            <svg v-if="!isMobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg v-if="!isMobileOpen" class="w-6 h-6 bg-charcoal" fill="none" stroke="warm_white" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                 </path>
             </svg>
             <!-- Close Icon -->
-            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg v-else class="w-6 h-6 bg-charcoal" fill="none" stroke="warm_white" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button> <!-- Full-screen mobile menu overlay -->
@@ -197,7 +197,7 @@ onUnmounted(() => {
                     <nav class="flex-1 flex flex-col justify-center px-0">
                         <ul class="space-y-8 text-center">
                             <li>
-                                <RouterLink to="/" class="block transition-colors py-3" @click="toggleMobileMenu">
+                                <RouterLink to="/" class="text-2xl font-semibold mb-4" @click="toggleMobileMenu">
                                     About
                                 </RouterLink>
                             </li>
@@ -228,34 +228,26 @@ onUnmounted(() => {
                             </li>
 
                             <li>
-                                <RouterLink to="/services" class="block transition-colors py-3"
+                                <RouterLink to="/services" class="text-2xl font-semibold mb-4"
                                     @click="toggleMobileMenu">
                                     Services
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink to="/certificates" class="block transition-colors py-3"
+                                <RouterLink to="/certificates" class="text-2xl font-semibold mb-4"
                                     @click="toggleMobileMenu">
                                     Certificates
                                 </RouterLink>
                             </li>
 
                             <li>
-                                <RouterLink to="/contact" class="block transition-colors py-3"
-                                    @click="toggleMobileMenu">
+                                <RouterLink to="/contact" class="text-2xl font-semibold mb-4" @click="toggleMobileMenu">
                                     Contact Us
                                 </RouterLink>
                             </li>
                         </ul>
                     </nav>
-
-                    <!-- Footer -->
-                    <div class="text-center pb-8 px-8">
-                        <p class="text-sm">
-                            Tap anywhere outside to close
-                        </p>
-                    </div>
                 </div>
             </div>
         </transition>
