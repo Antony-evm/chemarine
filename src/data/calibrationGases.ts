@@ -1,4 +1,4 @@
-import pdf12da from "@/assets/pdfs/models/12da.pdf";
+import pdf1al from "@/assets/pdfs/models/1al.pdf";
 import pdf2al from "@/assets/pdfs/models/2al.pdf";
 import pdf7hp from "@/assets/pdfs/models/7hp.pdf";
 import pdf6dm from "@/assets/pdfs/models/6dm.pdf";
@@ -16,14 +16,14 @@ export const REGULATOR_ROUTE_MAP: Record<string, string> = {
 
 export const GASCYLINDERS = [
   {
-    model: "12DA",
+    model: "1AL",
     material: "Aluminum",
-    pressure: "160 psig/11 bar",
-    content: "11",
-    dimensions: `9.8" x 3" / 250 mm x 78 mm`,
+    pressure: "145 psig/10 bar",
+    content: "10",
+    dimensions: `11.5" x 2.9" / 292 mm x 74 mm`,
     mixtures: ["Limited"],
     compatibility: [],
-    pdfModelUrl: pdf12da,
+    pdfModelUrl: pdf1al,
   },
   {
     model: "2AL",
