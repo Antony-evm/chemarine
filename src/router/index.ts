@@ -46,6 +46,43 @@ const routes: RouteRecordRaw[] = [
     name: "Gas Detection Instrument Detail",
     component: () => import("@/pages/GasDetectionInstrumentDetailPage.vue"),
   },
+  // Common redirects for alternative paths
+  {
+    path: "/about",
+    redirect: "/",
+  },
+  {
+    path: "/products",
+    redirect: "/gas-detection-instruments",
+  },
+  {
+    path: "/equipment",
+    redirect: "/gas-detection-instruments",
+  },
+  {
+    path: "/gases",
+    redirect: "/calibration-gases",
+  },
+  {
+    path: "/parts",
+    redirect: "/spare-parts",
+  },
+  {
+    path: "/contact-us",
+    redirect: "/contact",
+  },
+  {
+    path: "/404",
+    name: "Not Found",
+    component: () => import("@/pages/NotFoundPage.vue"),
+    meta: {
+      title: "Page Not Found - 404",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/404",
+  },
 ];
 
 export default createRouter({
