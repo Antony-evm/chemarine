@@ -7,7 +7,7 @@ export const gmi_shipsurveyor = createInstrumentWithImport(
     "Infrared technology for inert atmosphere measurements",
     "Simple calibration with certificate printing",
     "Large display – all gas readings simultaneously displayed",
-    "Dual Mode – Combustibe Gas Indicator (CGI) and Confined Space Monitor (CSM )",
+    "Dual Mode – Combustibe Gas Indicator (CGI) and Confined Space Monitor (CSM)",
     "Configurable Audible and Visual Alarms (CSM)",
     "Internal pump with superior flow rate to minimise tank sampling times",
     "Fault detection and reporting",
