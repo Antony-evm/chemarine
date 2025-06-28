@@ -36,7 +36,6 @@ const tableLabel = props.title + ' Specifications';
                 </a>.
             </p>
         </div>
-
         <SpecificationTable :rows="props.rows" :models="props.models" :table-label="tableLabel" />
     </CenteredContent>
 </template>
