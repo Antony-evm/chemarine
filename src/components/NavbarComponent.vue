@@ -41,7 +41,6 @@ function closeDropdown() {
     }
 }
 
-// toggle on click
 function toggleDropdown() {
     if (isOpen.value) {
         closeDropdown()

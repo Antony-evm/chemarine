@@ -68,6 +68,11 @@ jobs:
           if [ -d ".lighthouseci" ]; then
             echo "Found .lighthouseci directory:"
             ls -la .lighthouseci/
+            echo "Creating lighthouse-reports directory for artifact upload..."
+            mkdir -p lighthouse-reports
+            cp -r .lighthouseci/* lighthouse-reports/
+            echo "Contents of lighthouse-reports:"
+            ls -la lighthouse-reports/
           else
             echo "No .lighthouseci directory found"
           fi
@@ -77,7 +82,7 @@ jobs:
         if: always()
         with:
           name: lighthouse-ci-reports
-          path: .lighthouseci/
+          path: lighthouse-reports/
           retention-days: 7
   # Deploy Job: Only runs when PR is merged to main (push to main)
   deploy:
@@ -213,6 +218,11 @@ jobs:
           if [ -d ".lighthouseci" ]; then
             echo "Found .lighthouseci directory:"
             ls -la .lighthouseci/
+            echo "Creating lighthouse-reports directory for artifact upload..."
+            mkdir -p lighthouse-reports
+            cp -r .lighthouseci/* lighthouse-reports/
+            echo "Contents of lighthouse-reports:"
+            ls -la lighthouse-reports/
           else
             echo "No .lighthouseci directory found"
           fi
@@ -222,5 +232,5 @@ jobs:
         if: always()
         with:
           name: lighthouse-production-reports
-          path: .lighthouseci/
+          path: lighthouse-reports/
           retention-days: 30
