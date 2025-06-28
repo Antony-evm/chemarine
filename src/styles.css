@@ -18,6 +18,7 @@
 /* Only show the outline when it's keyboard‐generated focus */
 *:focus-visible {
   @apply outline-2 outline-offset-2 outline-graphite;
+  outline-style: solid !important;
 }
 
 body {
@@ -105,7 +106,7 @@ span {
 
 .contact-link {
   transition: color 0.2s ease;
-  @apply hover:text-teal-200 underline items-center justify-center inline-flex cursor-pointer;
+  @apply hover:text-teal-500 underline items-center justify-center inline-flex cursor-pointer;
 }
 
 @media (prefers-color-scheme: light) {

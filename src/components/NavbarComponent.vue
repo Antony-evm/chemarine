@@ -142,7 +142,7 @@ onUnmounted(() => {
                 </button>
 
                 <transition name="fade-scale">
-                    <ul v-show="isOpen" ref="menu" class="bg-warm-white absolute left-0 mt-2 py-3 px-4 space-y-2 rounded-lg shadow-xl
+                    <ul v-show="isOpen" ref="menu" class="bg-warm_white absolute left-0 mt-2 py-3 px-4 space-y-2 rounded-lg shadow-xl
                    opacity-0 scale-95 origin-top-left min-w-[240px]
                    transition-all duration-200" :class="{ 'opacity-100 scale-100': isOpen }" role="menu"
                         aria-labelledby="productsButton" @keydown="onMenuKeydown">

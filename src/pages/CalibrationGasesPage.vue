@@ -44,7 +44,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
             <div v-for="(item, index) in GASCYLINDERS" :key="index"
                 class="border border-gray-300 rounded-lg p-4 shadow-sm">
                 <h3 class="table-header">
-                    <a :href="item.pdfModelUrl" class="underline" target="_blank" rel="noopener noreferrer">
+                    <a :href="item.pdfModelUrl" class="underline my-text-size" target="_blank"
+                        rel="noopener noreferrer">
                         {{ item.model }}
                     </a>
                 </h3>
@@ -53,7 +54,7 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                     <div><span class="table-element padding">Pressure:</span> {{ item.pressure }}</div>
                     <div><span class="table-element padding">Gas Content:</span> {{ item.content }} Liters</div>
                     <div><span class="table-element padding">Dimensions:</span> {{ item.dimensions }}</div>
-                    <div><span class="table-element padding">Mixtures:</span>
+                    <div><span class="table-element padding my-text-size">Mixtures:</span>
                         <span v-for="(mixture, i) in item.mixtures" :key="i">
                             {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                         </span>
@@ -62,7 +63,7 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                         <span v-for="(comp, i) in item.compatibility" :key="i">
                             <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                 :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                class="underline">
+                                class="underline my-text-size">
                                 {{ comp }}
                             </router-link>
                             <span v-else>{{ comp }}</span>
@@ -82,28 +83,31 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                         model, material, pressure, content, dimensions, mixtures, and regulator compatibility</caption>
                     <thead class="table-header">
                         <tr>
-                            <th scope="col" class="table-element padding font-normal">Model</th>
-                            <th scope="col" class="table-element padding font-normal">Material</th>
-                            <th scope="col" class="table-element padding font-normal">Pressure</th>
-                            <th scope="col" class="table-element padding font-normal">Gas Content<br />(Liters)</th>
-                            <th scope="col" class="table-element padding font-normal">Dimensions</th>
-                            <th scope="col" class="table-element padding font-normal">Mixtures</th>
-                            <th scope="col" class="table-element padding font-normal">Regulator Compatibility</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Model</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Material</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Pressure</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Gas
+                                Content<br />(Liters)</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Dimensions</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Mixtures</th>
+                            <th scope="col" class="table-element padding my-text-size font-normal">Regulator
+                                Compatibility</th>
                         </tr>
                     </thead>
                     <tbody class="table-borders">
                         <tr v-for="(item, index) in GASCYLINDERS" :key="index">
-                            <td class="table-element padding underline my-text-size font-normal">
-                                <a :href="item.pdfModelUrl" class='table-element my-text-size' target="_blank"
+                            <td class="table-element padding underline my-text-size font-normal hover:text-teal-500">
+                                <a :href="item.pdfModelUrl"
+                                    class='table-element my-text-size font-normal hover:text-teal-500' target="_blank"
                                     rel="noopener noreferrer">
                                     {{ item.model }}
                                 </a>
                             </td>
-                            <td class="table-element padding">{{ item.material }}</td>
-                            <td class="table-element padding">{{ item.pressure }}</td>
-                            <td class="table-element padding">{{ item.content }}</td>
-                            <td class="table-element padding">{{ item.dimensions }}</td>
-                            <td class="table-element padding">
+                            <td class="table-element padding font-normal my-text-size">{{ item.material }}</td>
+                            <td class="table-element padding font-normal my-text-size">{{ item.pressure }}</td>
+                            <td class="table-element padding font-normal my-text-size">{{ item.content }}</td>
+                            <td class="table-element padding font-normal my-text-size">{{ item.dimensions }}</td>
+                            <td class="table-element padding font-normal my-text-size">
                                 <template v-for="(mixture, i) in item.mixtures" :key="i">
                                     {{ mixture }}<span v-if="i < item.mixtures.length - 1">, </span>
                                 </template>
@@ -112,7 +116,7 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                                 <template v-for="(comp, i) in item.compatibility" :key="i">
                                     <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                         :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                        class="table-element underline my-text-size">
+                                        class="table-element underline my-text-size font-normal hover:text-teal-500">
                                         {{ comp }}
                                     </router-link>
                                     <span v-else>{{ comp }}</span>
