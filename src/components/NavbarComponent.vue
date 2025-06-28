@@ -32,9 +32,13 @@ function openDropdown(byKeyboard = false) {
 // close and reset keyboard flag
 function closeDropdown() {
     isOpen.value = false
+    const wasOpenedByKeyboard = openedByKeyboard.value
     openedByKeyboard.value = false
     updateAria()
-    trigger.value?.focus()
+    // Only restore focus if the dropdown was opened by keyboard
+    if (wasOpenedByKeyboard) {
+        trigger.value?.focus()
+    }
 }
 
 // toggle on click
@@ -83,11 +87,10 @@ function onMenuKeydown(e: KeyboardEvent) {
 
 // click‐away to close
 function onClickOutside(e: MouseEvent) {
-    // Handle desktop dropdown
-    if (
+    // Handle desktop dropdown - only close if it's actually open
+    if (isOpen.value &&
         !trigger.value?.contains(e.target as Node) &&
-        !menu.value?.contains(e.target as Node)
-    ) {
+        !menu.value?.contains(e.target as Node)) {
         closeDropdown()
     }
 
