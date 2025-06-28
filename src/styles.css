@@ -106,7 +106,7 @@ span {
 
 .contact-link {
   transition: color 0.2s ease;
-  @apply hover:text-teal-500 underline items-center justify-center inline-flex cursor-pointer;
+  @apply hover:text-teal-500 underline items-center justify-center inline-flex cursor-pointer px-2;
 }
 
 @media (prefers-color-scheme: light) {
