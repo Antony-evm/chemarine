@@ -7,6 +7,7 @@ import pdf6d from "@/assets/pdfs/models/6d.pdf";
 import pdf10al from "@/assets/pdfs/models/10al.pdf";
 
 export const REGULATOR_ROUTE_MAP: Record<string, string> = {
+  "FF 20": "FF 20",
   "702": "700",
   "705": "700",
   "713": "700",
@@ -27,7 +28,7 @@ export const GASCYLINDERS = [
     content: "10",
     dimensions: `11.5" x 2.9" / 292 mm x 74 mm`,
     mixtures: ["Limited"],
-    compatibility: [],
+    compatibility: ["FF 20"],
     pdfModelUrl: pdf1al,
   },
   {
