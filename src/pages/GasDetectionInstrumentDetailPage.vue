@@ -43,6 +43,19 @@ const { instrument } = useInstrument();
                 </p>
             </div>
         </CenteredContent>
+        <CenteredContent v-if="instrument.brochure">
+            <h2>Technical Specifications</h2>
+            <SectionDivider />
+            <p>
+                For detailed technical specifications and comprehensive product information,
+                download the {{ instrument.title }}
+                <a :href="instrument.brochure" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-teal-500 underline transition-colors font-semibold"
+                    :aria-label="`Download ${instrument.title} technical specifications brochure PDF`">
+                    technical brochure
+                </a>.
+            </p>
+        </CenteredContent>
     </div>
     <div v-else class="text-center">
         <p class="text-lg text-gray-600">Instrument not found.</p>

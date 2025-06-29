@@ -8,7 +8,8 @@ export function createInstrumentWithImport(
   titleText: string,
   features: string[],
   overview: string[],
-  importedImagePath: string
+  importedImagePath: string,
+  brochurePath?: string
 ): InstrumentData {
   return {
     title: titleText,
@@ -16,5 +17,6 @@ export function createInstrumentWithImport(
     imgPath: importedImagePath,
     features,
     overview,
+    brochure: brochurePath,
   };
 }

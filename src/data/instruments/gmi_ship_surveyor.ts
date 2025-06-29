@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/gmi_shipsurveyor.png";
+import brochure from "@/assets/pdfs/instrument_specs/gmi_ship_surveyor.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const gmi_shipsurveyor = createInstrumentWithImport(
@@ -7,7 +8,7 @@ export const gmi_shipsurveyor = createInstrumentWithImport(
     "Infrared technology for inert atmosphere measurements",
     "Simple calibration with certificate printing",
     "Large display – all gas readings simultaneously displayed",
-    "Dual Mode – Combustibe Gas Indicator (CGI) and Confined Space Monitor (CSM )",
+    "Dual Mode – Combustibe Gas Indicator (CGI) and Confined Space Monitor (CSM)",
     "Configurable Audible and Visual Alarms (CSM)",
     "Internal pump with superior flow rate to minimise tank sampling times",
     "Fault detection and reporting",
@@ -21,5 +22,6 @@ export const gmi_shipsurveyor = createInstrumentWithImport(
     "The Shipsurveyor also comes complete with an impressive and practical suite of application software. Our bespoke software not only allows simple on-board calibration but crucially provides the ability to print calibration certificates. In addition, complete datalogging software comes as standard allowing logged gas readings, with vessel locations, to be uploaded to a PC.​​",
     "With ATEX and MED approval, the Shipsurveyor is the complete shipping solution.​​​​",
   ],
-  path
+  path,
+  brochure
 );

@@ -17,7 +17,7 @@ import { COMPANY_NAME } from '@/data/contactInformation';
         <p>We are committed to excellence in three key areas:</p>
         <SpaceComponent size="paragraph" />
         <ul class="list-disc pl-6 space-y-2">
-            <li>Providing reliable gas detection instruments, spare parts, and galibration gases to the maritime sector
+            <li>Providing reliable gas detection instruments, spare parts, and calibration gases to the maritime sector
             </li>
             <li>Delivering professional servicing and maintenance for gas detection equipment</li>
             <li>Serving as a trusted resource for marine safety information and best practices</li>

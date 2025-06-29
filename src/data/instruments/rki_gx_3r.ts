@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/rki_gx_3r.png";
+import brochure from "@/assets/pdfs/instrument_specs/rki_gx_3r.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const rki_gx_3r = createInstrumentWithImport(
@@ -20,5 +21,6 @@ export const rki_gx_3r = createInstrumentWithImport(
     "Safety supervisors will appreciate the non-compliance indicator. The instrument flashes it’s 3 LED lights every 30 seconds in the following conditions; if the instrument has not been bump tested, or if calibration is due, or if there was a gas alarm event. The 3 LED lights will continue to flash once every 30 seconds until the non-compliance condition has been resolved. The 30 second interval is adjustable.",
     "OSHA defines the breathing zone as a ten inch radius around the worker’s nose and mouth, and requires that worker exposure monitoring air samples be collected in the breathing zone. Air sampling filters may be attached to the collar or lapel. Traditionally this means only a single gas monitor would be small enough for a worker to practically wear a gas monitor ‘In the breathing zone’. Now there is a 4 gas monitor smaller than many single gas monitors.",
   ],
-  path
+  path,
+  brochure
 );

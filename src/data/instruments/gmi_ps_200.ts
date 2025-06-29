@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/gmi_ps_200.png";
+import brochure from "@/assets/pdfs/instrument_specs/gmi_ps_200.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const gmi_ps_200 = createInstrumentWithImport(
@@ -23,5 +24,6 @@ export const gmi_ps_200 = createInstrumentWithImport(
     "In addition to extensive datalogging capabilities, the PS200 is available with an optional internal pump and an extensive range of accessories to meet a wide variety of user applications.",
     "Importantly, the PS200 has been des​​igned to enable easier user maintenance which includes a fully automatic calibration station to simplify product compliance.",
   ],
-  path
+  path,
+  brochure
 );

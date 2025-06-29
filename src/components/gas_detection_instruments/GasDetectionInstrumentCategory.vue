@@ -33,7 +33,7 @@ const props = defineProps<{
                 <div class="mt-2 w-full flex justify-center">
                     <ActionButton
                         :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
-                        label="Read More" />
+                        :label="'Read More'" :aria-label="`Learn more about ${instrument.title}`" />
                 </div>
             </div>
         </div>
