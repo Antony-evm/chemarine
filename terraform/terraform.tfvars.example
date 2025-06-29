@@ -21,7 +21,7 @@ bucket_name = "chemarine-website-bucket-unique-12345"
 cloudfront_price_class = "PriceClass_100"
 
 # Custom domain (leave empty for initial deployment)
-# domain_name = "yourdomain.com"
+# domain_name = "chemarine.com"
 domain_name = ""
 
 # IAM Configuration

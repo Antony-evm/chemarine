@@ -59,7 +59,7 @@ To add a custom domain:
 1. Update `terraform.tfvars`:
 
    ```hcl
-   domain_name = "yourdomain.com"
+   domain_name = "chemarine.com"
    ```
 
 2. Uncomment the custom domain sections in `main.tf`:
