@@ -177,15 +177,15 @@ onUnmounted(() => {
             <li role="none"><router-link to="/contact" class="navbar-element" role="menuitem">Contact Us</router-link>
             </li>
         </ul> <button ref="mobileMenuButton"
-            class="md:hidden inline-flex items-center justify-center p-2 rounded-md relative z-[110]"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-md relative z-[110] text-graphite hover:text-teal-500"
             @click.stop="toggleMobileMenu" :aria-expanded="isMobileOpen" aria-label="Toggle navigation menu">
             <!-- Hamburger Icon -->
-            <svg v-if="!isMobileOpen" class="w-6 h-6 bg-charcoal" fill="none" stroke="warm_white" viewBox="0 0 24 24">
+            <svg v-if="!isMobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                 </path>
             </svg>
             <!-- Close Icon -->
-            <svg v-else class="w-6 h-6 bg-charcoal" fill="none" stroke="warm_white" viewBox="0 0 24 24">
+            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button> <!-- Full-screen mobile menu overlay -->
