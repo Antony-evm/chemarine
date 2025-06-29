@@ -188,9 +188,9 @@ output "ssl_certificate_arn" {
 output "dns_setup_instructions" {
   description = "Instructions for completing DNS setup"
   value = var.domain_name != "" ? {
-    step_1 = "Update your domain's name servers at mycp to use the Route53 name servers shown in 'route53_name_servers' output"
-    step_2 = "This will transfer DNS management to AWS Route 53"
-    step_3 = "After name server propagation (24-48 hours), your domain will automatically point to your website"
+    step_1       = "Update your domain's name servers at mycp to use the Route53 name servers shown in 'route53_name_servers' output"
+    step_2       = "This will transfer DNS management to AWS Route 53"
+    step_3       = "After name server propagation (24-48 hours), your domain will automatically point to your website"
     name_servers = aws_route53_zone.main[0].name_servers
   } : null
 }

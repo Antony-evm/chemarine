@@ -162,9 +162,9 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   # SSL certificate configuration
   viewer_certificate {
     cloudfront_default_certificate = var.domain_name == "" ? true : false
-    acm_certificate_arn      = var.domain_name != "" ? aws_acm_certificate_validation.ssl_certificate_validation[0].certificate_arn : null
-    ssl_support_method       = var.domain_name != "" ? "sni-only" : null
-    minimum_protocol_version = var.domain_name != "" ? "TLSv1.2_2021" : null
+    acm_certificate_arn            = var.domain_name != "" ? aws_acm_certificate_validation.ssl_certificate_validation[0].certificate_arn : null
+    ssl_support_method             = var.domain_name != "" ? "sni-only" : null
+    minimum_protocol_version       = var.domain_name != "" ? "TLSv1.2_2021" : null
   }
 
   tags = {
