@@ -94,8 +94,8 @@ resource "aws_cloudfront_distribution" "website_distribution" {
   is_ipv6_enabled     = true
   default_root_object = "index.html"
 
-  # Custom domain configuration (uncomment when ready)
-  # aliases = var.domain_name != "" ? [var.domain_name, "www.${var.domain_name}"] : []
+  # Custom domain configuration
+  aliases = var.domain_name != "" ? [var.domain_name, "www.${var.domain_name}"] : []
 
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -159,12 +159,12 @@ resource "aws_cloudfront_distribution" "website_distribution" {
     }
   }
 
-  # SSL certificate configuration (will be updated for custom domain)
+  # SSL certificate configuration
   viewer_certificate {
     cloudfront_default_certificate = var.domain_name == "" ? true : false
-    # acm_certificate_arn      = var.domain_name != "" ? aws_acm_certificate_validation.cert_validation[0].certificate_arn : null
-    # ssl_support_method       = var.domain_name != "" ? "sni-only" : null
-    # minimum_protocol_version = var.domain_name != "" ? "TLSv1.2_2021" : null
+    acm_certificate_arn            = var.domain_name != "" ? aws_acm_certificate_validation.ssl_certificate_validation[0].certificate_arn : null
+    ssl_support_method             = var.domain_name != "" ? "sni-only" : null
+    minimum_protocol_version       = var.domain_name != "" ? "TLSv1.2_2021" : null
   }
 
   tags = {
