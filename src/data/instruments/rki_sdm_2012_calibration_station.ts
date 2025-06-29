@@ -17,5 +17,46 @@ export const rki_sdm_2012_calibration_station = createInstrumentWithImport(
     "The SDM-2012 can also be connected to a PC for automated calibration, bump testing, and archiving of logged data including calibration and bump test records, interval and alarm trends. Network up to 10 SDM-2012 stations to charge, calibrate, and bump test 10 instruments simultaneously.",
     "Each SDM-2012 ships with a pictoral wall chart user guide. This guide gives the already easy to use cal station a simple pictorial easy step by step guide to calibrating or bump testing a GX-2012. It’s ideal to hang in an instrument shop or wherever the GX-2012 is located.",
   ],
+  [
+    {
+      title: "Input Power",
+      detail:
+        "12 VDC. NOTE: AC adapter with 100–240 VAC, 50/60 Hz, 0.6A input and 12 VDC, 1.2A output is provided as standard.",
+    },
+    {
+      title: "Environmental Conditions",
+      detail:
+        "For indoor use only. Operating range is -10°C to 40°C, below 80% relative humidity, non-condensing.",
+    },
+    {
+      title: "Applicable Instruments",
+      detail: "GX-2012 and Gas Tracer.",
+    },
+    {
+      title: "Maximum Number of Records Saved",
+      detail: "200 (stand-alone).",
+    },
+    {
+      title: "Number of Calibration Gas Cylinders",
+      detail:
+        "Up to two calibration gas cylinders can be used per bump test or calibration at a time.",
+    },
+    {
+      title: "Standard Accessories",
+      details: [
+        "AC adapter",
+        "USB flash drive",
+        "Single Module Data Viewer Software",
+        "SDM Docking Station PC Controller Software",
+        "Inlet air filter",
+        "Instruction manual",
+        "10-foot long exhaust tube",
+        "Two 3-foot long tubes for GAS 1 and GAS 2",
+        "Fittings",
+        "3 T-fittings for PC-controlled configuration",
+        "USB cable, Type A to Type B",
+      ],
+    },
+  ],
   path
 );

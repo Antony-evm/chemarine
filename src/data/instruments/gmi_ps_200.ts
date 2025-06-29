@@ -23,5 +23,27 @@ export const gmi_ps_200 = createInstrumentWithImport(
     "In addition to extensive datalogging capabilities, the PS200 is available with an optional internal pump and an extensive range of accessories to meet a wide variety of user applications.",
     "Importantly, the PS200 has been des​​igned to enable easier user maintenance which includes a fully automatic calibration station to simplify product compliance.",
   ],
+  {
+    combustibleSensorOptions: [
+      {
+        sensorType: "Standard Filtered",
+        benefit: "Detects most combustible gases",
+        gasesDetected:
+          "C1 – C8 Hydrocarbons including Methane, Ethane, Propane, Butane, Pentane, Hexane, Heptane, Octane, Hydrogen",
+        certificationGasGroups: "IIC",
+        divisionZone: "Class I, Div. 1,2; Zones 1,2",
+        gasGroups: ["A", "B", "C", "D"],
+      },
+      {
+        sensorType: "Enhanced Filtered",
+        benefit: "Enhanced H₂S and Silicone poisoning resistance",
+        gasesDetected:
+          "C1 – C6 Hydrocarbons including Methane, Ethane, Propane, Butane, Pentane, Hexane, Hydrogen",
+        certificationGasGroups: "IIC",
+        divisionZone: "Class I, Div. 1,2; Zones 1,2",
+        gasGroups: ["A", "B", "C", "D"],
+      },
+    ],
+  },
   path
 );
