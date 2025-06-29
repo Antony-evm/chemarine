@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/rki_sdm_6000_calibration_station.png";
+import brochure from "@/assets/pdfs/instrument_specs/rki_sdm_6000_calibration_station.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const rki_sdm_6000_calibration_station = createInstrumentWithImport(
@@ -15,5 +16,6 @@ export const rki_sdm_6000_calibration_station = createInstrumentWithImport(
     "SDM-6000 calibration stations are modular by design and can easily connect to each other without the need of any tubes or cables. One power source and one set of calibration equipment can provide service for up to 10 SDM-6000 calibration stations.",
     "Up to 10 calibration stations can also be connected to one PC for automated charging, calibration, bump testing and archiving of data. Even if instruments are turned off, automated routines will power up the instruments and run as scheduled. All data collected from the PC Controlled software can also be centralized in one network location accessible by anyone with the PC Controlled software with access to the network location.",
   ],
-  path
+  path,
+  brochure
 );

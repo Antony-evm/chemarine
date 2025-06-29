@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/rki_gx_6000.png";
+import brochure from "@/assets/pdfs/instrument_specs/rki_gx_6000.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const rki_gx_6000 = createInstrumentWithImport(
@@ -31,5 +32,6 @@ export const rki_gx_6000 = createInstrumentWithImport(
     "Sensors available: CL2, CO, CO2, HCN, H2S, NH3, NO2, PH3, SO2, and VOC (volatile organic compounds) Ammonia, Chlorine, Hydrogen Cyanide, Nitrogen Dioxide, Phosphine, Sulfur Dioxide, Carbon Dioxide, Methane, Hydrocarbon, Hydrogen Sulfide, Carbon Monoxide, and Oxygen Monitor.",
     "6 Operating Modes: Normal Mode, Barhole Mode, Inert Mode, Leak Check, Snap Log Mode, Benzene Specific",
   ],
-  path
+  path,
+  brochure
 );

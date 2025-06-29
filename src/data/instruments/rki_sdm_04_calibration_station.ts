@@ -1,4 +1,5 @@
 import path from "@/assets/gas_detection_instruments/rki_sdm_04_calibration_station.png";
+import brochure from "@/assets/pdfs/instrument_specs/rki_sdm_04_calibration_station.pdf";
 import { createInstrumentWithImport } from "@/utils/instrumentFactory";
 
 export const rki_sdm_04_calibration_station = createInstrumentWithImport(
@@ -11,5 +12,6 @@ export const rki_sdm_04_calibration_station = createInstrumentWithImport(
     "Stand Alone Station: The SDM-04 is a versatile maintenance tool that automates the service of a 04 Series portable gas monitor. This docking station can be used as a stand alone device for calibrating and bump testing, with all records stored automatically for future upload to a PC via USB flash drive (PC software and flash drive included).",
     "PC Controlled System: The SDM-04 can also be connected to a PC for automated calibration, bump testing, and archiving of datalog data from 04 Series instruments. Up to ten SDM-04 docking stations can be connected simultaneously using USB cables and the SDM-04 includes connections for one to three calibration gas cylinders.",
   ],
-  path
+  path,
+  brochure
 );

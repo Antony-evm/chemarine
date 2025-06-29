@@ -23,6 +23,7 @@ export interface InstrumentData {
   imgPath: string;
   features: string[];
   overview: string[];
+  brochure?: string;
 }
 
 export interface Section {
