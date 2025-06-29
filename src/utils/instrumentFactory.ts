@@ -8,6 +8,7 @@ export function createInstrumentWithImport(
   titleText: string,
   features: string[],
   overview: string[],
+  specifications: any,
   importedImagePath: string
 ): InstrumentData {
   return {
@@ -16,5 +17,6 @@ export function createInstrumentWithImport(
     imgPath: importedImagePath,
     features,
     overview,
+    specifications,
   };
 }

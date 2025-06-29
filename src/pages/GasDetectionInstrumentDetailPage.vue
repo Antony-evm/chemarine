@@ -2,6 +2,7 @@
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import CenteredContent from '@/components/utils/CenteredContent.vue';
+import SpecificationsSection from '@/components/gas_detection_instruments/SpecificationsSection.vue';
 import { useInstrument } from '@/composables/gas_detection_instruments/useInstrumentDetail';
 
 const { instrument } = useInstrument();
@@ -43,8 +44,13 @@ const { instrument } = useInstrument();
                 </p>
             </div>
         </CenteredContent>
+
+        <!-- Specifications Section -->
+        <CenteredContent v-if="instrument.specifications">
+            <SpecificationsSection :specifications="instrument.specifications" />
+        </CenteredContent>
     </div>
     <div v-else class="text-center">
-        <p class="text-lg text-gray-600">Instrument not found.</p>
+        <p>Instrument not found.</p>
     </div>
 </template>
