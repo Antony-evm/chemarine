@@ -29,10 +29,11 @@ const tableLabel = props.title + ' Specifications';
         <!-- Brochure Link -->
         <div v-if="props.brochure" class="text-center mb-6">
             <p class="text-base sm:text-lg md:text-xl text-graphite">
-                For more details please find the regulator brochure
+                For more details please
                 <a :href="props.brochure" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-teal-600 underline transition-colors">
-                    here
+                    class="hover:text-teal-600 underline transition-colors"
+                    :aria-label="`Download ${props.title} brochure PDF`">
+                    download the {{ props.title }} brochure
                 </a>.
             </p>
         </div>

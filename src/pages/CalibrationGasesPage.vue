@@ -44,8 +44,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
             <div v-for="(item, index) in GASCYLINDERS" :key="index"
                 class="border border-gray-300 rounded-lg p-4 shadow-sm">
                 <h3 class="table-header">
-                    <a :href="item.pdfModelUrl" class="underline my-text-size" target="_blank"
-                        rel="noopener noreferrer">
+                    <a :href="item.pdfModelUrl" class="underline my-text-size" target="_blank" rel="noopener noreferrer"
+                        :aria-label="`Download ${item.model} calibration gas cylinder specification PDF`">
                         {{ item.model }}
                     </a>
                 </h3>
@@ -63,7 +63,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                         <span v-for="(comp, i) in item.compatibility" :key="i">
                             <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                 :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                class="underline my-text-size">
+                                class="underline my-text-size"
+                                :aria-label="`View details for ${comp} regulator series`">
                                 {{ comp }}
                             </router-link>
                             <span v-else>{{ comp }}</span>
@@ -99,7 +100,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                             <td class="table-element padding underline my-text-size font-normal hover:text-teal-500">
                                 <a :href="item.pdfModelUrl"
                                     class='table-element my-text-size font-normal hover:text-teal-500' target="_blank"
-                                    rel="noopener noreferrer">
+                                    rel="noopener noreferrer"
+                                    :aria-label="`Download ${item.model} calibration gas cylinder specification PDF`">
                                     {{ item.model }}
                                 </a>
                             </td>
@@ -116,7 +118,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
                                 <template v-for="(comp, i) in item.compatibility" :key="i">
                                     <router-link v-if="REGULATOR_ROUTE_MAP[comp]"
                                         :to="{ name: 'Regulator Series', params: { regulator_id: REGULATOR_ROUTE_MAP[comp] } }"
-                                        class="table-element underline my-text-size font-normal hover:text-teal-500">
+                                        class="table-element underline my-text-size font-normal hover:text-teal-500"
+                                        :aria-label="`View details for ${comp} regulator series`">
                                         {{ comp }}
                                     </router-link>
                                     <span v-else>{{ comp }}</span>
