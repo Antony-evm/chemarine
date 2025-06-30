@@ -137,9 +137,9 @@ resource "aws_route53_record" "mail_subdomain" {
   count   = var.domain_name != "" ? 1 : 0
   zone_id = aws_route53_zone.main[0].zone_id
   name    = "mail.${var.domain_name}"
-  type    = "CNAME"
+  type    = "A"
   ttl     = 300
-  records = [var.domain_name]
+  records = ["176.9.100.145"]  # mx0.spamfilter.gr primary IP
 }
 
 resource "aws_route53_record" "webmail_subdomain" {
