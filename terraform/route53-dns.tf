@@ -139,16 +139,16 @@ resource "aws_route53_record" "mail_subdomain" {
   name    = "mail.${var.domain_name}"
   type    = "A"
   ttl     = 300
-  records = ["176.9.100.145"]  # mx0.spamfilter.gr primary IP
+  records = ["185.29.24.6"]  # Correct mail server IP with POP3 support
 }
 
 resource "aws_route53_record" "webmail_subdomain" {
   count   = var.domain_name != "" ? 1 : 0
   zone_id = aws_route53_zone.main[0].zone_id
   name    = "webmail.${var.domain_name}"
-  type    = "CNAME"
+  type    = "A"
   ttl     = 300
-  records = [var.domain_name]
+  records = ["185.29.24.6"]  # Points to mail server for webmail access
 }
 
 resource "aws_route53_record" "webmail_wildcard" {

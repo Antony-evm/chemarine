@@ -33,7 +33,7 @@ export interface Section {
 
 export const GAS_DETECTION_INSTRUMENTS: Section[] = [
   {
-    title: "Personal",
+    title: "Personal - Enclosed Space Entry",
     instruments: {
       gmi: {
         gmi_ps_200,
