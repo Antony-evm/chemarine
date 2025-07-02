@@ -13,8 +13,9 @@ import GasDetectionInstrumentCategory from '@/components/gas_detection_instrumen
         <h1>Gas Detection Instruments</h1>
         <SectionDivider />
         <p><strong>{{ COMPANY_NAME }}</strong> supplies cutting-edge gas detection equipment from industry-leading
-            manufacturers <strong>RKI Instruments Inc</strong> and <strong>GMI Ltd</strong>, both renowned for their
-            excellence in marine gas detection technology. Our instruments are certified to the highest international
+            manufacturers <strong>Teledyne GMI Ltd</strong> and <strong>RKI Instruments Inc</strong>, both renowned for
+            their excellence in marine gas detection technology. Our instruments are certified to the highest
+            international
             standards and engineered to perform reliably in the demanding marine environment while ensuring maximum
             user safety.
         </p>

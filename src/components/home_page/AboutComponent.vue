@@ -11,7 +11,7 @@ import { COMPANY_NAME } from '@/data/contactInformation';
     <CenteredContent>
         <h1>{{ COMPANY_NAME }}</h1>
         <SectionDivider />
-        <p><strong>{{ COMPANY_NAME }}</strong> was established in 2004 in Piraeus, Greece, strategically located at the
+        <p><strong>{{ COMPANY_NAME }}</strong> was established in 1994 in Piraeus, Greece, strategically located at the
             heart of the international marine industry.</p>
         <SpaceComponent size="paragraph" />
         <p>We are committed to excellence in three key areas:</p>
