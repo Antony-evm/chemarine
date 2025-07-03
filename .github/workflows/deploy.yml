@@ -58,7 +58,7 @@ jobs:
             http://localhost:3000/spare-parts
             http://localhost:3000/404
           configPath: ./.github/lighthouse/lighthouserc.json
-          runs: 2
+          runs: 1
 
       - name: Run Lighthouse CI - Mobile
         uses: treosh/lighthouse-ci-action@v12
@@ -73,7 +73,7 @@ jobs:
             http://localhost:3000/spare-parts
             http://localhost:3000/404
           configPath: ./.github/lighthouse/lighthouserc-mobile.json
-          runs: 2
+          runs: 1
 
       - name: Check Lighthouse output directory (CI)
         if: always()
@@ -223,7 +223,7 @@ jobs:
             ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
             ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
           configPath: ./.github/lighthouse/lighthouserc-production.json
-          runs: 2
+          runs: 1
 
       - name: Run Production Lighthouse Audit - Mobile
         uses: treosh/lighthouse-ci-action@v12
@@ -242,7 +242,7 @@ jobs:
             ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
             ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
           configPath: ./.github/lighthouse/lighthouserc-production-mobile.json
-          runs: 2
+          runs: 1
 
       - name: Check Lighthouse output directory
         if: always()
