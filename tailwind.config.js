@@ -3,6 +3,17 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "Roboto",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+      },
       spacing: {
         component: "1.5rem",
         paragraph: "2rem",
