@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import AboutComponent from '@/components/home_page/AboutComponent.vue';
-import DetailedAboutComponent from '@/components/home_page/DetailedAboutComponent.vue';
 import FlorencePicturesComponent from '@/components/home_page/FlorencePicturesComponent.vue';
+import { defineAsyncComponent } from 'vue';
+
+const AboutComponent = defineAsyncComponent(() => import('@/components/home_page/AboutComponent.vue'));
+const DetailedAboutComponent = defineAsyncComponent(() => import('@/components/home_page/DetailedAboutComponent.vue'));
 </script>
 
 
