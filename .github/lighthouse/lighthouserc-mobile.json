@@ -4,7 +4,7 @@
       "numberOfRuns": 1,
       "settings": {
         "chromeFlags": "--no-sandbox --headless --disable-gpu --disable-dev-shm-usage",
-        "preset": "mobile",
+        "emulatedFormFactor": "mobile",
         "throttling": {
           "rttMs": 150,
           "throughputKbps": 1638,
@@ -13,7 +13,6 @@
           "downloadThroughputKbps": 0,
           "uploadThroughputKbps": 0
         },
-        "emulatedFormFactor": "mobile",
         "screenEmulation": {
           "mobile": true,
           "width": 375,

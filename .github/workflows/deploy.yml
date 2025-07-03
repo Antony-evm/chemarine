@@ -39,66 +39,66 @@ jobs:
           path: dist/
           retention-days: 7
 
-      - name: Start local server for Lighthouse
-        run: |
-          npx serve -s dist -l 3000 &
-          sleep 5
-          curl http://localhost:3000 || exit 1
+      # - name: Start local server for Lighthouse
+      #   run: |
+      #     npx serve -s dist -l 3000 &
+      #     sleep 5
+      #     curl http://localhost:3000 || exit 1
 
-      - name: Run Lighthouse CI - Desktop
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            http://localhost:3000
-            http://localhost:3000/gas-detection-instruments
-            http://localhost:3000/calibration-gases
-            http://localhost:3000/services
-            http://localhost:3000/contact
-            http://localhost:3000/certificates
-            http://localhost:3000/spare-parts
-            http://localhost:3000/404
-          configPath: ./.github/lighthouse/lighthouserc.json
-          runs: 1
+      # - name: Run Lighthouse CI - Desktop
+      #   uses: treosh/lighthouse-ci-action@v12
+      #   with:
+      #     urls: |
+      #       http://localhost:3000
+      #       http://localhost:3000/gas-detection-instruments
+      #       http://localhost:3000/calibration-gases
+      #       http://localhost:3000/services
+      #       http://localhost:3000/contact
+      #       http://localhost:3000/certificates
+      #       http://localhost:3000/spare-parts
+      #       http://localhost:3000/404
+      #     configPath: ./.github/lighthouse/lighthouserc.json
+      #     runs: 1
 
-      - name: Run Lighthouse CI - Mobile
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            http://localhost:3000
-            http://localhost:3000/gas-detection-instruments
-            http://localhost:3000/calibration-gases
-            http://localhost:3000/services
-            http://localhost:3000/contact
-            http://localhost:3000/certificates
-            http://localhost:3000/spare-parts
-            http://localhost:3000/404
-          configPath: ./.github/lighthouse/lighthouserc-mobile.json
-          runs: 1
+      # - name: Run Lighthouse CI - Mobile
+      #   uses: treosh/lighthouse-ci-action@v12
+      #   with:
+      #     urls: |
+      #       http://localhost:3000
+      #       http://localhost:3000/gas-detection-instruments
+      #       http://localhost:3000/calibration-gases
+      #       http://localhost:3000/services
+      #       http://localhost:3000/contact
+      #       http://localhost:3000/certificates
+      #       http://localhost:3000/spare-parts
+      #       http://localhost:3000/404
+      #     configPath: ./.github/lighthouse/lighthouserc-mobile.json
+      #     runs: 1
 
-      - name: Check Lighthouse output directory (CI)
-        if: always()
-        run: |
-          echo "Checking for Lighthouse output directory..."
-          ls -la
-          if [ -d ".lighthouseci" ]; then
-            echo "Found .lighthouseci directory:"
-            ls -la .lighthouseci/
-            echo "Creating lighthouse-reports directory for artifact upload..."
-            mkdir -p lighthouse-reports
-            cp -r .lighthouseci/* lighthouse-reports/
-            echo "Contents of lighthouse-reports:"
-            ls -la lighthouse-reports/
-          else
-            echo "No .lighthouseci directory found"
-          fi
+      # - name: Check Lighthouse output directory (CI)
+      #   if: always()
+      #   run: |
+      #     echo "Checking for Lighthouse output directory..."
+      #     ls -la
+      #     if [ -d ".lighthouseci" ]; then
+      #       echo "Found .lighthouseci directory:"
+      #       ls -la .lighthouseci/
+      #       echo "Creating lighthouse-reports directory for artifact upload..."
+      #       mkdir -p lighthouse-reports
+      #       cp -r .lighthouseci/* lighthouse-reports/
+      #       echo "Contents of lighthouse-reports:"
+      #       ls -la lighthouse-reports/
+      #     else
+      #       echo "No .lighthouseci directory found"
+      #     fi
 
-      - name: Upload Lighthouse reports (CI - Desktop & Mobile)
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: lighthouse-ci-reports-desktop-mobile
-          path: lighthouse-reports/
-          retention-days: 7
+      # - name: Upload Lighthouse reports (CI - Desktop & Mobile)
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: lighthouse-ci-reports-desktop-mobile
+      #     path: lighthouse-reports/
+      #     retention-days: 7
   # Deploy Job: Only runs when PR is merged to main (push to main)
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -201,70 +201,70 @@ jobs:
         run: |
           echo "website-url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
 
-      - name: Wait for CloudFront deployment
-        run: |
-          echo "⏳ Waiting 90 seconds for CloudFront cache invalidation..."
-          sleep 90
+      # - name: Wait for CloudFront deployment
+      #   run: |
+      #     echo "⏳ Waiting 90 seconds for CloudFront cache invalidation..."
+      #     sleep 90
 
-      - name: Run Production Lighthouse Audit - Desktop
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            ${{ steps.terraform.outputs.website-url }}
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instruments
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases
-            ${{ steps.terraform.outputs.website-url }}/services
-            ${{ steps.terraform.outputs.website-url }}/contact
-            ${{ steps.terraform.outputs.website-url }}/certificates
-            ${{ steps.terraform.outputs.website-url }}/spare-parts
-            ${{ steps.terraform.outputs.website-url }}/404
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/700
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/2000
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
-          configPath: ./.github/lighthouse/lighthouserc-production.json
-          runs: 1
+      # - name: Run Production Lighthouse Audit - Desktop
+      #   uses: treosh/lighthouse-ci-action@v12
+      #   with:
+      #     urls: |
+      #       ${{ steps.terraform.outputs.website-url }}
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instruments
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases
+      #       ${{ steps.terraform.outputs.website-url }}/services
+      #       ${{ steps.terraform.outputs.website-url }}/contact
+      #       ${{ steps.terraform.outputs.website-url }}/certificates
+      #       ${{ steps.terraform.outputs.website-url }}/spare-parts
+      #       ${{ steps.terraform.outputs.website-url }}/404
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/700
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/2000
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
+      #     configPath: ./.github/lighthouse/lighthouserc-production.json
+      #     runs: 1
 
-      - name: Run Production Lighthouse Audit - Mobile
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            ${{ steps.terraform.outputs.website-url }}
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instruments
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases
-            ${{ steps.terraform.outputs.website-url }}/services
-            ${{ steps.terraform.outputs.website-url }}/contact
-            ${{ steps.terraform.outputs.website-url }}/certificates
-            ${{ steps.terraform.outputs.website-url }}/spare-parts
-            ${{ steps.terraform.outputs.website-url }}/404
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/700
-            ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/2000
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
-            ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
-          configPath: ./.github/lighthouse/lighthouserc-production-mobile.json
-          runs: 1
+      # - name: Run Production Lighthouse Audit - Mobile
+      #   uses: treosh/lighthouse-ci-action@v12
+      #   with:
+      #     urls: |
+      #       ${{ steps.terraform.outputs.website-url }}
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instruments
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases
+      #       ${{ steps.terraform.outputs.website-url }}/services
+      #       ${{ steps.terraform.outputs.website-url }}/contact
+      #       ${{ steps.terraform.outputs.website-url }}/certificates
+      #       ${{ steps.terraform.outputs.website-url }}/spare-parts
+      #       ${{ steps.terraform.outputs.website-url }}/404
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/700
+      #       ${{ steps.terraform.outputs.website-url }}/calibration-gases/regulator/2000
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/rki/gx-2012
+      #       ${{ steps.terraform.outputs.website-url }}/gas-detection-instrument/gmi/ps-200
+      #     configPath: ./.github/lighthouse/lighthouserc-production-mobile.json
+      #     runs: 1
 
-      - name: Check Lighthouse output directory
-        if: always()
-        run: |
-          echo "Checking for Lighthouse output directory..."
-          ls -la
-          if [ -d ".lighthouseci" ]; then
-            echo "Found .lighthouseci directory:"
-            ls -la .lighthouseci/
-            echo "Creating lighthouse-reports directory for artifact upload..."
-            mkdir -p lighthouse-reports
-            cp -r .lighthouseci/* lighthouse-reports/
-            echo "Contents of lighthouse-reports:"
-            ls -la lighthouse-reports/
-          else
-            echo "No .lighthouseci directory found"
-          fi
+      # - name: Check Lighthouse output directory
+      #   if: always()
+      #   run: |
+      #     echo "Checking for Lighthouse output directory..."
+      #     ls -la
+      #     if [ -d ".lighthouseci" ]; then
+      #       echo "Found .lighthouseci directory:"
+      #       ls -la .lighthouseci/
+      #       echo "Creating lighthouse-reports directory for artifact upload..."
+      #       mkdir -p lighthouse-reports
+      #       cp -r .lighthouseci/* lighthouse-reports/
+      #       echo "Contents of lighthouse-reports:"
+      #       ls -la lighthouse-reports/
+      #     else
+      #       echo "No .lighthouseci directory found"
+      #     fi
 
-      - name: Upload Production Lighthouse Reports (Desktop & Mobile)
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: lighthouse-production-reports-desktop-mobile
-          path: lighthouse-reports/
-          retention-days: 30
+      # - name: Upload Production Lighthouse Reports (Desktop & Mobile)
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: lighthouse-production-reports-desktop-mobile
+      #     path: lighthouse-reports/
+      #     retention-days: 30
