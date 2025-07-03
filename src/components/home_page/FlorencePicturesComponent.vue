@@ -2,11 +2,14 @@
 import { useCarousel } from '@/composables/home_page/useFlorencePictures';
 import frontpage1 from '@/assets/frontpage/frontpage_1.jpg';
 import frontpage2 from '@/assets/frontpage/frontpage_2.jpg';
+import frontpage1webp from '@/assets/frontpage/frontpage_1.webp';
+import frontpage2webp from '@/assets/frontpage/frontpage_2.webp';
+import OptimizedImage from '@/components/utils/OptimizedImage.vue';
 import { COMPANY_NAME } from '@/data/contactInformation';
 
 const images = [
-    { src: frontpage1, alt: 'Crew member calibrating gas detector on deck at sunset' },
-    { src: frontpage2, alt: 'Marine safety equipment ready for inspection' },
+    { srcSet: frontpage1webp, src: frontpage1, alt: 'Crew member calibrating gas detector on deck at sunset' },
+    { srcSet: frontpage2webp, src: frontpage2, alt: 'Marine safety equipment ready for inspection' },
 ];
 
 const {
@@ -33,8 +36,9 @@ const {
         </button>
 
         <!-- Current Image -->
-        <img v-if="shouldShow(currentIndex)" :src="images[currentIndex].src" :alt="images[currentIndex].alt"
-            class="absolute inset-0 w-full h-full object-cover brightness-75" aria-hidden="true"
+        <OptimizedImage v-if="shouldShow(currentIndex)" :srcSet="images[currentIndex].srcSet"
+            :src="images[currentIndex].src" :alt="images[currentIndex].alt"
+            imgClass="absolute inset-0 w-full h-full object-cover brightness-75" loading="eager" fetchpriority="high"
             @load="onLoad(currentIndex)" @error="onError(currentIndex)" />
 
         <!-- Error Fallback -->

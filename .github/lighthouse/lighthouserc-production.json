@@ -1,10 +1,10 @@
 {
   "ci": {
     "collect": {
-      "numberOfRuns": 1,
+      "numberOfRuns": 2,
       "settings": {
         "chromeFlags": "--no-sandbox --headless --disable-gpu --disable-dev-shm-usage",
-        "preset": "desktop",
+        "emulatedFormFactor": "desktop",
         "throttling": {
           "rttMs": 40,
           "throughputKbps": 10240,
@@ -12,6 +12,13 @@
           "requestLatencyMs": 0,
           "downloadThroughputKbps": 0,
           "uploadThroughputKbps": 0
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
         }
       }
     },

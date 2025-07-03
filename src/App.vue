@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import NavbarComponent from '@/components/NavbarComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
+import { defineAsyncComponent } from 'vue';
+
+const FooterComponent = defineAsyncComponent(() => import('@/components/FooterComponent.vue'));
+
 </script>
 <template>
   <div class="relative min-h-screen overflow-hidden">

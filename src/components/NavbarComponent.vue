@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import OptimizedImage from '@/components/utils/OptimizedImage.vue'
+import logopng from '@/assets/logo.png';
+import logowebp from '@/assets/logo.webp';
 
 const isOpen = ref(false)
 const openedByKeyboard = ref(false)
@@ -130,8 +133,8 @@ onUnmounted(() => {
     <nav class="fixed-top liquid-glass navbar-layout padding" role="navigation" aria-label="Main navigation">
         <div class="flex items-center">
             <router-link to="/" aria-label="Chemical Marine Inspections - Home" class="flex items-center">
-                <img src="@/assets/logo.png" alt="Chemical Marine Inspections" class="h-8 sm:h-10 md:h-12 w-auto"
-                    loading="eager" />
+                <OptimizedImage :srcSet="logowebp" :src="logopng" alt="Chemical Marine Inspections Logo"
+                    imgClass="h-6 sm:h-8 md:h-10 w-40 sm:w-48 md:w-56" loading="eager" fetchpriority="high" />
             </router-link>
         </div>
 
