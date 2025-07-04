@@ -37,9 +37,9 @@ import calgazPng from "@/assets/calibration_gases/calgaz_cylinders_and_accessori
 
         <SpaceComponent size="paragraph" />
 
-        <div class="flex mx-auto justify-center w-[100px] sm:w-[150px] md:w-[200px] mb-6">
+        <div class="flex mx-auto justify-center w-[100px] sm:w-[200px] md:w-[300px] mb-6">
             <OptimizedImage :srcSet="calgazWebp" :src="calgazPng" alt="Calibration Gas Cylinders" loading="lazy"
-                imgClass="w-24 sm:w-34 md:w-42 lg:w-48 h-18 sm:26 md:32" fetchpriority="low" />
+                imgClass="aspect-[4/3] w-24 sm:w-34 md:w-42 lg:w-48" width="300" height="225" fetchpriority="low" />
         </div>
 
         <!-- Mobile: Card Layout -->

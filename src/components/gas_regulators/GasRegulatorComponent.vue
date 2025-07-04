@@ -24,9 +24,10 @@ const tableLabel = props.title + ' Specifications';
     <CenteredContent>
         <h1>{{ props.title }}</h1>
         <SectionDivider />
-        <div class="mx-auto justify-center w-[100px] sm:w-[150px] md:w-[200px]" v-if="props.imgPath">
+        <div class="mx-auto justify-center w-[100px] sm:w-[150px] md:w-[225px]" v-if="props.imgPath">
             <OptimizedImage :srcSet="props.imgWebpPath" :src="props.imgPath" :alt="props.title + ' Regulator'"
-                imgClass="h-32 sm:h-40 md:h-52 w-24 sm:w-30 md:w-39" loading="eager" fetchpriority="high" />
+                imgClass="aspect-[3/4] w-24 sm:w-30 md:w-39" loading="eager" fetchpriority="high" width="225"
+                height="300" />
         </div>
 
         <!-- Brochure Link -->
