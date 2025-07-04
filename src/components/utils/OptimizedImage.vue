@@ -5,9 +5,9 @@ defineProps<{
     srcSet: string;
     src: string;
     alt: string;
-    imgClass: string;
-    width?: string;
-    height?: string;
+    width: string;
+    height: string;
+    imgClass?: string;
     loading?: 'lazy' | 'eager';
     fetchpriority?: 'high' | 'low';
 }>();
@@ -17,7 +17,9 @@ defineProps<{
 <template>
     <picture>
         <source :srcset="srcSet" type="image/webp" />
-        <img :src="src" :alt="alt" :class="imgClass" :loading="loading" :attr.fetchpriority="fetchpriority"
-            :width="width" :height="height" />
+
+        <!-- Fallback to original format -->
+        <img :src="src" :alt="alt" :class="imgClass" :width="width" :height="height" :loading="loading"
+            :fetchpriority="fetchpriority" />
     </picture>
 </template>
