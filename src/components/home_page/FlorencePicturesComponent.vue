@@ -38,8 +38,9 @@ const {
         <!-- Current Image -->
         <OptimizedImage v-if="shouldShow(currentIndex)" :srcSet="images[currentIndex].srcSet"
             :src="images[currentIndex].src" :alt="images[currentIndex].alt"
-            imgClass="absolute inset-0 w-full h-full object-cover brightness-75" loading="eager" fetchpriority="high"
-            @load="onLoad(currentIndex)" @error="onError(currentIndex)" />
+            imgClass="absolute inset-0 w-full h-full object-cover brightness-75 aspect-[16/9]" loading="eager"
+            fetchpriority="high" width="1366" height="768" @load="onLoad(currentIndex)"
+            @error="onError(currentIndex)" />
 
         <!-- Error Fallback -->
         <div v-if="loadErrors[currentIndex]"

@@ -134,7 +134,8 @@ onUnmounted(() => {
         <div class="flex items-center">
             <router-link to="/" aria-label="Chemical Marine Inspections - Home" class="flex items-center">
                 <OptimizedImage :srcSet="logowebp" :src="logopng" alt="Chemical Marine Inspections Logo"
-                    imgClass="h-6 sm:h-8 md:h-10 w-42 sm:w-56 md:w-70" loading="eager" fetchpriority="high" />
+                    imgClass="aspect-[7/1] w-42 sm:w-56 md:w-70" width="280" height="40" loading="eager"
+                    fetchpriority="high" />
             </router-link>
         </div>
 
