@@ -1,9 +1,18 @@
-import regulator713 from "@/assets/calibration_gases/713-regulator.png";
-import regulator2000 from "@/assets/calibration_gases/2000-series-regulator.png";
-import regulator_ff20 from "@/assets/calibration_gases/ff_20_regulator.png";
-import regulator713_webp from "@/assets/calibration_gases/713-regulator.webp";
-import regulator2000_webp from "@/assets/calibration_gases/2000-series-regulator.webp";
-import regulator_ff20_webp from "@/assets/calibration_gases/ff_20_regulator.webp";
+// High-DPI regulator image versions
+import regulator713_1x from "@/assets/calibration_gases/713-regulator@1x.webp";
+import regulator713_2x from "@/assets/calibration_gases/713-regulator@2x.webp";
+import regulator713_3x from "@/assets/calibration_gases/713-regulator@3x.webp";
+import regulator713_png1x from "@/assets/calibration_gases/713-regulator@1x.png";
+
+import regulator2000_1x from "@/assets/calibration_gases/2000-series-regulator@1x.webp";
+import regulator2000_2x from "@/assets/calibration_gases/2000-series-regulator@2x.webp";
+import regulator2000_3x from "@/assets/calibration_gases/2000-series-regulator@3x.webp";
+import regulator2000_png1x from "@/assets/calibration_gases/2000-series-regulator@1x.png";
+
+import regulator_ff20_1x from "@/assets/calibration_gases/ff_20_regulator@1x.webp";
+import regulator_ff20_2x from "@/assets/calibration_gases/ff_20_regulator@2x.webp";
+import regulator_ff20_3x from "@/assets/calibration_gases/ff_20_regulator@3x.webp";
+import regulator_ff20_png1x from "@/assets/calibration_gases/ff_20_regulator@1x.png";
 
 import _700_series_brochure from "@/assets/pdfs/regulators/700_series.pdf";
 import _dfr_series_brochure from "@/assets/pdfs/regulators/dfr.pdf";
@@ -12,7 +21,7 @@ import _ff_20_series_brochure from "@/assets/pdfs/regulators/ff_20.pdf";
 interface Regulator {
   title: string;
   imgPath: string;
-  imgWebpPath: string;
+  imgWebpPath: string; // Now will contain the srcset string
   brochure?: string;
   rows: Array<{ label: string; key: string }>;
   models: Array<Record<string, any>>;
@@ -21,8 +30,8 @@ interface Regulator {
 export const REGULATORS: Record<string, Regulator> = {
   "700": {
     title: "700 Series Regulators",
-    imgPath: regulator713,
-    imgWebpPath: regulator713_webp,
+    imgPath: regulator713_png1x,
+    imgWebpPath: `${regulator713_1x} 1x, ${regulator713_2x} 2x, ${regulator713_3x} 3x`,
     brochure: _700_series_brochure,
     rows: [
       { label: "Model #", key: "model" },
@@ -149,8 +158,8 @@ export const REGULATORS: Record<string, Regulator> = {
   },
   "2000": {
     title: "2000 Series Regulators",
-    imgPath: regulator2000,
-    imgWebpPath: regulator2000_webp,
+    imgPath: regulator2000_png1x,
+    imgWebpPath: `${regulator2000_1x} 1x, ${regulator2000_2x} 2x, ${regulator2000_3x} 3x`,
     brochure: _dfr_series_brochure,
     rows: [
       { label: "Model #", key: "model" },
@@ -248,8 +257,8 @@ export const REGULATORS: Record<string, Regulator> = {
   },
   "FF 20": {
     title: "FF 20 Series Regulators",
-    imgPath: regulator_ff20,
-    imgWebpPath: regulator_ff20_webp,
+    imgPath: regulator_ff20_png1x,
+    imgWebpPath: `${regulator_ff20_1x} 1x, ${regulator_ff20_2x} 2x, ${regulator_ff20_3x} 3x`,
     brochure: _ff_20_series_brochure,
     rows: [
       { label: "Model #", key: "model" },
