@@ -47,7 +47,7 @@ const calgazSrcSet = computed(() => `${calgazWebp1x} 1x, ${calgazWebp2x} 2x, ${c
 
         <div class="flex mx-auto justify-center w-[100px] sm:w-[200px] md:w-[300px] mb-6">
             <OptimizedImage :srcSet="calgazSrcSet" :src="calgazPng1x" alt="Calibration Gas Cylinders" loading="lazy"
-                imgClass="aspect-[4/3] w-24 sm:w-34 md:w-42 lg:w-48" width="300" height="229" fetchpriority="low" />
+                imgClass="aspect-[300/229] w-24 sm:w-34 md:w-42 lg:w-48" width="300" height="229" fetchpriority="low" />
         </div>
 
         <!-- Mobile: Card Layout -->
