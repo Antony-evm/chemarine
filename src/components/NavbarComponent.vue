@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
 import OptimizedImage from '@/components/utils/OptimizedImage.vue'
-import logopng from '@/assets/logo.png';
-import logowebp from '@/assets/logo.webp';
+
+// High-DPI logo versions
+import logo1x from '@/assets/logo@1x.webp';
+import logo2x from '@/assets/logo@2x.webp';
+import logo3x from '@/assets/logo@3x.webp';
+import logoPng1x from '@/assets/logo@1x.png';
+
+// Create srcset for high-DPI support
+const logoSrcSet = computed(() => `${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`)
 
 const isOpen = ref(false)
 const openedByKeyboard = ref(false)
@@ -133,8 +140,8 @@ onUnmounted(() => {
     <nav class="fixed-top liquid-glass navbar-layout padding" role="navigation" aria-label="Main navigation">
         <div class="flex items-center">
             <router-link to="/" aria-label="Chemical Marine Inspections - Home" class="flex items-center">
-                <OptimizedImage :srcSet="logowebp" :src="logopng" alt="Chemical Marine Inspections Logo"
-                    imgClass="aspect-[7/1] w-42 sm:w-56 md:w-70" width="280" height="40" loading="eager"
+                <OptimizedImage :srcSet="logoSrcSet" :src="logoPng1x" alt="Chemical Marine Inspections Logo"
+                    imgClass="aspect-[7/1] w-42 sm:w-56 md:w-70" :width="'280'" :height="'40'" loading="eager"
                     fetchpriority="high" />
             </router-link>
         </div>

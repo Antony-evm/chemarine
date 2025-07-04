@@ -24,7 +24,7 @@ const tableLabel = props.title + ' Specifications';
     <CenteredContent>
         <h1>{{ props.title }}</h1>
         <SectionDivider />
-        <div class="mx-auto justify-center w-[100px] sm:w-[150px] md:w-[225px]" v-if="props.imgPath">
+        <div class="flex mx-auto justify-center w-[100px] sm:w-[150px] md:w-[225px]" v-if="props.imgPath">
             <OptimizedImage :srcSet="props.imgWebpPath" :src="props.imgPath" :alt="props.title + ' Regulator'"
                 imgClass="aspect-[3/4] w-24 sm:w-30 md:w-39" loading="eager" fetchpriority="high" width="225"
                 height="300" />

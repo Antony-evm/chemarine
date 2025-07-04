@@ -5,8 +5,16 @@ import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
 import { COMPANY_NAME } from '@/data/contactInformation';
 import OptimizedImage from '@/components/utils/OptimizedImage.vue';
-import calgazWebp from "@/assets/calibration_gases/calgaz_cylinders_and_accessories.webp";
-import calgazPng from "@/assets/calibration_gases/calgaz_cylinders_and_accessories.png";
+import { computed } from 'vue';
+
+// High-DPI calibration gas image versions
+import calgazWebp1x from "@/assets/calibration_gases/calgaz_cylinders_and_accessories@1x.webp";
+import calgazWebp2x from "@/assets/calibration_gases/calgaz_cylinders_and_accessories@2x.webp";
+import calgazWebp3x from "@/assets/calibration_gases/calgaz_cylinders_and_accessories@3x.webp";
+import calgazPng1x from "@/assets/calibration_gases/calgaz_cylinders_and_accessories@1x.png";
+
+// Create srcset for high-DPI support
+const calgazSrcSet = computed(() => `${calgazWebp1x} 1x, ${calgazWebp2x} 2x, ${calgazWebp3x} 3x`);
 </script>
 
 <template>
@@ -38,8 +46,8 @@ import calgazPng from "@/assets/calibration_gases/calgaz_cylinders_and_accessori
         <SpaceComponent size="paragraph" />
 
         <div class="flex mx-auto justify-center w-[100px] sm:w-[200px] md:w-[300px] mb-6">
-            <OptimizedImage :srcSet="calgazWebp" :src="calgazPng" alt="Calibration Gas Cylinders" loading="lazy"
-                imgClass="aspect-[4/3] w-24 sm:w-34 md:w-42 lg:w-48" width="300" height="225" fetchpriority="low" />
+            <OptimizedImage :srcSet="calgazSrcSet" :src="calgazPng1x" alt="Calibration Gas Cylinders" loading="lazy"
+                imgClass="aspect-[4/3] w-24 sm:w-34 md:w-42 lg:w-48" width="300" height="229" fetchpriority="low" />
         </div>
 
         <!-- Mobile: Card Layout -->
