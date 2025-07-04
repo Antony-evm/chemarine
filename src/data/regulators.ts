@@ -1,6 +1,10 @@
 import regulator713 from "@/assets/calibration_gases/713-regulator.png";
 import regulator2000 from "@/assets/calibration_gases/2000-series-regulator.png";
 import regulator_ff20 from "@/assets/calibration_gases/ff_20_regulator.png";
+import regulator713_webp from "@/assets/calibration_gases/713-regulator.webp";
+import regulator2000_webp from "@/assets/calibration_gases/2000-series-regulator.webp";
+import regulator_ff20_webp from "@/assets/calibration_gases/ff_20_regulator.webp";
+
 import _700_series_brochure from "@/assets/pdfs/regulators/700_series.pdf";
 import _dfr_series_brochure from "@/assets/pdfs/regulators/dfr.pdf";
 import _ff_20_series_brochure from "@/assets/pdfs/regulators/ff_20.pdf";
@@ -8,6 +12,7 @@ import _ff_20_series_brochure from "@/assets/pdfs/regulators/ff_20.pdf";
 interface Regulator {
   title: string;
   imgPath: string;
+  imgWebpPath: string;
   brochure?: string;
   rows: Array<{ label: string; key: string }>;
   models: Array<Record<string, any>>;
@@ -17,6 +22,7 @@ export const REGULATORS: Record<string, Regulator> = {
   "700": {
     title: "700 Series Regulators",
     imgPath: regulator713,
+    imgWebpPath: regulator713_webp,
     brochure: _700_series_brochure,
     rows: [
       { label: "Model #", key: "model" },
@@ -144,6 +150,7 @@ export const REGULATORS: Record<string, Regulator> = {
   "2000": {
     title: "2000 Series Regulators",
     imgPath: regulator2000,
+    imgWebpPath: regulator2000_webp,
     brochure: _dfr_series_brochure,
     rows: [
       { label: "Model #", key: "model" },
@@ -242,6 +249,7 @@ export const REGULATORS: Record<string, Regulator> = {
   "FF 20": {
     title: "FF 20 Series Regulators",
     imgPath: regulator_ff20,
+    imgWebpPath: regulator_ff20_webp,
     brochure: _ff_20_series_brochure,
     rows: [
       { label: "Model #", key: "model" },

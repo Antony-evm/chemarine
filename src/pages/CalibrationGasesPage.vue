@@ -4,6 +4,9 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { GASCYLINDERS, REGULATOR_ROUTE_MAP } from '@/data/calibrationGases';
 import { COMPANY_NAME } from '@/data/contactInformation';
+import OptimizedImage from '@/components/utils/OptimizedImage.vue';
+import calgazWebp from "@/assets/calibration_gases/calgaz_cylinders_and_accessories.webp";
+import calgazPng from "@/assets/calibration_gases/calgaz_cylinders_and_accessories.png";
 </script>
 
 <template>
@@ -35,8 +38,8 @@ import { COMPANY_NAME } from '@/data/contactInformation';
         <SpaceComponent size="paragraph" />
 
         <div class="flex mx-auto justify-center w-[100px] sm:w-[150px] md:w-[200px] mb-6">
-            <img src="@/assets/calibration_gases/calgaz_cylinders_and_accessories.png" alt="Calibration Gas Cylinders"
-                loading="lazy" class="w-full h-auto object-contain" />
+            <OptimizedImage :srcSet="calgazWebp" :src="calgazPng" alt="Calibration Gas Cylinders" loading="lazy"
+                imgClass="w-24 sm:w-34 md:w-42 lg:w-48 h-18 sm:26 md:32" fetchpriority="low" />
         </div>
 
         <!-- Mobile: Card Layout -->
