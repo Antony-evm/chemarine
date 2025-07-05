@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import OptimizedImage from '@/components/utils/OptimizedImage.vue';
 
 const props = defineProps<{
     src: string;
+    srcSet: string;
     alt: string;
     pdf: string;
+    width: string;
+    height: string;
 }>();
 
 function openPdf() {
@@ -15,19 +19,19 @@ function openPdf() {
 <template>
     <div class="certificate-loader">
         <button type="button" @click="openPdf"
-            class="certificate-image cursor-pointer transition-transform hover:scale-105 border-none bg-transparent p-0"
+            class="cursor-pointer transition-transform hover:scale-105 border-none bg-transparent p-0"
             :aria-label="`Open ${alt} PDF document in new window`">
-            <img :src="src" :alt="alt" class="w-full h-auto object-contain" loading="lazy" draggable="false" />
+            <OptimizedImage :src-set="props.srcSet" :src="props.src" :alt="props.alt" :width="props.width"
+                :height="props.height" imgClass="object-contain" loading="lazy" />
         </button>
     </div>
 </template>
 
 <style scoped>
 .certificate-loader {
-    @apply flex justify-center px-4
-}
-
-.certificate-image {
-    @apply flex-shrink-0 flex w-[100px] sm:w-[150px] md:w-[200px] border-2 border-gray-300 rounded-lg overflow-hidden shadow-sm transform transition-transform duration-200 hover:scale-105
+    display: flex;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 </style>
