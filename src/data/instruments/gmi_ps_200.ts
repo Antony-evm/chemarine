@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/gmi_ps_200.png";
+import png1x from "@/assets/gas_detection_instruments/gmi_ps_200.png";
+import webp1x from "@/assets/gas_detection_instruments/gmi_ps_200.webp";
+import webp2x from "@/assets/gas_detection_instruments/gmi_ps_200@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/gmi_ps_200@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/gmi_ps_200.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const gmi_ps_200 = createInstrumentWithImport(
+export const gmi_ps_200 = createInstrumentWithHighDPI(
   "GMI PS 200",
   [
     "Simple 2-button operation",
@@ -24,6 +27,11 @@ export const gmi_ps_200 = createInstrumentWithImport(
     "In addition to extensive datalogging capabilities, the PS200 is available with an optional internal pump and an extensive range of accessories to meet a wide variety of user applications.",
     "Importantly, the PS200 has been des​​igned to enable easier user maintenance which includes a fully automatic calibration station to simplify product compliance.",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

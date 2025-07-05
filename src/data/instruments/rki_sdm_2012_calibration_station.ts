@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/rki_sdm_2012_calibration_station.png";
+import png1x from "@/assets/gas_detection_instruments/rki_sdm_2012_calibration_station.png";
+import webp1x from "@/assets/gas_detection_instruments/rki_sdm_2012_calibration_station.webp";
+import webp2x from "@/assets/gas_detection_instruments/rki_sdm_2012_calibration_station@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/rki_sdm_2012_calibration_station@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/rki_sdm_2012_calibration_station.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const rki_sdm_2012_calibration_station = createInstrumentWithImport(
+export const rki_sdm_2012_calibration_station = createInstrumentWithHighDPI(
   "RKI SDM-2012 Calibration Station",
   [
     "Stand-alone station (no PC Required)",
@@ -18,6 +21,11 @@ export const rki_sdm_2012_calibration_station = createInstrumentWithImport(
     "The SDM-2012 can also be connected to a PC for automated calibration, bump testing, and archiving of logged data including calibration and bump test records, interval and alarm trends. Network up to 10 SDM-2012 stations to charge, calibrate, and bump test 10 instruments simultaneously.",
     "Each SDM-2012 ships with a pictoral wall chart user guide. This guide gives the already easy to use cal station a simple pictorial easy step by step guide to calibrating or bump testing a GX-2012. It’s ideal to hang in an instrument shop or wherever the GX-2012 is located.",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
+import { defineAsyncComponent } from 'vue';
+const OptimizedInstrumentCard = defineAsyncComponent(() => import('@/components/gas_detection_instruments/OptimizedInstrumentCard.vue'));
 import { defineProps } from 'vue';
-import ActionButton from '@/components/utils/ActionButton.vue';
 
 const props = defineProps<{
     title: string;
@@ -22,20 +23,8 @@ const props = defineProps<{
     <SectionDivider />
     <div v-for="(group, groupKey) in props.instruments" :key="groupKey" class="my-4 sm:my-6 md:my-8 w-full">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
-            <div v-for="(instrument, instKey) in group" :key="instKey"
-                class="content-card flex flex-col items-center w-full max-w-xs p-4 lg:p-6">
-                <div class="flex justify-center items-center h-32 sm:h-36 md:h-40 lg:h-44 w-full">
-                    <img :src="instrument.imgPath" :alt="instrument.alt" loading="lazy" class="
-                        max-w-full max-h-full object-contain" />
-                </div>
-                <p class="text-center mt-3 sm:mt-4 h-12 sm:h-14 flex items-center justify-center px-2">{{
-                    instrument.title }}</p>
-                <div class="mt-2 w-full flex justify-center">
-                    <ActionButton
-                        :to="{ name: 'Gas Detection Instrument Detail', params: { category: groupKey, instrumentKey: instKey } }"
-                        :label="'Read More'" :aria-label="`Learn more about ${instrument.title}`" />
-                </div>
-            </div>
+            <OptimizedInstrumentCard v-for="(instrument, instKey) in group" :key="instKey" :instrument="instrument"
+                :group-key="groupKey" :inst-key="instKey" />
         </div>
         <SpaceComponent size="paragraph" />
     </div>

@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/rki_04_series.png";
+import png1x from "@/assets/gas_detection_instruments/rki_04_series.png";
+import webp1x from "@/assets/gas_detection_instruments/rki_04_series.webp";
+import webp2x from "@/assets/gas_detection_instruments/rki_04_series@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/rki_04_series@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/rki_04_series.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const rki_04_series = createInstrumentWithImport(
+export const rki_04_series = createInstrumentWithHighDPI(
   "RKI 04 Series",
   [
     "Continuously operate for over one year (H2S & CO)",
@@ -25,6 +28,11 @@ export const rki_04_series = createInstrumentWithImport(
     "Each 04 Series monitor is impact, dust, and water resistant with an IP-67 ingress protection rating. 04 Series instruments are safe for use in hazardous locations, classified as intrinsically safe ATEX/IECEx and by QPS to U.S. and Canadian standards for Class I, Division 1, Groups A, B, C, and D atmospheres.",
     "* 3 year warranty on material and workmanship including sensors   (1 year warranty for Ammonia and Chlorine sensors)",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );
