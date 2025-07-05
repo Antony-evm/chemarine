@@ -11,7 +11,7 @@ module.exports = {
           "Arial",
           "sans-serif",
         ],
-        'roboto': [
+        roboto: [
           "Roboto",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -48,6 +48,13 @@ module.exports = {
           "0%": { transform: "translateX(-100%) skewX(12deg)" },
           "100%": { transform: "translateX(400%) skewX(12deg)" },
         },
+      },
+      aspectRatio: {
+        calgaz: "1.31 / 1", // For calibration gas images
+        "cert-eva": "588 / 857", // Eva certificate
+        "cert-iso": "77 / 100", // ISO certificate
+        "cert-panos": "27 / 40", // Panos certificate
+        "cert-training": "1307 / 1000", // Training certificate
       },
       animation: {
         "fade-in": "fadeIn 2s forwards",

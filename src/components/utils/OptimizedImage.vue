@@ -17,8 +17,6 @@ defineProps<{
 <template>
     <picture>
         <source :srcset="srcSet" type="image/webp" />
-
-        <!-- Fallback to original format -->
         <img :src="src" :alt="alt" :class="imgClass" :width="width" :height="height" :loading="loading"
             :fetchpriority="fetchpriority" />
     </picture>

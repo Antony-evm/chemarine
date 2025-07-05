@@ -2,6 +2,7 @@
 import { PRIMARY_EMAIL, PHONE_NO, COMPANY_NAME } from '@/data/contactInformation';
 import PhoneIcon from '@/assets/svgs/phoneIcon.svg';
 import EmailIcon from '@/assets/svgs/emailIcon.svg';
+
 </script>
 <template>
     <footer class="bg-gradient-to-t from-teal-200 to-transparent w-full footer-padding">
@@ -24,7 +25,7 @@ import EmailIcon from '@/assets/svgs/emailIcon.svg';
                 <div class="contact-icon mt-2">
                     <PhoneIcon />
                     <a href="tel:+302104688245" class="px-2 underline hover:text-teal-500 cursor-pointer">{{ PHONE_NO
-                    }}</a>
+                        }}</a>
                 </div>
 
             </div>
