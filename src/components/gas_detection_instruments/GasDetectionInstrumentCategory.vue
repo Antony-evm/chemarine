@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
-import { defineAsyncComponent } from 'vue';
-const OptimizedInstrumentCard = defineAsyncComponent(() => import('@/components/gas_detection_instruments/OptimizedInstrumentCard.vue'));
+import OptimizedInstrumentCard from '@/components/gas_detection_instruments/OptimizedInstrumentCard.vue';
 import { defineProps } from 'vue';
 
 const props = defineProps<{
