@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import CertificateLoader from '@/components/certificates/CertificateLoader.vue';
+import { defineAsyncComponent } from 'vue';
+const CertificateLoader = defineAsyncComponent(() => import('@/components/certificates/CertificateLoader.vue'));
 import CenteredContent from '@/components/utils/CenteredContent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import SpaceComponent from '@/components/utils/SpaceComponent.vue';
