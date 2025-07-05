@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/gmi_shipsurveyor.png";
+import png1x from "@/assets/gas_detection_instruments/gmi_shipsurveyor.png";
+import webp1x from "@/assets/gas_detection_instruments/gmi_shipsurveyor.webp";
+import webp2x from "@/assets/gas_detection_instruments/gmi_shipsurveyor@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/gmi_shipsurveyor@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/gmi_ship_surveyor.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const gmi_shipsurveyor = createInstrumentWithImport(
+export const gmi_shipsurveyor = createInstrumentWithHighDPI(
   "GMI Ship Surveyor",
   [
     "Infrared technology for inert atmosphere measurements",
@@ -22,6 +25,11 @@ export const gmi_shipsurveyor = createInstrumentWithImport(
     "The Shipsurveyor also comes complete with an impressive and practical suite of application software. Our bespoke software not only allows simple on-board calibration but crucially provides the ability to print calibration certificates. In addition, complete datalogging software comes as standard allowing logged gas readings, with vessel locations, to be uploaded to a PC.​​",
     "With ATEX and MED approval, the Shipsurveyor is the complete shipping solution.​​​​",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

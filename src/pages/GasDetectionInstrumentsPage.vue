@@ -4,7 +4,10 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import { COMPANY_NAME } from '@/data/contactInformation';
 import { GAS_DETECTION_INSTRUMENTS } from '@/data/gasDetectionInstruments';
-import GasDetectionInstrumentCategory from '@/components/gas_detection_instruments/GasDetectionInstrumentCategory.vue';
+import { defineAsyncComponent } from 'vue';
+const GasDetectionInstrumentCategory = defineAsyncComponent(() =>
+    import('@/components/gas_detection_instruments/GasDetectionInstrumentCategory.vue')
+);
 </script>
 
 <template>

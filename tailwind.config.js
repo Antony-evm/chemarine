@@ -55,6 +55,16 @@ module.exports = {
         "cert-iso": "77 / 100", // ISO certificate
         "cert-panos": "27 / 40", // Panos certificate
         "cert-training": "1307 / 1000", // Training certificate
+        // Gas detection instrument aspect ratios
+        "inst-very-tall": "4 / 10", // ~0.4 ratio (very tall)
+        "inst-tall": "1 / 2", // ~0.5 ratio (tall)
+        "inst-portrait": "3 / 5", // ~0.6 ratio (portrait)
+        "inst-portrait-wide": "7 / 10", // ~0.7 ratio (portrait)
+        "inst-almost-square": "4 / 5", // ~0.8 ratio (portrait)
+        "inst-square-tall": "9 / 10", // ~0.9 ratio (almost square)
+        "inst-wide": "11 / 10", // ~1.1 ratio (wide)
+        "inst-landscape": "14 / 10", // ~1.4 ratio (landscape)
+        "inst-wide-landscape": "16 / 10", // ~1.6 ratio (wide landscape)
       },
       animation: {
         "fade-in": "fadeIn 2s forwards",

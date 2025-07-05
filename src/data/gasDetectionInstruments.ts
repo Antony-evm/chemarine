@@ -21,6 +21,7 @@ export interface InstrumentData {
   title: string;
   alt: string;
   imgPath: string;
+  srcSet?: string;
   features: string[];
   overview: string[];
   brochure?: string;

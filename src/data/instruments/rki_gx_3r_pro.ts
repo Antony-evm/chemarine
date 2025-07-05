@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/rki_gx_3r_pro.png";
+import png1x from "@/assets/gas_detection_instruments/rki_gx_3r_pro.png";
+import webp1x from "@/assets/gas_detection_instruments/rki_gx_3r_pro.webp";
+import webp2x from "@/assets/gas_detection_instruments/rki_gx_3r_pro@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/rki_gx_3r_pro@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/rki_gx_3r_pro.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const rki_gx_3r_pro = createInstrumentWithImport(
+export const rki_gx_3r_pro = createInstrumentWithHighDPI(
   "RKI GX-3R PRO",
   [
     "Smallest & lightest detector",
@@ -24,6 +27,11 @@ export const rki_gx_3r_pro = createInstrumentWithImport(
     "Safety supervisors will appreciate the non-compliance indicator. The instrument flashes it’s 3 LED lights every 30 seconds in the following conditions; if the instrument has not been bump tested, or if calibration is due, or if there was a gas alarm event. The 3 LED lights will continue to flash once every 30 seconds until the non-compliance condition has been resolved. The 30 second interval is adjustable.",
     "* 3 year warranty on material and workmanship including sensors (1 year for Ammonia sensor)",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

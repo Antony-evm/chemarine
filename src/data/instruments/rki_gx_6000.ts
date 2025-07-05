@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/rki_gx_6000.png";
+import png1x from "@/assets/gas_detection_instruments/rki_gx_6000.png";
+import webp1x from "@/assets/gas_detection_instruments/rki_gx_6000.webp";
+import webp2x from "@/assets/gas_detection_instruments/rki_gx_6000@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/rki_gx_6000@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/rki_gx_6000.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const rki_gx_6000 = createInstrumentWithImport(
+export const rki_gx_6000 = createInstrumentWithHighDPI(
   "RKI GX-6000",
   [
     "5 Operating modes",
@@ -32,6 +35,11 @@ export const rki_gx_6000 = createInstrumentWithImport(
     "Sensors available: CL2, CO, CO2, HCN, H2S, NH3, NO2, PH3, SO2, and VOC (volatile organic compounds) Ammonia, Chlorine, Hydrogen Cyanide, Nitrogen Dioxide, Phosphine, Sulfur Dioxide, Carbon Dioxide, Methane, Hydrocarbon, Hydrogen Sulfide, Carbon Monoxide, and Oxygen Monitor.",
     "6 Operating Modes: Normal Mode, Barhole Mode, Inert Mode, Leak Check, Snap Log Mode, Benzene Specific",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

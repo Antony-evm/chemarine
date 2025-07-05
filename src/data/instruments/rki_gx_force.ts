@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/rki_gx_force.png";
+import png1x from "@/assets/gas_detection_instruments/rki_gx_force.png";
+import webp1x from "@/assets/gas_detection_instruments/rki_gx_force.webp";
+import webp2x from "@/assets/gas_detection_instruments/rki_gx_force@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/rki_gx_force@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/rki_gx_force.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const rki_gx_force = createInstrumentWithImport(
+export const rki_gx_force = createInstrumentWithHighDPI(
   "RKI GX-Force",
   [
     "2 Operating modes: Normal and Leak Check",
@@ -24,6 +27,11 @@ export const rki_gx_force = createInstrumentWithImport(
     "The GX-Force operates 30 hours on a Li-ion battery, and has a large LCD display showing all gas readings, battery level, current time and automatically backlights in alarm conditions. Standard alarm types include vibration, visual, and audible alarms, which can be set to latching or non-latching. Controlled by a microprocessor, the GX-Force continuously checks itself for sensor connections, low battery, circuit trouble, low flow, and calibration errors.",
     "Calibration and bump test intervals and reminders are user adjustable and can be set to either go into alarm or to lock the user out of normal measurement mode once a calibration period has expired. Calibration can be done individually or in a group.",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );

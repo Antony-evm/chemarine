@@ -1,8 +1,11 @@
-import path from "@/assets/gas_detection_instruments/gmi_ps_500.png";
+import png1x from "@/assets/gas_detection_instruments/gmi_ps_500.png";
+import webp1x from "@/assets/gas_detection_instruments/gmi_ps_500.webp";
+import webp2x from "@/assets/gas_detection_instruments/gmi_ps_500@2x.webp";
+import webp3x from "@/assets/gas_detection_instruments/gmi_ps_500@3x.webp";
 import brochure from "@/assets/pdfs/instrument_specs/gmi_ps_500.pdf";
-import { createInstrumentWithImport } from "@/utils/instrumentFactory";
+import { createInstrumentWithHighDPI } from "@/utils/instrumentFactory";
 
-export const gmi_ps_500 = createInstrumentWithImport(
+export const gmi_ps_500 = createInstrumentWithHighDPI(
   "GMI PS 500",
   [
     "Over 15 “plug-and-play” smart sensors",
@@ -18,6 +21,11 @@ export const gmi_ps_500 = createInstrumentWithImport(
     "Pump, diffusion or both together, allowing pumped sample for pre-entry checking and diffusion in confined space working, thus maximising battery life.",
     "A robust, moulded, rubberised casing guaranteeing Hi-Impact resistance, the PS500 can be used in the most demanding industrial environments.",
   ],
-  path,
+  {
+    png1x,
+    webp1x,
+    webp2x,
+    webp3x,
+  },
   brochure
 );
