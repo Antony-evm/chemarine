@@ -40,9 +40,9 @@ Add these secrets:
 
 The following are configured in the workflow files:
 
-- `AWS_REGION`: eu-west-2
-- `S3_BUCKET`: chemarine-website-bucket
-- `CLOUDFRONT_DISTRIBUTION_ID`: E1B0I3T295MLIP
+- `AWS_REGION`
+- `S3_BUCKET`
+- `CLOUDFRONT_DISTRIBUTION_ID`
 
 ### 3. Development Workflow
 
