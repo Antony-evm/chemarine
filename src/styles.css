@@ -8,16 +8,6 @@
   @apply text-graphite bg-warm_white;
 }
 
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  font-synthesis: none;
-  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Me4WxKOzY.woff2")
-    format("woff2");
-}
-
 /* Focus management */
 *:focus {
   outline: none;
