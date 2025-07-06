@@ -16,7 +16,10 @@ export function createInstrumentWithHighDPI(
   features: string[],
   overview: string[],
   images: InstrumentImages,
-  brochurePath?: string
+  height: string,
+  width: string,
+  aspectRatio: string,
+  brochurePath: string
 ): InstrumentData & { srcSet: string } {
   return {
     title: titleText,
@@ -25,27 +28,9 @@ export function createInstrumentWithHighDPI(
     srcSet: `${images.webp1x} 1x, ${images.webp2x} 2x, ${images.webp3x} 3x`,
     features,
     overview,
-    brochure: brochurePath,
-  };
-}
-
-/**
- * Helper function to create instrument with image import (legacy)
- * This version uses actual imports for better Vite integration
- */
-export function createInstrumentWithImport(
-  titleText: string,
-  features: string[],
-  overview: string[],
-  importedImagePath: string,
-  brochurePath?: string
-): InstrumentData {
-  return {
-    title: titleText,
-    alt: titleText,
-    imgPath: importedImagePath,
-    features,
-    overview,
+    height,
+    width,
+    aspectRatio,
     brochure: brochurePath,
   };
 }

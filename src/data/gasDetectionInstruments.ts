@@ -21,10 +21,13 @@ export interface InstrumentData {
   title: string;
   alt: string;
   imgPath: string;
-  srcSet?: string;
+  srcSet: string;
+  height: string;
+  width: string;
+  aspectRatio: string;
   features: string[];
   overview: string[];
-  brochure?: string;
+  brochure: string;
 }
 
 export interface Section {

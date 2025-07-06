@@ -33,5 +33,8 @@ export const rki_gx_3r_pro = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "442",
+  "385",
+  "442/385",
   brochure
 );

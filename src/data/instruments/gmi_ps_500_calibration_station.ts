@@ -29,5 +29,8 @@ export const gmi_ps_500_calibration_station = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "214",
+  "300",
+  "214/300",
   brochure
 );

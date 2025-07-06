@@ -34,5 +34,8 @@ export const rki_04_series = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "520",
+  "480",
+  "520/480",
   brochure
 );

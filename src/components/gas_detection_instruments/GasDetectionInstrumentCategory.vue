@@ -3,16 +3,11 @@ import SpaceComponent from '@/components/utils/SpaceComponent.vue';
 import SectionDivider from '@/components/utils/SectionDivider.vue';
 import OptimizedInstrumentCard from '@/components/gas_detection_instruments/OptimizedInstrumentCard.vue';
 import { defineProps } from 'vue';
+import type { InstrumentData } from '@/data/gasDetectionInstruments';
 
 const props = defineProps<{
     title: string;
-    instruments: Record<string, Record<string, {
-        title: string;
-        alt: string;
-        imgPath: string;
-        overview: string[];
-        features: string[];
-    }>>;
+    instruments: Record<string, Record<string, InstrumentData>>;
 }>();
 </script>
 
