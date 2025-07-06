@@ -2,6 +2,8 @@ import { gmi_ps_200 } from "./instruments/gmi_ps_200";
 import { gmi_ps_200_calibration_station } from "./instruments/gmi_ps_200_calibration_station";
 import { gmi_ps_500 } from "./instruments/gmi_ps_500";
 import { gmi_ps_500_calibration_station } from "./instruments/gmi_ps_500_calibration_station";
+import { gmi_ps_duo } from "./instruments/gmi_ps_duo";
+import { gmi_protege_zm } from "./instruments/gmi_protege_zm";
 import { gmi_shipsurveyor } from "./instruments/gmi_ship_surveyor";
 import { rki_04_series } from "./instruments/rki_04_series";
 import { rki_gx_2012 } from "./instruments/rki_gx_2012";
@@ -42,6 +44,8 @@ export const GAS_DETECTION_INSTRUMENTS: Section[] = [
       gmi: {
         gmi_ps_200,
         gmi_ps_500,
+        gmi_protege_zm,
+        gmi_ps_duo,
       },
       riken: {
         rki_04_series,

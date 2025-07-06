@@ -19,7 +19,7 @@ export function createInstrumentWithHighDPI(
   height: string,
   width: string,
   aspectRatio: string,
-  brochurePath: string
+  brochurePath?: string
 ): InstrumentData & { srcSet: string } {
   return {
     title: titleText,
@@ -31,6 +31,6 @@ export function createInstrumentWithHighDPI(
     height,
     width,
     aspectRatio,
-    brochure: brochurePath,
+    brochure: brochurePath ? brochurePath : "",
   };
 }
