@@ -1,6 +1,6 @@
 # Chemical Marine Inspections - Website
 
-A modern, high-performance Vue 3 website for Chemical Marine Inspections, a leading provider of gas detection instruments, calibration gases, and marine safety equipment. The company has been serving the marine industry since 1994 and is certified ISO 9001:2015.
+A modern, high-performance Vue 3 website for Chemical Marine Inspections, a leading provider of gas detection instruments, calibration gases, and marine safety equipment.
 
 ## 🏢 About Chemical Marine Inspections
 
