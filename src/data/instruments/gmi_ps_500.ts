@@ -27,5 +27,8 @@ export const gmi_ps_500 = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "188",
+  "300",
+  "188/300",
   brochure
 );

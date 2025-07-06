@@ -27,5 +27,8 @@ export const rki_sdm_2012_calibration_station = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "325",
+  "532",
+  "325/532",
   brochure
 );

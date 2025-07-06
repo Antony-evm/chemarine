@@ -31,5 +31,8 @@ export const gmi_shipsurveyor = createInstrumentWithHighDPI(
     webp2x,
     webp3x,
   },
+  "300",
+  "184",
+  "300/184",
   brochure
 );
