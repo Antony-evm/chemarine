@@ -71,23 +71,16 @@ Located in Piraeus, Greece, the company has been a trusted partner in marine saf
 
 3. **Start development server**
    ```bash
-   npm run dev
+   npm run build
+   npm run preview
    ```
-   The site will be available at `http://localhost:5173`
+   The site will be available at `http://localhost:4173`
 
 ### Available Scripts
 
 - **`npm run dev`**: Start development server with hot reload
 - **`npm run build`**: Build for production (includes TypeScript checking)
 - **`npm run preview`**: Preview production build locally
-
-### Image Processing Scripts
-
-The project includes automated scripts for image optimization:
-
-- **`node scripts/create-high-dpi-gas-detection.js`**: Generate high-DPI WebP versions for gas detection instruments
-- **`node scripts/update-instrument-imports.js`**: Update TypeScript imports for new image variants
-- **`node scripts/check-gas-detection-sizes.js`**: Verify image dimensions and formats
 
 ## 📁 Project Structure
 
@@ -117,7 +110,6 @@ chemarine/
 │   ├── App.vue           # Root component
 │   ├── main.ts           # Application entry point
 │   └── styles.css        # Global styles
-├── scripts/              # Build and maintenance scripts
 ├── terraform/            # Infrastructure as Code (AWS)
 └── package.json
 ```
@@ -187,14 +179,6 @@ terraform plan
 terraform apply
 ```
 
-## 🔧 Performance Optimizations
-
-### Core Web Vitals
-
-- **First Contentful Paint (FCP)**: < 1.8s
-- **Largest Contentful Paint (LCP)**: < 2.5s
-- **Cumulative Layout Shift (CLS)**: < 0.1
-
 ### Techniques Applied
 
 - **Code Splitting**: Automatic route-based splitting
@@ -202,14 +186,6 @@ terraform apply
 - **Critical CSS**: Inlined critical styles
 - **Resource Hints**: Preconnect, preload for external resources
 - **Tree Shaking**: Unused code elimination
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ### Development Guidelines
 
@@ -223,13 +199,8 @@ terraform apply
 
 This project is proprietary software owned by Chemical Marine Inspections.
 
-## 📞 Contact
-
 **Chemical Marine Inspections**
 
-- **Address**: 44 Akti Moutsopoulou, Piraeus, Greece
-- **Phone**: +30-210-4611799
-- **Email**: chemarin@otenet.gr
 - **Website**: [chemarine.com](https://chemarine.com)
 
 ---
