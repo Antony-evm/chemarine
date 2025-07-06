@@ -29,7 +29,7 @@ const TechnicalSpecificationsComponent = defineAsyncComponent(() =>
                     <OptimizedImage :srcSet="instrument.srcSet" :src="instrument.imgPath" :alt="instrument.alt"
                         :width="instrument.width" :height="instrument.height"
                         :imgClass="`lg:mt-8 w-48 sm:w-56 md:w-64 lg:w-80 object-contain aspect-[${instrument.aspectRatio}]`"
-                        loading="lazy" />
+                        loading="eager" />
                 </div>
 
                 <!-- Features list with responsive spacing -->
